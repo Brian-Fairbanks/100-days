@@ -1,2 +1,2 @@
 # 100-days
-Random voding projects
+Random coding projects
