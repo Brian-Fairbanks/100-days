@@ -1,5 +1,6 @@
-const conformity = 0.005;
+const conformity = 0.2;
 const perception = 50;
+const speedy = 4;
 
 
 class Boid{
@@ -8,6 +9,7 @@ class Boid{
     this.velocity = p5.Vector.random2D();
     this.acceleration = createVector();
     this.maxForce = conformity;
+    this.maxSpeed = speedy;
   }
 
   update(){
@@ -51,6 +53,7 @@ class Boid{
     if(nearby > 0){
       steer.div(nearby);
       // apply stearing formula to guide boid into flock
+      steer.setMag(this.maxSpeed);
       steer.sub(this.velocity)
       // limit the ability for a boid to instantly conform to the flock
       steer.limit(this.maxForce);
