@@ -131,6 +131,12 @@ class Boid{
     let alignment = this.align(boids);
     let seperation = this.seperation(boids)
 
+    // set priority based on slider value
+    cohesion.mult(cohesionSlider.value());
+    alignment.mult(alignSlider.value());
+    seperation.mult(seperationSlider.value());
+
+
     // force accumulation 
     this.acceleration.add(cohesion);
     this.acceleration.add(alignment);
