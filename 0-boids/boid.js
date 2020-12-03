@@ -91,6 +91,35 @@ class Boid{
   }
 
 
+  // steer to avoid crowding nearby boids
+  seperation(boids){
+    let perceptionRadius = perception;
+    let nearby = 0;
+    let steer = createVector();
+
+    // get average direction all boids within this boids perception( the steering velocity)
+    for (let other of boids){
+      let d = dist(this.position.x, this.position.y, other.position.x, other.position.y);
+      if (other != this && d<perceptionRadius){
+        let diff = p5.Vector.sub(this.position, other.position)
+        diff.div(d);
+        steer.add(diff);
+        nearby++;
+      }
+    }
+
+    if(nearby > 0){
+      steer.div(nearby);
+      // apply stearing formula to guide boid into flock
+      steer.setMag(this.maxSpeed)
+      steer.sub(this.velocity)
+      // limit the ability for a boid to instantly conform to the flock
+      steer.limit(this.maxForce);
+    }
+    return steer;
+  }
+
+
   flock(boids){
     this.edges();
 
@@ -100,11 +129,13 @@ class Boid{
     // get nearby forces
     let cohesion = this.cohesion(boids)
     let alignment = this.align(boids);
+    let seperation = this.seperation(boids)
 
     // force accumulation 
     this.acceleration.add(cohesion);
     this.acceleration.add(alignment);
-    
+    this.acceleration.add(seperation);
+
     // actually limit to maximum speed
     this.velocity.limit(this.maxSpeed)
   }
