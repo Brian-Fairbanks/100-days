@@ -15,6 +15,23 @@ class Boid{
     this.velocity.add(this.acceleration)
   }
 
+  // wraparound and prevent boids from going offscreen
+  edges(){
+    if (this.position.x > width){
+      this.position.x = 0;
+    }
+    else if (this.position.x < 0){
+      this.position.x = width;
+    }
+
+    if (this.position.y > height){
+      this.position.y = 0;
+    }
+    else if (this.position.y < 0){
+      this.position.y = height;
+    }
+  }
+
   // guide the boid into alignment with nearby boid
   align(boids){
     let perceptionRadius = perception;
@@ -42,6 +59,7 @@ class Boid{
   }
 
   flock(boids){
+    this.edges();
     let alignment = this.align(boids);
     this.acceleration = alignment;
   }
