@@ -3,12 +3,20 @@ const ticks = [];
 
 // on key down, play sound
 $(document).keydown(playSound);
+$(".drum").on("click", playSound);
   
 
 // play the associated sound
 function playSound(e) {
-// console.log(e);
-let key = e.key;
+
+let key;
+
+if(e.type==="click"){
+  key=e.target.dataset.key;
+}
+else{
+  key = e.key;
+}
 
   // trigger visual effect of hitting drum
   $(".drum[data-key="+key+"]").addClass("hit");
@@ -30,7 +38,13 @@ let key = e.key;
 
 // check for transition ending
 const drums = document.querySelectorAll(".drum");
-drums.forEach(key => key.addEventListener('animationend', removeTransition))
+drums.forEach(key => {
+  key.addEventListener('animationend', removeTransition);
+})
+
+drums.forEach(key => {
+  key.on("click", playSound);
+})
 
 function removeTransition(e){
   console.log(e);
