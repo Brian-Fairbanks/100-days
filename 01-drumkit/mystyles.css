@@ -1,9 +1,36 @@
+body{
+  background-image:url(./Assets/g0e4qtz8.bmp);
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+
+}
+
 .drum{
+  text-align:center;
   display:inline-block;
   margin:20px;
-  padding:20px;
+  padding-top:20px;
+  padding-bottom:20px;
+  width:200px;
   border-radius:100px;
   border:2px solid #333;
+  background-color:#ffd;
+
+  font-size:28px;
+  font-weight:800;
+
+  box-shadow:0px 30px 0px #333;
+}
+
+.drum p{
+  font-size:14px;
+  font-weight:100;
+}
+
+.gold{
+  background-color:rgb(99, 105, 43);
+  box-shadow:0px 0px 0px #333;
 }
 
 

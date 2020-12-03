@@ -1,42 +1,30 @@
-// all keys added to play
-const drumkit = ["a","s","d","f","g", "h"]
-
 // will allow for multiple identical audio streams playing at the same time
 const ticks = [];
 
-// array of sounds to choose from
-const sounds = [new Audio("./Assets/real-01BB1-snare-R2M.wav"),
-  new Audio("./Assets/real-01BB1-snare-R4M.wav"),
-  new Audio("./Assets/real-01EG19THCM.wav"),
-  new Audio("./Assets/real-02R3.UF-HiHat-A-L.wav"),
-  new Audio("./Assets/real-03.TOM2C-L.wav"),
-  new Audio("./Assets/real-03RI.S3HIM.wav"),
-  
-]
-
-
-
+// on key down, play sound
 $(document).keydown(playSound);
   
+
+// play the associated sound
 function playSound(e) {
 // console.log(e);
 let key = e.key;
-let index = drumkit.indexOf(key);
 
-if (index >=0){
-  console.log("play drum: "+key.toUpperCase()+" : "+index);
   // trigger visual effect of hitting drum
   $(".drum[data-key="+key+"]").addClass("hit");
 
+  // check if there is an associated clip
+  let clip = $("audio[data-key="+key+"]")[0];
+  if(!clip)return;
+
   // push sound effect onto tick array
-  ticks.push(sounds[index].cloneNode());
+  ticks.push(clip.cloneNode());
 
   // keep the index on tick, play the sound, and then remove it from the tick array;
   let thisInd = ticks.length-1;
   ticks[thisInd].play(
     ticks.splice(thisInd, 1)
     );
-  }
 }
 
 

@@ -14,17 +14,41 @@
 
 </head>
 
-<body>
+<body class="h-100">
 
-  <div id="drumset" class="container-fluid d-flex flex-row justify-content-center">
-    <div data-key="a" class="drum">A</div>
-    <div data-key="s" class="drum">S</div>
-    <div data-key="d" class="drum">D</div>
-    <div data-key="f" class="drum">F</div>
-    <div data-key="g" class="drum">G</div>
-    <div data-key="h" class="drum">H</div>
+  <div id="drumset" class="container-md d-flex flex-column justify-content-center my-auto h-100">
+    <div class="d-flex flex-row justify-content-around">
+      <div data-key="q" class="drum gold">Q<p>crash</p></div>
+      <div data-key="w" class="drum gold">W<p>crash long</p></div>
+      <div data-key="e" class="drum gold">E<p>hi hat</p></div>
+      <div data-key="r" class="drum gold">R<p>ride</p></div>
+    </div>
+
+    <div class="d-flex flex-row justify-content-around">
+      <div data-key="a" class="drum">A<p>snare</p></div>
+      <div data-key="s" class="drum">S<p>snare</p></div>
+      <div data-key="d" class="drum">D<p>H tom</p></div>
+      <div data-key="f" class="drum">F<p>M tom</p></div>
+      <div data-key="g" class="drum">G<p>L tom</p></div>
+    </div>
+    <div class="d-flex flex-row justify-content-around">
+      <div data-key="x" class="drum">X<p>kick</p></div>
+    </div>
+
 
   </div>
+
+  <audio data-key="q" src="Assets/crash.wav"></audio>
+  <audio data-key="w" src="Assets/crashL.wav"></audio>
+  <audio data-key="e" src="Assets/hihat.wav"></audio>
+  <audio data-key="x" src="Assets/kick.wav"></audio>
+  <audio data-key="r" src="Assets/ride.wav"></audio>
+  <audio data-key="a" src="Assets/snare1.wav"></audio>
+  <audio data-key="s" src="Assets/snare2.wav"></audio>
+  <audio data-key="d" src="Assets/tom1.wav"></audio>
+  <audio data-key="f" src="Assets/tom2.wav"></audio>
+  <audio data-key="g" src="Assets/tom3.wav"></audio>
+
 
   <!-- Import Scripts  -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
