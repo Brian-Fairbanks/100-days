@@ -1,4 +1,5 @@
 let numerals = $(".numeral")
+let hours;
 
 let ticks = $(".tick")
 for (let i=1; i<60; i++){
@@ -62,6 +63,33 @@ function getTimes(){
   rotate($("#second"),spos);
   rotate($("#minute"),mpos);
 
+  setSky((360*(((hours-6)*60*60)+(minutes*60)+(seconds))/(24*3600)))
+
 }
+
+
+
+let sunPos = 0;
+const sun = $("#sun-wrapper");
+const sky = $("#sky");
+const land = $("#land");
+
+function setSky(sunPos){
+  rotate(sun, sunPos);
+
+  let blue=0.5+((180+(sunPos-180))/180);
+
+  if (blue>=2){blue = 0+blue%1;}
+  else if (blue > 1) {blue = 1-blue%1}
+
+  sky.css({
+    "background-color":`rgb(0,0,${255*blue})`
+  })
+
+  land.css({
+    "background-color":`rgb(${200*blue},${119*blue},${102*blue})`
+  })
+}
+
 
 let timer = setInterval(getTimes, 1000);
