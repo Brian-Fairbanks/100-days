@@ -1,0 +1,56 @@
+/* Set up 1x1 aspect ratio for element */
+body {
+  margin: 0;
+  padding:0;
+  overflow:hidden;
+}
+#wrapper {
+  margin: 0 auto;
+  max-width: 100vh;
+  position:relative;
+}
+
+
+
+#clock-face{
+  height:100%;
+  width:100%;
+  border-radius:3000px;
+  border:5px solid #000;
+  position:absolute;
+}
+
+#clock-inner{
+  height:80%;
+  width:80%;
+  border-radius:3000px;
+  border:5px solid #000;
+  top:10%;
+  bottom:10%;
+  left:10%;
+  right:10%;
+  position:absolute;
+}
+
+.numeral{
+  text-align:center;
+  position: absolute;
+  text-align:center;
+  width:100%;
+  height:114%;
+  margin-top:-7%;
+  font-size:15vmin;
+}
+
+/* landscape mode: the wrapper is full height */
+@media screen and (orientation: landscape) {
+  #wrapper {
+    min-height: 100vh;
+  }
+}
+/* portrait mode: the wrapper is same height as width */
+@media screen and (orientation: portrait) {
+  #wrapper {
+    min-height: 100vw;
+  }
+}
