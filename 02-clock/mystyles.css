@@ -42,6 +42,34 @@ body {
   font-size:15vmin;
 }
 
+
+.hand{
+  width:1px;
+  position:absolute;
+  left:50%;
+  bottom:50%;
+  transform-origin: bottom center;
+}
+
+#hour{
+  height:30%;
+  border:.6vmin solid #333;
+  background-color:#333;
+}
+
+#minute{
+  height:40%;
+  border:.4vmin solid #333;
+  background-color:#333;
+}
+
+#second{
+  height:35%;
+  border:.2vmin solid #933;
+  background-color:#933;
+}
+
+
 /* landscape mode: the wrapper is full height */
 @media screen and (orientation: landscape) {
   #wrapper {
