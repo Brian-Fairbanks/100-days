@@ -1,5 +1,4 @@
 let numerals = $(".numeral")
-let hours;
 
 let ticks = $(".tick")
 for (let i=1; i<60; i++){
@@ -42,6 +41,7 @@ function getTimes(){
   let seconds = time.getSeconds();
   let minutes = time.getMinutes();
   let hours = time.getHours()
+  
 
   let spos = 360*(seconds)/(60);
   let mpos = 360*((minutes*60)+(seconds))/(60*60)
@@ -83,7 +83,7 @@ function setSky(sunPos){
   else if (blue > 1) {blue = 1-blue%1}
 
   sky.css({
-    "background-color":`rgb(0,0,${255*blue})`
+    "background-color":`rgb(${30*blue},${60*blue},${255*blue})`
   })
 
   land.css({
