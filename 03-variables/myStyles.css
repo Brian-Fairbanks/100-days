@@ -1,13 +1,14 @@
 :root {
-  --blur:20px;
+  --blur:10px;
   --base:#fff;
+  --img:url("Assets/reflection.jpg");
 }
 
 body{
   width:100vw;
   height:100vh;
 
-  background-image:url("Assets/atlas.jpg");
+  background-image:var(--img);
   background-position: center; /* Center the image */
   background-size: cover; /* Resize the background image to cover the entire container */
 
@@ -16,15 +17,7 @@ body{
 }
 
 #wrapper{
-    /* Align everythign in the center of the page */
-    position: absolute;
-    margin: auto;
-    left: 0;
-    right: 0;
-    top:0px;
-    bottom:0px;
-    width:50%;
-    height:50%;
+    position: relative;
 
     box-shadow:10px 10px 10px rgba(0,0,0,.7);
     border-radius:10px;
@@ -43,7 +36,7 @@ body{
   right:0;
   bottom:0;
   margin:-20px;
-  box-shadow:inset 0 0 2000px var(--base);
+  box-shadow:inset 0 0 5000px var(--base);
   filter: blur(var(--blur));
   background:inherit;
   z-index:-1;
@@ -53,11 +46,27 @@ body{
   /* position:absolute; */
   width:100%;
   padding:20px;
+  padding-bottom:0px;
 }
 
 #footer{
-  position:absolute;
-  bottom:0px;
-  left:0px;
-  right:0px;
+  margin-top:20px;
+}
+
+
+body{
+  text-shadow:-1px -1px 1px rgba(255,255,255,.5), 1px 1px 1px rgba(0,0,0,.5);
+  color:var(--base);
+  font-size:20px;
+  
+}
+
+.imgButton{
+  padding:0px;
+}
+.imgChange{
+  margin:0px;
+  padding:0px;
+  width:100px;
+  height:66px;
 }

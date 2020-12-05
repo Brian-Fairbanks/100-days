@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="mystyles.css">
 
 </head>
-<body>
+<body class="d-flex justify-content-center align-items-center">
   <div id="wrapper">
 
   <div id="glass">
@@ -22,15 +22,26 @@
 
     <div class="p-5">
       <label for="blur">Blur</label>
-      <input type="range" name="blur" min="0" max="25" data-sizing="px">
+      <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
   
+      <br>
+
       <label for="base">Base Color</label>
-      <input type="color" name="base" value="#fff">
-    </div>
-  
-    <div id="footer">
-      <h4>Atlas at Dawn</h4>
-      <p>Image Credit & Copyright: Michael Seeley</p>
+      <input type="color" name="base" value="#ffffff">
+
+      <br>
+      <button class="imgButton" name="img" value='url("Assets/atlas.jpg")' data-title="Atlas at Dawn" data-credit="Michael Seeley">
+        <img class="imgChange" src="Assets/atlas.jpg"></button>
+      <button class="imgButton" name="img" value='url("Assets/reflection.jpg")' data-title="Dark Sky Reflection" data-credit="Will Godward">
+        <img class="imgChange" src="Assets/reflection.jpg"></button>
+        <button class="imgButton" name="img" value='url("Assets/ghoul.jpg")'  data-title="The Ghoul of IC 2118" data-credit="Casey Good/Steve Timmons">
+          <img class="imgChange" src="Assets/ghoul.jpg"></button>
+        <button class="imgButton" name="img" value='url("Assets/hubble.jpg")'  data-title="Hubble Floats Free" data-credit="STS-82 Crew, STScI, NASA">
+          <img class="imgChange" src="Assets/hubble.jpg"></button>
+      <div id="footer">
+        <h4 id="title">Dark Sky Reflection</h4>
+        <p>Image Credit & Copyright: <span id="credit">Will Godward</span></p>
+      </div>
     </div>
   </div>
 </div>
