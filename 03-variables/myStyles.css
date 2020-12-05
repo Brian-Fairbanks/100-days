@@ -1,0 +1,63 @@
+:root {
+  --blur:20px;
+  --base:#fff;
+}
+
+body{
+  width:100vw;
+  height:100vh;
+
+  background-image:url("Assets/atlas.jpg");
+  background-position: center; /* Center the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+
+  /* fix the attachment, so children can take on the same image at the same location */
+  background-attachment: fixed;
+}
+
+#wrapper{
+    /* Align everythign in the center of the page */
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top:0px;
+    bottom:0px;
+    width:50%;
+    height:50%;
+
+    box-shadow:10px 10px 10px rgba(0,0,0,.7);
+    border-radius:10px;
+    text-align: center;
+    background:inherit;
+    overflow:hidden;
+    z-index:1;
+}
+
+/* Psudo element which gives the frosted glass look */
+#wrapper:before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:-20px;
+  box-shadow:inset 0 0 2000px var(--base);
+  filter: blur(var(--blur));
+  background:inherit;
+  z-index:-1;
+}
+
+#glass{
+  /* position:absolute; */
+  width:100%;
+  padding:20px;
+}
+
+#footer{
+  position:absolute;
+  bottom:0px;
+  left:0px;
+  right:0px;
+}
