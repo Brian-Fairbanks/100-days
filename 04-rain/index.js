@@ -5,8 +5,8 @@ let raining;
 let mousePos
 
 function setMouse(e){
-  mousePos = createVector(e.offsetX,e.offsetY);
-  console.log(mousePos)
+  mousePos = createVector(e.x*(width/window.innerWidth),e.y);
+  console.log(e)
 }
 
 function setup(){
@@ -20,7 +20,7 @@ function setup(){
   // seperationSlider = createSlider(0,5,1, 0.1)
 
   raining = setInterval(function (){flakes.push(new Drop)} ,10);
-  canvas.addEventListener("mousemove", setMouse);
+  document.addEventListener("mousemove", setMouse);
 
 
 }
