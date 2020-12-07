@@ -5,59 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cardio Array</title>
 
+
 </head>
 
 <body>
+  <h1>Array Cardio</h1>
+
+  <p class="explain">
+    All answers are calculated by Javascript using Array built in Map, Sort, Filter and Reduce functions.
+  </p>
+
   <div class="questions">
+    <h2>Table Given</h2>
     <div id="inventors"></div>
+
+    <hr>
 
     <span class="question">
       1 filter the list of inventors for those who were born in the 1500s
     </span>
+    <span class="answer"> </span>
 
     <span class="question">
-      2 give us an array of the inverors first and last names
+      2 give us an array of the inventors first and last names
     </span>
-
+    <span class="answer"> </span>
 
     <span class="question">
       3 sort the inventors by birdthdate, oldest to youngest
     </span>
+    <span class="answer"> </span>
 
     <span class="question">
       4 how many years did the inventors cumulatively live?
     </span>
+    <span class="answer"> </span>
 
     <span class="question">
       5 sort the inventors by years lived
     </span>
+    <span class="answer"> </span>
 
 
     <span class="question">
-      6 create alist of boulevards in Paris that contain 'de' inywhere in the name from
-      https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+      6 create a list of boulevards in Paris that contain 'de' inywhere in the name from
+      https://commons.wikimedia.org/wiki/Category:Boulevards_in_Paris
+    </span>
+    <span class="answer">
+      run in console on the page:<br><br>
+
+      let category = document.querySelector(".mw-category");<br>
+      let links = [...category.querySelectorAll("a")];<br>
+      let de = links<br>
+      &nbsp  .map(link => link.textContent)<br>
+      &nbsp  .filter(name => name.includes('de'));
     </span>
 
 
-
     <span class="question">
-      7 sort exersize
+      7 sort exercise: 
       sort the people alphabetically by last name
     </span>
-
+    <span class="answer"> </span>
 
     <span class="question">
       8 sum up the instances of each of these
       const data = ['car','car', 'truck','truck','bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car',
       'truck']
     </span>
-
+    <span class="answer"> </span>
 
   </div>
 
   <style>
     .question{
+      margin-top:50px;
       display:block;
+    }
+
+    .answer{
+      display:block;
+      margin-left:30px;
+    }
+
+    tr{margin:0px; padding:0px;}
+    th{background-color:rgb(160, 223, 223)}
+    td, th{
+      border:1px solid #777;
+      margin:0px; 
+      padding:2px;
+      width:100px;
+      text-align:center;
+    }
+
+    table{
+      display:inline-block;
+    }
+
+    .questions{
+      margin:80px;
+    }
+
+    h1, h2, .explain{
+      text-align:center;
     }
   </style>
 
