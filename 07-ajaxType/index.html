@@ -21,67 +21,81 @@
 
 
   <style>
+    html {
+      box-sizing: border-box;
+    }
 
-    html {box-sizing: border-box;}
-
-    *, *:before, *:after {
+    *,
+    *:before,
+    *:after {
       box-sizing: inherit;
     }
 
-    body{ background:#700;}
-
-    .search-form{
-      margin:auto;
-      margin-top:40px;
-      text-align:center;
-      max-width:600px;
+    body {
+      background: #700;
     }
 
-    .search{
-      margin:auto;
-      width:100%;
-      padding:10px;
-      border:5px solid rgba(220,220,220,1);
-      border-radius:3px;
-      font-size:larger;
-      font-weight:bold;
-      text-align:center;
-      box-shadow:0 0 3px rgba(0,0,0,.7);
+    .search-form {
+      margin: auto;
+      margin-top: 40px;
+      text-align: center;
+      max-width: 600px;
     }
 
-    .suggestions{
+    .search {
+      margin: auto;
+      width: 100%;
+      padding: 10px;
+      border: 5px solid rgba(220, 220, 220, 1);
+      border-radius: 3px;
+      font-size: larger;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 0 3px rgba(0, 0, 0, .7);
+    }
+
+    .suggestions {
       padding: 0;
-      padding-left:20px;
-      padding-right:20px;
+      padding-left: 20px;
+      padding-right: 20px;
       list-style-type: none;
-      text-align:start;
-      margin-top:0px;
+      text-align: start;
+      margin-top: 0px;
     }
-    .suggestions li{
-      width:100%;
-      background:white;
-      margin:0px;
-      padding:5px;
+
+    .suggestions li {
+      width: 100%;
+      background: white;
+      margin: 0px;
+      padding: 5px;
 
       /* Skewed Effect*/
-      transform:skewX(6deg);
-      background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(220,220,220,1) 100%);
+      transform: skewX(6deg);
+      background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(220, 220, 220, 1) 100%);
 
-      box-shadow:0 0 3px rgba(0,0,0,.7);
-    }
-    .suggestions li:nth-child(2n){
-      transform:skewX(-6deg);
-      background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(220,220,220,1) 100%);
+      box-shadow: 0 0 3px rgba(0, 0, 0, .7);
     }
 
-    .name{
-      font-size:large;
+    .suggestions li:nth-child(2n) {
+      transform: skewX(-6deg);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(220, 220, 220, 1) 100%);
     }
-    .population{float:right;}
 
-    .hl{background:#ff0};
+    .name {
+      font-size: large;
+    }
+
+    .population {
+      float: right;
+    }
+
+    .hl {
+      background: #ff0
+    }
+
+    ;
   </style>
-  
+
 
 
 
@@ -91,43 +105,48 @@
   <script>
     // array pulled from github of all cities/stats/paopulations
     const endpoint =
-    'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+      'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
     // empty array to store in
     const cities = [];
 
     // built in Fetch API
     fetch(endpoint)
-    .then(blob => blob.json())
-    .then(data => cities.push(...data))
+      .then(blob => blob.json())
+      .then(data => cities.push(...data))
 
-    function findMatches(wordToMatch, cities){
-    return cities.filter((place) => {
-    // return all cities or states that have this. Use REGex
-    const regex = new RegExp(wordToMatch, 'gi');
-    return place.city.match(regex) || place.state.match(regex);
-    })
+    function findMatches(wordToMatch, cities) {
+      return cities.filter((place) => {
+        // return all cities or states that have this. Use REGex
+        const regex = new RegExp(wordToMatch, 'gi');
+        return place.city.match(regex) || place.state.match(regex);
+      })
     }
 
 
-    function displayMatches(){
-    const matches = findMatches(this.value, cities);
+    function displayMatches() {
+      if (!this.value) {
+        suggestions.innerHTML = "";
+        return;
+      }
 
-    // highlight match with regexp
-    const regex = new RegExp(this.value, 'gi');
+      const matches = findMatches(this.value, cities);
 
-    const html = matches.map(place=>{
-      const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`)
-      const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`)
-      return `
+      // highlight match with regexp
+      const regex = new RegExp(this.value, 'gi');
+
+      const html = matches.map(place => {
+        const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`)
+        const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`)
+        return `
       <li>
         <span class="name">${cityName}, ${stateName}<span>
             <span class="population">${place.population}<span>
       </li>
       `
-    }).join("");
+      }).join("");
 
-    suggestions.innerHTML = html;
+      suggestions.innerHTML = html;
     }
 
     const searchInput = document.querySelector(".search");
@@ -136,7 +155,7 @@
     searchInput.addEventListener("change", displayMatches);
     searchInput.addEventListener("keyup", displayMatches);
 
-    </script>
+  </script>
 
 
 
