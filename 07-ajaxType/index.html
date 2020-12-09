@@ -22,6 +22,62 @@
 
   <style>
 
+    html {box-sizing: border-box;}
+
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    body{ background:#700;}
+
+    .search-form{
+      margin:auto;
+      margin-top:40px;
+      text-align:center;
+      max-width:600px;
+    }
+
+    .search{
+      margin:auto;
+      width:100%;
+      padding:10px;
+      border:5px solid rgba(220,220,220,1);
+      border-radius:3px;
+      font-size:larger;
+      font-weight:bold;
+      text-align:center;
+      box-shadow:0 0 3px rgba(0,0,0,.7);
+    }
+
+    .suggestions{
+      padding: 0;
+      padding-left:20px;
+      padding-right:20px;
+      list-style-type: none;
+      text-align:start;
+      margin-top:0px;
+    }
+    .suggestions li{
+      width:100%;
+      background:white;
+      margin:0px;
+      padding:5px;
+
+      /* Skewed Effect*/
+      transform:skewX(6deg);
+      background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(220,220,220,1) 100%);
+
+      box-shadow:0 0 3px rgba(0,0,0,.7);
+    }
+    .suggestions li:nth-child(2n){
+      transform:skewX(-6deg);
+      background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(220,220,220,1) 100%);
+    }
+
+    .name{
+      font-size:large;
+    }
+    .population{float:right;}
 
     .hl{background:#ff0};
   </style>
@@ -65,8 +121,8 @@
       const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`)
       return `
       <li>
-        <span class="name">${cityName},${stateName}<span>
-            <span class="name">${place.population}<span>
+        <span class="name">${cityName}, ${stateName}<span>
+            <span class="population">${place.population}<span>
       </li>
       `
     }).join("");
