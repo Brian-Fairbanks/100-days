@@ -28,4 +28,8 @@ https://brian-fairbanks.github.io/100-days/
   Practice with built in array functions: sort, filter, reduce, and map
   - https://javascript30.com/ - day 4
 ## Day 006 - Flex Panel Image Gallery
+  A small galery of 5 images, with overlayed text.
+  Clicking on an image expands it, while shrinking the others so they all fit the screen.
 - https://javascript30.com/ - day 5
+## Day 007 - Ajax Type Ahead
+- https://javascript30.com/ - day 6
