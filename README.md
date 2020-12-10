@@ -32,4 +32,10 @@ https://brian-fairbanks.github.io/100-days/
   Clicking on an image expands it, while shrinking the others so they all fit the screen.
 - https://javascript30.com/ - day 5
 ## Day 007 - Ajax Type Ahead
+  apply predictive typing to an input box, and show all results that match with the city/state that a user inputs
+  displayed on an accordian-look dropdown.
 - https://javascript30.com/ - day 6
+## Day 008 - More Array Cardio
+  Practice with built in array functions: Every, Some, Find, and Find Index
+- https://javascript30.com/ - day 7
+
