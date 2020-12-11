@@ -38,4 +38,6 @@ https://brian-fairbanks.github.io/100-days/
 ## Day 008 - More Array Cardio
   Practice with built in array functions: Every, Some, Find, and Find Index
 - https://javascript30.com/ - day 7
-
+## Day 009 - Canvas Painting
+  a simple drawing app to demonstrate some of the capabilities of the Canvas Element
+- https://javascript30.com/ - day 8
