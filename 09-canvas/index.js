@@ -13,14 +13,22 @@ ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 ctx.lineWidth = 20;
 
+let hue = 0;
+
+
 let isDrawing = false;
 // where to start line from?
 let lastX = 0;
 let lastY = 0;
 
 function draw(e){
-  if(!isDrawing) {[lastX, lastY] = [e.offsetX, e.offsetY]; return;}
+  if(!isDrawing) {return;}
   console.log(e);
+
+  // set rainbow style;
+  ctx.strokeStyle = `hsl(${hue},100%, 50%)`
+  hue++;
+  
 
   ctx.beginPath();
   ctx.moveTo(lastX, lastY);
@@ -31,7 +39,7 @@ function draw(e){
 }
 
 canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('mousedown', () => {isDrawing = true;});
+canvas.addEventListener('mousedown', (e) => {[lastX, lastY] = [e.offsetX, e.offsetY]; isDrawing = true; draw(e)});
 canvas.addEventListener('mouseup', () => isDrawing = false);
 canvas.addEventListener('mouseout', () => isDrawing = false);
 
