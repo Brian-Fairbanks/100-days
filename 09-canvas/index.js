@@ -1,3 +1,5 @@
+// https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation
+
 const canvas = document.querySelector("#draw");
 
 const ctx = canvas.getContext("2d");
@@ -16,6 +18,12 @@ ctx.lineWidth = 20;
 let hue = 0;
 
 
+//ctx.globalCompositeOperation = "multiply";
+
+// initial direction setup
+ctx.font = "30px Arial";
+ctx.fillText("Click and Drag!", window.innerWidth/2, window.innerHeight/2);
+
 let isDrawing = false;
 // where to start line from?
 let lastX = 0;
@@ -23,7 +31,6 @@ let lastY = 0;
 
 function draw(e){
   if(!isDrawing) {return;}
-  console.log(e);
 
   // set rainbow style;
   ctx.strokeStyle = `hsl(${hue},100%, 50%)`
