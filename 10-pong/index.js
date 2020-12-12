@@ -8,7 +8,6 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-ctx.strokeStyle = "#BADA55"
 
 // go back and look at alternatives for ctx.lineJoin
 ctx.lineJoin = 'round';
@@ -30,15 +29,16 @@ document.addEventListener("keydown", (e)=>{
 
 
 class Player{
-  constructor(){
+  constructor(color="#BADA55"){
     this.position = {X:20, Y:0};
     this.height = 100;
     this.width = 20;
-    this.color = "red";
+    this.color = color;
     this.speed = 10;
   }
   
   draw(){
+    ctx.strokeStyle = this.color;
     ctx.beginPath();
     ctx.rect(this.position.X, this.position.Y, this.width, this.height);
     ctx.stroke();
