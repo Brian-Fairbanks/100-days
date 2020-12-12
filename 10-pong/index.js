@@ -29,8 +29,8 @@ document.addEventListener("keydown", (e)=>{
 
 
 class Player{
-  constructor(color="#BADA55"){
-    this.position = {X:20, Y:0};
+  constructor(X, color="#BADA55"){
+    this.position = {X, Y:canvas.height/2};
     this.height = 100;
     this.width = 20;
     this.color = color;
@@ -60,8 +60,9 @@ class Player{
 
 
 
-
-const leftPlayer = new Player();
+// paddle innitial setup
+const leftPlayer = new Player(20);
+const rightPlayer = new Player(canvas.width-40, "#ff3333");
 
 
 
@@ -70,6 +71,7 @@ function draw(){
   // clear screen
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   leftPlayer.draw();
+  rightPlayer.draw();
 }
 
 function update(){
