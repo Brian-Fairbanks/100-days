@@ -12,7 +12,7 @@ canvas.height = window.innerHeight;
 // go back and look at alternatives for ctx.lineJoin
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
-ctx.lineWidth = 20;
+// ctx.lineWidth = 20;
 
 let hue = 0;
 
@@ -26,7 +26,40 @@ document.addEventListener("keydown", (e)=>{
 });
 
 
+class Ball{
+  constructor(X, Y, color="#000000"){
+    this.position = {X:X,Y:Y};
+    this.color = color;
+    this.size = 5;
+    this.speed = {X:2, Y:2};
+  }
 
+  draw(){
+    ctx.strokeStyle = this.color;
+    ctx.fillStyle = this.color;
+    ctx.beginPath();
+    ctx.fillRect(this.position.X, this.position.Y, this.size, this.size);
+    ctx.stroke();
+  }
+
+  update(){
+    this.position.X+=this.speed.X;
+    this.position.Y+=this.speed.Y;
+
+    //bounce off top/bottom
+    if(this.position.Y < 0 || (this.position.Y > canvas.height-this.size)){
+      console.log("Out of range!");
+      this.speed.Y = -this.speed.Y;
+    }
+
+    // bounce off paddle
+    if (leftPlayer.collide(this) || rightPlayer.collide(this)){
+      this.speed.X = -this.speed.X;
+    }
+
+  }
+
+}
 
 class Player{
   constructor(X, color="#BADA55"){
@@ -39,8 +72,9 @@ class Player{
   
   draw(){
     ctx.strokeStyle = this.color;
+    ctx.fillStyle = this.color;
     ctx.beginPath();
-    ctx.rect(this.position.X, this.position.Y, this.width, this.height);
+    ctx.fillRect(this.position.X, this.position.Y, this.width, this.height);
     ctx.stroke();
   }
 
@@ -55,6 +89,14 @@ class Player{
       this.position.Y+=this.speed;
     }
   }
+
+  collide(ball){
+    if((ball.position.X > this.position.X && ball.position.X < this.position.X+this.width) || ball.position.X+ball.size > this.position.X && ball.position.X+ball.size < this.position.X+this.width){
+      if (ball.position.Y > this.position.Y && ball.position.Y < this.position.Y+this.height)
+        return true;
+    }
+    return false;
+  }
 }
 
 
@@ -64,6 +106,8 @@ class Player{
 const leftPlayer = new Player(20);
 const rightPlayer = new Player(canvas.width-40, "#ff3333");
 
+let ball = new Ball(50,50,"#000000");
+
 
 
 
@@ -72,9 +116,11 @@ function draw(){
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   leftPlayer.draw();
   rightPlayer.draw();
+  ball.draw();
 }
 
 function update(){
+  ball.update();
   draw();
 }
 
