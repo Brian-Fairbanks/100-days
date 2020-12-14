@@ -8,6 +8,7 @@
 
 <body>
 
+  <div class="shiftIndicator">Shift</div>
   <form class="check-form">
     <div class="item">
       <input type="checkbox">
@@ -128,6 +129,28 @@
       text-decoration: line-through;
     }
 
+    .shiftIndicator{
+      position:fixed;
+      right:5px;
+      top:5px;
+      padding:8px;
+
+      font-weight:bold;
+      
+      border-radius:5px;
+      background:#500;
+      text-shadow:0 0 2px #000;
+      opacity:40%;
+    }
+
+    .shiftActive{
+      opacity:100%;
+      color:#f92;
+      background-color:#700;
+      text-shadow:0 0 2px #ff9;
+      box-shadow:inset 0 0 10px #f92;
+    }
+
     
   </style>
 
@@ -139,6 +162,7 @@
 
   <script>
     const items = document.querySelectorAll(".item");
+    const shiftIndicator = document.querySelector(".shiftIndicator");
 
 
     items.forEach(box => {
@@ -148,6 +172,25 @@
         box.children.item(1).classList.toggle("strike")
       })
     })
+
+    // toggle if shift is held or not
+    var shiftHeld = false;
+    // down?
+    document.addEventListener('keydown', (e)=>{
+      if (e.key === "Shift"){shiftHeld = true}
+      applyShiftIcon();
+    })
+    // up?
+    document.addEventListener('keyup', (e)=>{
+      if (e.key === "Shift"){shiftHeld = false}
+      applyShiftIcon();
+    })
+
+    function applyShiftIcon(){
+      if(shiftHeld) {shiftIndicator.classList.add("shiftActive");}
+      else{shiftIndicator.classList.remove("shiftActive");}
+    }
+
   </script>
 
 
