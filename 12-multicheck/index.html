@@ -39,7 +39,7 @@
     </div>
     <div class="item">
       <input type="checkbox">
-      <p>And no something completely different</p>
+      <p>And now something completely different</p>
     </div>
     <div class="item">
       <input type="checkbox">
@@ -67,7 +67,7 @@
     </div>
     <div class="item">
       <input type="checkbox">
-      <p>Lobster Thermidor a Crevette with a mornay sauce served in a Provencale manner with shallots and aubergines garnished with truffle pate, brandy and with a fried egg on top and spam</p>
+      <p>Lobster Thermidor a Crevette with a mornay sauce served in a Provencale manner with shallots and aubergines garnished with truffle pate, brandy and with a fried egg on top and Spam</p>
     </div>
   </form>
 
@@ -133,58 +133,7 @@
 
 
   <script>
-    // array pulled from github of all cities/stats/paopulations
-    const endpoint =
-      'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
-
-    // empty array to store in
-    const cities = [];
-
-    // built in Fetch API
-    fetch(endpoint)
-      .then(blob => blob.json())
-      .then(data => cities.push(...data))
-
-    function findMatches(wordToMatch, cities) {
-      return cities.filter((place) => {
-        // return all cities or states that have this. Use REGex
-        const regex = new RegExp(wordToMatch, 'gi');
-        return place.city.match(regex) || place.state.match(regex);
-      })
-    }
-
-
-    function displayMatches() {
-      if (!this.value) {
-        suggestions.innerHTML = "";
-        return;
-      }
-
-      const matches = findMatches(this.value, cities);
-
-      // highlight match with regexp
-      const regex = new RegExp(this.value, 'gi');
-
-      const html = matches.map(place => {
-        const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`)
-        const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`)
-        return `
-      <li>
-        <span class="name">${cityName}, ${stateName}<span>
-            <span class="population">${place.population}<span>
-      </li>
-      `
-      }).join("");
-
-      suggestions.innerHTML = html;
-    }
-
-    const searchInput = document.querySelector(".search");
-    const suggestions = document.querySelector(".suggestions")
-
-    searchInput.addEventListener("change", displayMatches);
-    searchInput.addEventListener("keyup", displayMatches);
-
+    
   </script>
 
 
