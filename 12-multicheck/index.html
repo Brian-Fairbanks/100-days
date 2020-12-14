@@ -68,7 +68,8 @@
     </div>
     <div class="item">
       <input type="checkbox">
-      <p>Lobster Thermidor a Crevette with a mornay sauce served in a Provencale manner with shallots and aubergines garnished with truffle pate, brandy and with a fried egg on top and Spam</p>
+      <p>Lobster Thermidor a Crevette with a mornay sauce served in a Provencale manner with shallots and aubergines
+        garnished with truffle pate, brandy and with a fried egg on top and Spam</p>
     </div>
   </form>
 
@@ -78,7 +79,7 @@
 
   <style>
     :root {
-      --padding:12px;
+      --padding: 12px;
     }
 
     html {
@@ -100,58 +101,56 @@
       margin-top: 40px;
       text-align: center;
       max-width: 600px;
-      border-radius:8px;
-      overflow:hidden;
-      box-shadow: 10px 10px 0px rgba(0,0,0,.5)
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 10px 10px 0px rgba(0, 0, 0, .5)
     }
 
-    .item{
-      display:flex;
+    .item {
+      display: flex;
       flex-direction: row;
-      background:#ffffff;
-      border-bottom:1px solid #BBBBBB;
+      background: #ffffff;
+      border-bottom: 1px solid #BBBBBB;
       align-items: center;
     }
 
-    .item input{
-      margin-left:var(--padding);
-      margin-right:var(--padding);
+    .item input {
+      margin-left: var(--padding);
+      margin-right: var(--padding);
     }
 
-    .item p{
-      margin:0px;
-      padding:var(--padding);
-      border-left:1px solid #BBBBBB;
+    .item p {
+      margin: 0px;
+      padding: var(--padding);
+      border-left: 1px solid #BBBBBB;
     }
 
-    .strike{
-      color:#888888;
+    .strike {
+      color: #888888;
       text-decoration: line-through;
     }
 
-    .shiftIndicator{
-      position:fixed;
-      right:5px;
-      top:5px;
-      padding:8px;
+    .shiftIndicator {
+      position: fixed;
+      right: 5px;
+      top: 5px;
+      padding: 8px;
 
-      font-weight:bold;
-      
-      border-radius:5px;
-      background:#500;
-      text-shadow:0 0 2px #000;
-      opacity:40%;
+      font-weight: bold;
+
+      border-radius: 5px;
+      background: #500;
+      text-shadow: 0 0 2px #000;
+      opacity: 40%;
     }
 
-    .shiftActive{
-      opacity:100%;
-      color:#f92;
-      background-color:#700;
-      text-shadow:0 0 2px #ff9;
-      box-shadow:inset 0 0 10px #f92;
+    .shiftActive {
+      opacity: 100%;
+      color: #f92;
+      background-color: #700;
+      text-shadow: 0 0 2px #ff9;
+      box-shadow: inset 0 0 10px #f92;
     }
-
-    
   </style>
 
 
@@ -161,34 +160,78 @@
 
 
   <script>
-    const items = document.querySelectorAll(".item");
+    const items = document.querySelectorAll(".item input");
     const shiftIndicator = document.querySelector(".shiftIndicator");
+    var firstShift;
+    var checkStat;
+
+    console.log(items);
+
+    function handleCheckbox(){
+
+    }
 
 
     items.forEach(box => {
       //console.log(box.firstElementChild);
-      box.firstElementChild.addEventListener('change', function () {
+      box.addEventListener('click', e => {
+        // check if shift should be applied
+        if (shiftHeld && !firstShift) {
+          firstShift = box;
+          checkStat = box.checked;
+          console.log(checkStat);
+        }
+        else if (shiftHeld) {
+            checkFrom(firstShift, box, checkStat)
+        }
+
+      })
+
+      box.addEventListener('change', function () {
         //console.log(box.children.item(1))
-        box.children.item(1).classList.toggle("strike")
+        //box.children.item(1).classList.toggle("strike")
       })
     })
 
+
+    function checkFrom(from, to, pcheck){
+      let between = false;
+
+      console.log("changing all to ",pcheck);
+
+      items.forEach(box => {
+        // check if it needs to
+        if(between){
+          box.checked=pcheck;
+        }
+
+        // see if this is now between the 2 checked items
+        if(box === from || box===to){between=!between; console.log("start/stoping in between!")}
+        
+      })
+    }
+
+
     // toggle if shift is held or not
     var shiftHeld = false;
+
     // down?
-    document.addEventListener('keydown', (e)=>{
-      if (e.key === "Shift"){shiftHeld = true}
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Shift") { shiftHeld = true }
       applyShiftIcon();
     })
-    // up?
-    document.addEventListener('keyup', (e)=>{
-      if (e.key === "Shift"){shiftHeld = false}
+    // released?
+    document.addEventListener('keyup', (e) => {
+      if (e.key === "Shift") { shiftHeld = false }
+      firstShift = undefined;
+      checkStat = undefined;
       applyShiftIcon();
     })
 
-    function applyShiftIcon(){
-      if(shiftHeld) {shiftIndicator.classList.add("shiftActive");}
-      else{shiftIndicator.classList.remove("shiftActive");}
+    // set up indicator on page
+    function applyShiftIcon() {
+      if (shiftHeld) { shiftIndicator.classList.add("shiftActive"); }
+      else { shiftIndicator.classList.remove("shiftActive"); }
     }
 
   </script>
