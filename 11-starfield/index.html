@@ -14,57 +14,108 @@
   <!-- <link rel="stylesheet" href="mystyles.css"> -->
 
   <style>
-    body{padding:0px; margin:0px; overflow:hidden;}
+    body {
+      padding: 0px;
+      margin: 0px;
+      overflow: hidden;
+    }
 
-    .credit{
-      position:fixed;
-      z-index:2;
-      bottom:0px;
-      left:0px;
-      right:0px;
-      color:#ffffff;
-      text-shadow:0 0 5px #000000;
+    .credit {
+      position: fixed;
+      z-index: 2;
+      bottom: 0px;
+      left: 0px;
+      right: 0px;
+      color: #ffffff;
+      text-shadow: 0 0 5px #000000;
+      text-align: center;
+    }
+
+    .credit span {
+      padding-left: 20px;
+      padding-right: 20px;
+      border-radius: 5px;
+      background: rgba(0, 0, 0, .5)
+    }
+
+
+    .buttonWrapper {
+      position: absolute;
+      right: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button {
+      padding: 10px;
+      border-radius: 10px;
+      background: #333333;
+      color: #ffffff;
+      margin: 5px;
+      width:30px;
       text-align:center;
+      -webkit-user-select: none;
+      /* Safari */
+      -moz-user-select: none;
+      /* Firefox */
+      -ms-user-select: none;
+      /* IE10+/Edge */
+      user-select: none;
+      /* Standard */
+
+      cursor: pointer;
+      border-bottom:5px solid #222222;
+      border-right:2px solid #2c2c2c;
     }
 
-    .credit span{
-      padding-left:20px;
-      padding-right:20px;
-      border-radius:5px;
-      background:rgba(0,0,0,.5)
+    .button:hover{
+      background-color:#444444;
+      box-shadow:inset 0px 0px 14px #333333;
     }
 
-    #wrapper{
-      position:fixed;
-      top:0px;
-      left:0px;
-      right:0px;
-      bottom:0px;
+    #wrapper {
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
 
-      z-index:1;
-      background:url("./falconCockpit.png");
+      z-index: 1;
+      background: url("./falconCockpit.png");
 
       background-repeat: no-repeat;
       background-size: cover;
-      background-position-x:center;
+      background-position-x: center;
     }
   </style>
 </head>
 
 <body>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js" integrity="sha512-WIklPM6qPCIp6d3fSSr90j+1unQHUOoWDS4sdTiR8gxUTnyZ8S2Mr8e10sKKJ/bhJgpAa/qG068RDkg6fIlNFA==" crossorigin="anonymous"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js" integrity="sha512-wM+t5MzLiNHl2fwT5rWSXr2JMeymTtixiw2lWyVk1JK/jDM4RBSFoH4J8LjucwlDdY6Mu84Kj0gPXp7rLGaDyA==" crossorigin="anonymous"></script> -->
-  <script src="index.js"></script>
-  <script src="Star.js"></script>
-
   <div id="wrapper">
+    <div class="buttonWrapper">
+      <div data-action="up" class="button">^</div>
+      <div data-action="down" class="button">v</div>
+    </div>
 
   </div>
   <div class="credit">
     <span>
-      Falcon Cockpit image credit: Disney Parks / <a href="https://www.king5.com/article/entertainment/television/programs/evening/take-control-of-the-first-full-size-millennium-falcon-ship-at-star-wars-galaxys-edge-in-disneyland/281-459d0243-56b9-4808-b5e5-ec534d0c9693">King 5</a>
+      Falcon Cockpit image credit: Disney Parks / <a
+        href="https://www.king5.com/article/entertainment/television/programs/evening/take-control-of-the-first-full-size-millennium-falcon-ship-at-star-wars-galaxys-edge-in-disneyland/281-459d0243-56b9-4808-b5e5-ec534d0c9693">King
+        5</a>
     </span>
   </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"
+    integrity="sha512-WIklPM6qPCIp6d3fSSr90j+1unQHUOoWDS4sdTiR8gxUTnyZ8S2Mr8e10sKKJ/bhJgpAa/qG068RDkg6fIlNFA=="
+    crossorigin="anonymous"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js" integrity="sha512-wM+t5MzLiNHl2fwT5rWSXr2JMeymTtixiw2lWyVk1JK/jDM4RBSFoH4J8LjucwlDdY6Mu84Kj0gPXp7rLGaDyA==" crossorigin="anonymous"></script> -->
+  <script src="index.js"></script>
+  <script src="Star.js"></script>
+
 </body>
 
 </html>

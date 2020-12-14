@@ -43,10 +43,18 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
+// add buttons to control speed
+const buttons = document.querySelectorAll(".button");
+buttons.forEach( button => {
+  button.addEventListener('click', e=>{
+    let action = button.getAttribute("data-action");
+    if(action === "up"){if (speed < 200)speed*=2;}
+    if(action === "down"){if (speed >.5)speed/=2;}
+  })
+})
 
+// arrow keys to control speed
 document.addEventListener("keydown", (e)=>{
-  console.log(e);
-
   if(e.code === "ArrowUp"){if (speed < 200)speed*=2;}
   if(e.code === "ArrowDown"){if (speed >.5)speed/=2;}
   if(e.code === "Space"){speed=1000;}
