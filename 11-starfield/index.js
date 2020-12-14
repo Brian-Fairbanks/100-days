@@ -1,5 +1,5 @@
 const stars = [];
-var speed = 1;
+var speed = 4;
 
 function setup(){
   createCanvas(1024, 768);
@@ -19,6 +19,13 @@ function draw(){
   for (let star of stars){
     star.update();
     star.show();
-
   }
 }
+
+
+document.addEventListener("keydown", (e)=>{
+  console.log(e);
+
+  if(e.code === "ArrowUp"){if (speed < 200)speed*=2;}
+  if(e.code === "ArrowDown"){if (speed >.5)speed/=2;}
+});
