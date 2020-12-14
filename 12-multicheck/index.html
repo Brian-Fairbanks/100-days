@@ -179,25 +179,22 @@
         if (shiftHeld && !firstShift) {
           firstShift = box;
           checkStat = box.checked;
-          console.log(checkStat);
         }
         else if (shiftHeld) {
+          // dont run if the 2 boxes are the same.
+          if(box!==firstShift){
             checkFrom(firstShift, box, checkStat)
+          }
         }
-
-      })
-
-      box.addEventListener('change', function () {
-        //console.log(box.children.item(1))
-        //box.children.item(1).classList.toggle("strike")
+        // if anything has changed, reapply all striketrhoughs
+        applyStrike();
       })
     })
 
 
     function checkFrom(from, to, pcheck){
       let between = false;
-
-      console.log("changing all to ",pcheck);
+      changeNext = false;
 
       items.forEach(box => {
         // check if it needs to
@@ -206,7 +203,7 @@
         }
 
         // see if this is now between the 2 checked items
-        if(box === from || box===to){between=!between; console.log("start/stoping in between!")}
+        if(box === from || box===to){between=!between}
         
       })
     }
@@ -232,6 +229,18 @@
     function applyShiftIcon() {
       if (shiftHeld) { shiftIndicator.classList.add("shiftActive"); }
       else { shiftIndicator.classList.remove("shiftActive"); }
+    }
+
+    function applyStrike(){
+      items.forEach(box => {
+        if(box.checked){
+          box.parentNode.querySelector("p").classList.add("strike")
+        }
+        else{
+          box.parentNode.querySelector("p").classList.remove("strike")
+        }
+        
+      })
     }
 
   </script>
