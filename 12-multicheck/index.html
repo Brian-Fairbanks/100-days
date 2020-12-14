@@ -123,6 +123,11 @@
       border-left:1px solid #BBBBBB;
     }
 
+    .strike{
+      color:#888888;
+      text-decoration: line-through;
+    }
+
     
   </style>
 
@@ -133,7 +138,16 @@
 
 
   <script>
-    
+    const items = document.querySelectorAll(".item");
+
+
+    items.forEach(box => {
+      //console.log(box.firstElementChild);
+      box.firstElementChild.addEventListener('change', function () {
+        //console.log(box.children.item(1))
+        box.children.item(1).classList.toggle("strike")
+      })
+    })
   </script>
 
 
