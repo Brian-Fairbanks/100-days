@@ -14,7 +14,7 @@ function draw(){
   background(0);
 
   // reset to center
-  translate(width / 2, height / 2);
+  translate(mouseX, mouseY);
 
   for (let star of stars){
     star.update();
