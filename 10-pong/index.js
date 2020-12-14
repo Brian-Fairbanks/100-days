@@ -4,6 +4,9 @@ const canvas = document.querySelector("#draw");
 
 const ctx = canvas.getContext("2d");
 
+var leftScore = 0;
+var rightScore = 0;
+
 // resize canvas to full screen
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -57,6 +60,14 @@ class Ball{
       this.speed.X = -this.speed.X;
     }
 
+    if (this.position.X > canvas.width){
+      leftScore++;
+      this.destroy
+    }
+
+    if (this.position.X < 0){
+      rightScore++;
+    }
   }
 
 }
@@ -117,6 +128,8 @@ function draw(){
   leftPlayer.draw();
   rightPlayer.draw();
   ball.draw();
+
+  ctx.fillText(`${leftScore}|${rightScore}`, window.innerWidth/2, window.innerHeight/2);
 }
 
 function update(){
