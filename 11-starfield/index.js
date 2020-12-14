@@ -49,4 +49,5 @@ document.addEventListener("keydown", (e)=>{
 
   if(e.code === "ArrowUp"){if (speed < 200)speed*=2;}
   if(e.code === "ArrowDown"){if (speed >.5)speed/=2;}
+  if(e.code === "Space"){speed=1000;}
 });
