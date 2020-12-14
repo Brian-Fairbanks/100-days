@@ -50,3 +50,6 @@ https://brian-fairbanks.github.io/100-days/
 ### Day 011 - Starfield Canvas
   A randomly generated starfield, much like the old Windows screensaver
 - https://thecodingtrain.com/CodingChallenges/001-starfield.html
+### Day 012 - Starfield Canvas
+  Holding shift to select multiple checkboxes
+- - https://javascript30.com/ - day 10

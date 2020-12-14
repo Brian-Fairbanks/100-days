@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Multi-Select Checkbox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+
+  <form class="check-form">
+    <div class="item">
+      <input type="checkbox">
+      <p>This is an inbox layout</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Check one item</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Hold down the Shift key...</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Then Check a lower item</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Everything in between will also be checked</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Done without any libraries,</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Just regular javascript</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>And no something completely different</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Spam Message</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Egg and Spam</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Egg, Bacon and Spam</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Spam, Bacon, Sausage, and Spam</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Spam, Spam, Egg, Spam, Bacon, and Spam</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Spam, Spam, Spam, Spam, Baked Beans, Spam, Spam, and Spam</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>Lobster Thermidor a Crevette with a mornay sauce served in a Provencale manner with shallots and aubergines garnished with truffle pate, brandy and with a fried egg on top and spam</p>
+    </div>
+  </form>
+
+
+
+
+
+  <style>
+    :root {
+      --padding:12px;
+    }
+
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      background: #700;
+    }
+
+    .check-form {
+      margin: auto;
+      margin-top: 40px;
+      text-align: center;
+      max-width: 600px;
+      border-radius:8px;
+      overflow:hidden;
+      box-shadow: 10px 10px 0px rgba(0,0,0,.5)
+    }
+
+    .item{
+      display:flex;
+      flex-direction: row;
+      background:#ffffff;
+      border-bottom:1px solid #BBBBBB;
+      align-items: center;
+    }
+
+    .item input{
+      margin-left:var(--padding);
+      margin-right:var(--padding);
+    }
+
+    .item p{
+      margin:0px;
+      padding:var(--padding);
+      border-left:1px solid #BBBBBB;
+    }
+
+    
+  </style>
+
+
+
+
+
+
+
+  <script>
+    // array pulled from github of all cities/stats/paopulations
+    const endpoint =
+      'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+    // empty array to store in
+    const cities = [];
+
+    // built in Fetch API
+    fetch(endpoint)
+      .then(blob => blob.json())
+      .then(data => cities.push(...data))
+
+    function findMatches(wordToMatch, cities) {
+      return cities.filter((place) => {
+        // return all cities or states that have this. Use REGex
+        const regex = new RegExp(wordToMatch, 'gi');
+        return place.city.match(regex) || place.state.match(regex);
+      })
+    }
+
+
+    function displayMatches() {
+      if (!this.value) {
+        suggestions.innerHTML = "";
+        return;
+      }
+
+      const matches = findMatches(this.value, cities);
+
+      // highlight match with regexp
+      const regex = new RegExp(this.value, 'gi');
+
+      const html = matches.map(place => {
+        const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`)
+        const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`)
+        return `
+      <li>
+        <span class="name">${cityName}, ${stateName}<span>
+            <span class="population">${place.population}<span>
+      </li>
+      `
+      }).join("");
+
+      suggestions.innerHTML = html;
+    }
+
+    const searchInput = document.querySelector(".search");
+    const suggestions = document.querySelector(".suggestions")
+
+    searchInput.addEventListener("change", displayMatches);
+    searchInput.addEventListener("keyup", displayMatches);
+
+  </script>
+
+
+
+
+</body>
+
+</html>
