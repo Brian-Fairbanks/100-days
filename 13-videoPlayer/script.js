@@ -11,7 +11,7 @@ const progressBar = player.querySelector(".progress_filled")
 const playPause = player.querySelector(".toggle");
 const pauseIndicator = player.querySelector(".pauseIndicator");
 const skipButtons = player.querySelectorAll("[data-skip]");
-const ranges = player.querySelector(".player__slider")
+const ranges = player.querySelectorAll(".player__slider")
 
 
 /*
@@ -60,6 +60,10 @@ function skip(amount){
   video.currentTime += amount;
 }
 
+function handleRangeUpdate(){
+  console.log(this.name,":",this.value);
+  video[this.name] = this.value;
+}
 
 /*
 |  Listeners
@@ -80,6 +84,11 @@ skipButtons.forEach(button => button.addEventListener('click', function(){
 
 
 document.addEventListener('keydown', e => {handleKeyboard(e)});
+
+// ranges
+ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
+ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
+
 
 
 // remove animation after it runs 
