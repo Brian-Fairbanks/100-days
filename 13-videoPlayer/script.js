@@ -1,4 +1,4 @@
-/*
+/*=======================================================
 |  Variables
 =========================================================*/
 
@@ -16,8 +16,9 @@ const ranges = player.querySelectorAll(".player__slider")
 const vol = player.querySelector("[name=volume]")
 
 
-console.log(progressBar);
-/*
+
+
+/*=======================================================
 |  Functions
 =========================================================*/ 
 function handleKeyboard(e){
@@ -53,7 +54,7 @@ function notify(icon){
   // clear the old one if it exists
 
   // start the animation
-  console.log(pauseIndicator.style);
+  // console.log(pauseIndicator.style);
   pauseIndicator.classList.add("showFade");
 }
 
@@ -81,13 +82,23 @@ function handleRangeUpdate(setting){
 
 function handleProgress(){
   const percent = (video.currentTime / video.duration)*100;
-  console.log(video.currentTime, video.duration, percent)
+  // console.log(video.currentTime, video.duration, percent)
   progressBar.style.flexBasis = `${percent}%`;
 }
 
-/*
+
+function scrub(e){
+  const scrubPos = (e.offsetX/progress.offsetWidth);
+  const scrubTime = video.duration*scrubPos;
+  video.currentTime = scrubTime;
+}
+
+
+
+/*=======================================================
 |  Listeners
 =========================================================*/
+
 // play pause actions
 playPause.addEventListener("click", togglePlay);
 video.addEventListener("click", togglePlay);
@@ -109,8 +120,13 @@ document.addEventListener('keydown', e => {handleKeyboard(e)});
 ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
 ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
 
-//
+// Video Progress Settings
+let mouseDown = false;
 video.addEventListener('timeupdate',handleProgress);
+progress.addEventListener('click', scrub);
+progress.addEventListener('mousemove', (e) => mouseDown && scrub(e));
+progress.addEventListener('mousedown', () => {mouseDown=true; togglePlay()});
+progress.addEventListener('mouseup', () => {mouseDown=false; togglePlay()});
 
 
 
