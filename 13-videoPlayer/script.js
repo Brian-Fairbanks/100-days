@@ -13,6 +13,8 @@ const pauseIndicator = player.querySelector(".pauseIndicator");
 const skipButtons = player.querySelectorAll("[data-skip]");
 const ranges = player.querySelectorAll(".player__slider")
 
+const vol = player.querySelector("[name=volume]")
+
 
 /*
 |  Functions
@@ -28,6 +30,14 @@ function handleKeyboard(e){
   if(e.code==="Period"){console.log("frame step"); skip(.04);}
   if(e.code==="Comma"){console.log("r frame step"); skip(-.04);}
 
+  if(e.code==="ArrowUp"){
+    console.log("vol Up");
+    vol.value=parseFloat(vol.value) + 0.05;
+    handleRangeUpdate(vol)}
+    if(e.code==="ArrowDown"){
+      console.log("vol UDownp");
+      vol.value=parseFloat(vol.value) - 0.05;
+      handleRangeUpdate(vol)}
 }
 
 function togglePlay(){
@@ -60,9 +70,12 @@ function skip(amount){
   video.currentTime += amount;
 }
 
-function handleRangeUpdate(){
-  console.log(this.name,":",this.value);
-  video[this.name] = this.value;
+function handleRangeUpdate(setting){
+  // allow passing the setting to call volume controls from another location
+  if(setting.isTrusted){setting=this;}
+  // 'this' will override setting if setting gets an event passed
+  console.log(setting.name,":",setting.value);
+  video[setting.name] = setting.value;
 }
 
 /*
