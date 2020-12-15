@@ -16,8 +16,24 @@ const ranges = player.querySelector(".player__slider")
 /*
 |  Functions
 =========================================================*/
+function handleKeyboard(e){
+  console.log(e);
+  
 
+  if(e.code==="Space"){e.preventDefault(); console.log("playing video"); togglePlay();}
+
+}
+
+function togglePlay(){
+  if (video.paused){
+    video.play();
+  }
+  else{video.pause()};
+}
 
 /*
 |  Listeners
 =========================================================*/
+playPause.addEventListener("click", togglePlay);
+
+document.addEventListener('keydown', e => {handleKeyboard(e)});
