@@ -6,7 +6,7 @@ const player = document.querySelector(".player");
 const video = player.querySelector(".viewer");
 
 const progress = player.querySelector(".progress");
-const progressBar = player.querySelector(".progress_filled")
+const progressBar = player.querySelector(".progress__filled")
 
 const playPause = player.querySelector(".toggle");
 const pauseIndicator = player.querySelector(".pauseIndicator");
@@ -16,9 +16,10 @@ const ranges = player.querySelectorAll(".player__slider")
 const vol = player.querySelector("[name=volume]")
 
 
+console.log(progressBar);
 /*
 |  Functions
-=========================================================*/
+=========================================================*/ 
 function handleKeyboard(e){
   console.log(e);
   
@@ -78,6 +79,12 @@ function handleRangeUpdate(setting){
   video[setting.name] = setting.value;
 }
 
+function handleProgress(){
+  const percent = (video.currentTime / video.duration)*100;
+  console.log(video.currentTime, video.duration, percent)
+  progressBar.style.flexBasis = `${percent}%`;
+}
+
 /*
 |  Listeners
 =========================================================*/
@@ -102,19 +109,12 @@ document.addEventListener('keydown', e => {handleKeyboard(e)});
 ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
 ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
 
+//
+video.addEventListener('timeupdate',handleProgress);
+
 
 
 // remove animation after it runs 
 pauseIndicator.addEventListener('animationend', e => {
   e.target.classList.remove("showFade")
 })
-
-
-
-
-
-
-
-
-
-
