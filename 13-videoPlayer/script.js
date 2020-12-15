@@ -9,6 +9,7 @@ const progress = player.querySelector(".progress");
 const progressBar = player.querySelector(".progress_filled")
 
 const playPause = player.querySelector(".toggle");
+const pauseIndicator = player.querySelector(".pauseIndicator");
 const skipButtons = player.querySelectorAll("[data-skip]");
 const ranges = player.querySelector(".player__slider")
 
@@ -26,9 +27,13 @@ function handleKeyboard(e){
 
 function togglePlay(){
   if (video.paused){
+    pauseIndicator.classList.add("showFade");
     video.play();
   }
-  else{video.pause()};
+  else{
+    video.pause()
+    pauseIndicator.classList.add("showFade");
+  };
 }
 
 /*
@@ -38,6 +43,10 @@ playPause.addEventListener("click", togglePlay);
 video.addEventListener("click", togglePlay);
 
 document.addEventListener('keydown', e => {handleKeyboard(e)});
+
+pauseIndicator.addEventListener('animationend', e => {
+  e.target.classList.remove("showFade")
+})
 
 
 
