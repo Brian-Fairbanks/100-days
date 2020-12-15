@@ -35,5 +35,16 @@ function togglePlay(){
 |  Listeners
 =========================================================*/
 playPause.addEventListener("click", togglePlay);
+video.addEventListener("click", togglePlay);
 
 document.addEventListener('keydown', e => {handleKeyboard(e)});
+
+
+
+
+
+
+
+
+
+
