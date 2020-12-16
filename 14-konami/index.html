@@ -33,6 +33,7 @@
 <script src="https://kit.fontawesome.com/9aa3b96097.js" crossorigin="anonymous"></script>
 <script>
   const chars=document.querySelectorAll(".char");
+  const tim=document.querySelectorAll(".text");
 
   const code = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a']
   var input = [];
@@ -68,6 +69,7 @@
 
   function acceptCode(){
     console.log("Code Accepted");
+    tim.forEach(msg => msg.classList.add("shrink"));
   }
 
 </script>

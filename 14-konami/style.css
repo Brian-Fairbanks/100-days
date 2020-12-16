@@ -75,3 +75,12 @@ body {
 .show{
   display:block!important;
 }
+
+.shrink{
+  overflow:hidden;
+  height:0px;
+  margin:0px;
+  padding:0px;
+  transition-duration:2s;
+  opacity:0%;
+}
