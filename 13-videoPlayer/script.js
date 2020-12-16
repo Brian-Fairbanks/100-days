@@ -134,3 +134,15 @@ progress.addEventListener('mouseup', () => {mouseDown=false; togglePlay()});
 pauseIndicator.addEventListener('animationend', e => {
   e.target.classList.remove("showFade")
 })
+
+
+
+/*
+STILL TO DO:
+
+fix delay on notify close before a new one can be triggered
+add full screen button to menu
+
+move volume slider into a hidden div behind a mute icon (appear on hover);
+
+*/

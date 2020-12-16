@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Konami Code</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <p class="stop text">Stop!</p>
+    <p class="text">Who would see this page must answer me these questions three, ere the other side he see</p>
+    <p class="text">What... is your name?</p>
+    <p class="text">What... is your quest?</p>
+    <p class="text">What... is the <b>code, Konami?</b></p>
+    <div class="codeInput">
+      <i class="char fas fa-arrow-up"></i>
+      <i class="char fas fa-arrow-up"></i>
+      <i class="char fas fa-arrow-down"></i>
+      <i class="char fas fa-arrow-down"></i>
+      <i class="char fas fa-arrow-left"></i>
+      <i class="char fas fa-arrow-right"></i>
+      <i class="char fas fa-arrow-left"></i>
+      <i class="char fas fa-arrow-right"></i>
+      <p class="char button">B</p>
+      <p class="char button">A</p>
+
+
+    </div>
+
+<!-- ====================================
+      Scripting
+========================================= -->
+<!-- font awesome -->
+<script src="https://kit.fontawesome.com/9aa3b96097.js" crossorigin="anonymous"></script>
+<script>
+  const chars=document.querySelectorAll(".char");
+
+  const code = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a']
+  var input = [];
+
+  document.addEventListener('keyup',e=>{
+    input.push(e.key);
+    
+    // clear the input if the user deviates from the code
+    if(input[input.length-1] !== code[input.length-1]){
+      input = [];
+      chars.forEach(char => char.classList.remove("show"));
+    }
+    else{
+      chars.item(input.length-1).classList.add("show");
+    }
+
+    // check if it matches
+    if(arrayEquals(code, input)){
+      acceptCode();
+    }
+  })
+
+  function arrayEquals(a, b) {
+  return Array.isArray(a) &&
+    Array.isArray(b) &&
+    a.length === b.length &&
+    a.every((val, index) => val === b[index]);
+}
+
+  
+
+  function acceptCode(){
+    console.log("Code Accepted");
+  }
+
+</script>
+  </body>
+
+</html>

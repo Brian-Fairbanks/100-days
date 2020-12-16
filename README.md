@@ -52,4 +52,10 @@ https://brian-fairbanks.github.io/100-days/
 - https://thecodingtrain.com/CodingChallenges/001-starfield.html
 ### Day 012 - Starfield Canvas
   Holding shift to select multiple checkboxes
-- - https://javascript30.com/ - day 10
+- https://javascript30.com/ - day 10
+### Day 013 - Custom Video Player
+  using javascript to link css styled inputs to the default html5 video player 
+- https://javascript30.com/ - day 11
+### Day 014 - Konami Code
+  require a specific key input to perform an 
+- https://javascript30.com/ - day 12
