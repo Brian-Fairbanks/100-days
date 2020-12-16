@@ -43,10 +43,12 @@
     // clear the input if the user deviates from the code
     if(input[input.length-1] !== code[input.length-1]){
       input = [];
+      document.documentElement.style.setProperty(`--glowOpacity`, '0');
       chars.forEach(char => char.classList.remove("show"));
     }
     else{
       chars.item(input.length-1).classList.add("show");
+      document.documentElement.style.setProperty(`--glowOpacity`, input.length/10);
     }
 
     // check if it matches
