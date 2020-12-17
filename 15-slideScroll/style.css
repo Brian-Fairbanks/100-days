@@ -99,11 +99,11 @@ body {
 }
 
 .align-left.slide-in {
-  transform: translateX(-30%) scale(0.95);
+  transform: translateX(-30%) translateY(30%) scale(0.95);
 }
 
 .align-right.slide-in {
-  transform: translateX(30%) scale(0.95);
+  transform: translateX(30%) translateY(30%) scale(0.95);
 }
 
 .slide-in.active {
