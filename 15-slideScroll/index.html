@@ -48,7 +48,7 @@
     <p class="pudey">Yes, that's it, yes.</p>
 
     <img src="./skit04.png" class="ss align-left slide-in">
-    
+
     <p class="minister">It's not particularly silly, is it? I mean, the right leg isn't silly at all and the left leg
       merely does a forward aerial half turn every alternate step.</p>
     <p class="pudey">Yes, but I think that with Government backing I could make it very silly.</p>
@@ -115,6 +115,54 @@
     </p>
   </div>
 
+  <script>
+    // get list of all sliding images
+    const sliderImages = document.querySelectorAll(".slide-in");
+
+    function debounce( func, wait = 20, immediate = true){
+      var timeout;
+      return function(){
+        var context = this, args=arguments;
+        var later = function(){
+          timeout = null;
+          if(!immediate)func.apply(context, args)
+        };
+
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if(callNow) func.apply(context, args);
+      };
+    };
+
+    function checkSlide(e){
+      console.log(sliderImages);
+      sliderImages.forEach(sliderImage => {
+        // get pixle level at bottom of page
+        const slideInAt = (window.scrollY + window.innerHeight) - (.5*sliderImage.height);
+
+        const imageBottom = sliderImage.offsetTop+sliderImage.height;
+
+        const isHalfShown = slideInAt > sliderImage.offsetTop;
+        // const isNotScrolledPast = window.scrollY < imageBottom;
+
+        if(isHalfShown){
+        // if(isHalfShown && isNotScrolledPast){
+          sliderImage.classList.add("active");
+        }
+        // else{
+        //   sliderImage.classList.remove("active");
+        // }
+      })
+    }
+
+
+    window.addEventListener('scroll', debounce(checkSlide));
+    
+    // run immediately once the page loads for images that are already on screen
+    window.addEventListener('load',checkSlide);
+
+  </script>
 </body>
 
 </html>
