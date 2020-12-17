@@ -59,3 +59,6 @@ https://brian-fairbanks.github.io/100-days/
 ### Day 014 - Konami Code
   require a specific key input to perform an 
 - https://javascript30.com/ - day 12
+### day 015 - Slide in Scrolling
+  images slide in while scrolling into view
+- https://javascript30.com/ - day 13
