@@ -1,0 +1,58 @@
+:root {
+  --mainColor:#f73;
+  --cardSize:300px;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: #700;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #850 0%,#700 48%,#a22 100%);
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+}
+
+.card{
+  width:calc(var(--cardSize)*.7);
+  height:var(--cardSize);
+
+  border-radius:5px;
+  background:#fff;
+
+  padding:0px;
+
+  position:relative;
+}
+
+.card-number{
+  padding:0px;
+  margin:0px;
+  line-height: .9;
+
+  position:absolute;
+  font-weight:bold;
+  font-size:calc(var(--cardSize)*.167);
+}
+
+.number-top{
+  top:0px;
+  left:0px;
+}
+
+.number-bottom{
+  bottom:0px;
+  right:0px;
+  transform:rotate(180deg);
+}

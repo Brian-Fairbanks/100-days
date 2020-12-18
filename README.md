@@ -62,3 +62,6 @@ https://brian-fairbanks.github.io/100-days/
 ### day 015 - Slide in Scrolling
   images slide in while scrolling into view
 - https://javascript30.com/ - day 13
+### day 016 - Playing Card Generator
+  css and javascript only playing card generator
+- no reference piece
