@@ -1,6 +1,6 @@
 :root {
   --mainColor:#f73;
-  --cardSize:300px;
+  --cardSize:50vw;
 }
 
 html {
@@ -34,6 +34,11 @@ body {
   padding:0px;
 
   position:relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-number{
@@ -55,4 +60,36 @@ body {
   bottom:0px;
   right:0px;
   transform:rotate(180deg);
+}
+
+.symbols{
+  width:66%;
+  height:80%;
+  padding:0px;
+  margin:0px;
+}
+
+.symbol-row{
+  padding:calc(var(--cardSize)*.025);
+  padding-left:0px;
+  padding-right:0px;
+  width:100%;
+  height:calc(var(--cardSize)*.2);
+
+  margin:0px;
+  margin-bottom:calc(var(--cardSize)*-.1);
+
+  display:flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-between;
+}
+
+.heart{
+  margin:auto;
+  display:inline;
+  height:calc(var(--cardSize)*.14);
+  width:calc(var(--cardSize)*.14);
+  background: #000000;
+  border-radius:100px;
 }

@@ -10,8 +10,8 @@
   <body>
 
     <div class="card">
-      <div class="card-number number-top">10</div>
-      <div class="card-number number-bottom">10</div>
+      <div class="card-number number-top"></div>
+      <div class="card-number number-bottom"></div>
 
       <div class="symbols">
         <div class="symbol-row"></div>
@@ -25,5 +25,114 @@
 
     </div>
 
+
+
+
+    <script>
+      const heart = document.createElement("div")
+
+      function fillSymbols(card, number, suit = "heart"){
+        let symbols = card.querySelectorAll(".symbol-row")
+        let nums = card.querySelectorAll(".card-number")
+
+        // set up card number{
+        nums.forEach(num => {
+          let printNumber;
+          switch(number){
+            case 1:printNumber = 'A'; break;
+            case 11:printNumber = 'J'; break;
+            case 12:printNumber = 'Q'; break;
+            case 13:printNumber = 'K'; break;
+            default:case 11:printNumber = number; break;
+          }
+          num.innerText=printNumber;
+        })
+
+        // clear previous children, so card can be remade
+        symbols.forEach(row => {
+          while(row.firstChild){row.removeChild(row.firstChild)}
+        })
+
+
+        console.log(symbols);
+        switch (number){
+          case 1:
+            symbols.item(3).appendChild(newSymbol(suit))
+            break;
+
+          case 3:
+            symbols.item(3).appendChild(newSymbol(suit))
+          case 2:
+            symbols.item(0).appendChild(newSymbol(suit))
+            symbols.item(6).appendChild(newSymbol(suit))
+            break;
+
+          case 5:
+            symbols.item(3).appendChild(newSymbol(suit))
+          case 4:
+            symbols.item(0).appendChild(newSymbol(suit))
+            symbols.item(0).appendChild(newSymbol(suit))
+
+            symbols.item(6).appendChild(newSymbol(suit))
+            symbols.item(6).appendChild(newSymbol(suit))
+            break;
+
+          case 8:
+          symbols.item(5).appendChild(newSymbol(suit))
+          case 7:
+          symbols.item(1).appendChild(newSymbol(suit))
+          case 6:
+            symbols.item(0).appendChild(newSymbol(suit))
+            symbols.item(0).appendChild(newSymbol(suit))
+
+            symbols.item(3).appendChild(newSymbol(suit))
+            symbols.item(3).appendChild(newSymbol(suit))
+
+            symbols.item(6).appendChild(newSymbol(suit))
+            symbols.item(6).appendChild(newSymbol(suit))
+            break;
+
+          case 9:
+            symbols.item(3).appendChild(newSymbol(suit))
+          case 10:
+            symbols.item(0).appendChild(newSymbol(suit))
+            symbols.item(0).appendChild(newSymbol(suit))
+
+            symbols.item(2).appendChild(newSymbol(suit))
+            symbols.item(2).appendChild(newSymbol(suit))
+
+            symbols.item(4).appendChild(newSymbol(suit))
+            symbols.item(4).appendChild(newSymbol(suit))
+
+            symbols.item(6).appendChild(newSymbol(suit))
+            symbols.item(6).appendChild(newSymbol(suit))
+            if(number === 10){
+              symbols.item(1).appendChild(newSymbol(suit))
+              symbols.item(5).appendChild(newSymbol(suit))
+            }
+            break;
+          default:
+            break;
+        }
+      }
+
+      function newSymbol(suit){
+        const symbol = document.createElement("div")
+        symbol.classList.add(suit);
+        return symbol;
+
+      }
+
+      const testCard = document.querySelector(".card");
+      
+      fillSymbols(testCard, 1);
+
+
+      cardNum = 1;
+      document.
+
+    </script>
   </body>
 </html>
+
+
