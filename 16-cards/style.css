@@ -39,6 +39,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  box-shadow:2vw 2vw 10px rgba(0,0,0,.5);
 }
 
 .card-number{
@@ -49,6 +51,7 @@ body {
   position:absolute;
   font-weight:bold;
   font-size:calc(var(--cardSize)*.167);
+  letter-spacing:calc(var(--cardSize)*-.035);
 }
 
 .number-top{
@@ -63,7 +66,7 @@ body {
 }
 
 .symbols{
-  width:66%;
+  width:80%;
   height:80%;
   padding:0px;
   margin:0px;
@@ -85,11 +88,45 @@ body {
   justify-content: space-between;
 }
 
-.heart{
+.symbol-row:nth-child(n+5){
+  transform:rotate(180deg);
+}
+
+.symbol{
   margin:auto;
   display:inline;
   height:calc(var(--cardSize)*.14);
   width:calc(var(--cardSize)*.14);
   background: #000000;
-  border-radius:100px;
+  border-radius:1000px;
+  font-size:calc(var(--cardSize)*.14);
+  padding:0px;
+  text-align:center;
+  line-height:.9;
+
+  box-shadow:inset 0px 0px 3vw #fff;
+}
+
+.ace{
+  height:calc(var(--cardSize)*.34);
+  width:calc(var(--cardSize)*.34);
+  font-size:calc(var(--cardSize)*.34);
+}
+
+.symbol.heart, .symbol.diamond{
+  background:rgba(0,0,0,.5);
+  color:#f00;
+}
+
+.symbol.club, .symbol.spade{
+  background:rgba(255,0,0,.5);
+  color:#000;
+}
+
+.heart, .diamond{
+  color:#f00;
+}
+
+.club, .spade{
+  color:#000;
 }

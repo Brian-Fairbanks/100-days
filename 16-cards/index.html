@@ -31,16 +31,18 @@
     <script>
       const heart = document.createElement("div")
 
-      function fillSymbols(card, number, suit = "heart"){
+      function fillSymbols(card, number, suit){
         let symbols = card.querySelectorAll(".symbol-row")
         let nums = card.querySelectorAll(".card-number")
 
         // set up card number{
         nums.forEach(num => {
+          num.classList.remove('heart','spade','diamond','club');
+          num.classList.add(suit)
           let printNumber;
           switch(number){
             case 1:printNumber = 'A'; break;
-            case 11:printNumber = 'J'; break;
+            case 11:printNumber = ' J'; break;
             case 12:printNumber = 'Q'; break;
             case 13:printNumber = 'K'; break;
             default:case 11:printNumber = number; break;
@@ -53,11 +55,10 @@
           while(row.firstChild){row.removeChild(row.firstChild)}
         })
 
-
-        console.log(symbols);
         switch (number){
           case 1:
-            symbols.item(3).appendChild(newSymbol(suit))
+            symbols.item(2).appendChild(newSymbol(suit))
+            symbols.item(2).firstChild.classList.add("ace");
             break;
 
           case 3:
@@ -118,18 +119,47 @@
 
       function newSymbol(suit){
         const symbol = document.createElement("div")
-        symbol.classList.add(suit);
+        symbol.classList.add(suit,"symbol");
+        let temp = 
+        symbol.innerText= suit=="heart"?'♥':suit=="diamond"?'♦':suit=="spade"?'♠':'♣';
         return symbol;
 
       }
 
+
+      let cardNum = 1;
+      let cardSuitIndex = 0;
+      let suitList = ['heart','spade','diamond','club'];
+
+      function handleChange(e){
+        console.log(e.key);
+        switch(e.key){
+          case "ArrowUp":
+            cardNum%=13;
+            cardNum+=1;
+            break;
+          case "ArrowDown":
+            cardNum-=1;
+            if(cardNum < 1)cardNum=13;
+            break;
+          case "ArrowRight":
+            cardSuitIndex+=1;
+            cardSuitIndex%=4;
+            break;
+          case "ArrowLeft":
+          cardSuitIndex-=1;
+            if(cardSuitIndex < 0)cardSuitIndex=3;
+          default:
+            break;
+        }
+        fillSymbols(testCard, cardNum, suitList[cardSuitIndex]);
+      }
+
+
+      document.addEventListener('keydown', handleChange);
+
       const testCard = document.querySelector(".card");
-      
-      fillSymbols(testCard, 1);
-
-
-      cardNum = 1;
-      document.
+      fillSymbols(testCard, cardNum, suitList[cardSuitIndex]);
 
     </script>
   </body>
