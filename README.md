@@ -65,3 +65,8 @@ https://brian-fairbanks.github.io/100-days/
 ### day 016 - Playing Card Generator
   css and javascript only playing card generator
 - no reference piece
+### day 017 - Text Shadow Movment
+  NOTE: this is coming one day late, as yesterday was spent driving 10 hours cross-state to pick up my niece and nephew for the holidays.
+
+  Text Shadow based off of mouse location
+  - https://javascript30.com/ - day 16

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Text Shadows</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+    <div class="textBox">Brian Fairbanks</div>
+
+
+    <script>
+
+      const body = document.querySelector("body");
+      const text = body.querySelector(".textBox");
+
+      function shadow(e){
+        console.log(e); 
+      }
+
+
+      body.addEventListener("mousemove",shadow);
+      
+    </script>
+  </body>
+</html>

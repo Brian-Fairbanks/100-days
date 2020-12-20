@@ -1,0 +1,30 @@
+:root {
+  --mainColor:#f73;
+  --cardSize:50vw;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: #700;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #850 0%,#700 48%,#a22 100%);
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+}
+
+.textBox{
+  font-size:10vmin;
+  font-weight:700;
+}
