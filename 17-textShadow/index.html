@@ -32,7 +32,7 @@
 
         // correct for clickthrough.  could use clickthrough - pointer-events: none
         if(this !== e.target){
-          let i = e.target.getBoundingClientRect();
+          let i = e.target.parentElement.getBoundingClientRect();
           x = i.left + e.offsetX;
           y = i.top + e.offsetY;
         }
