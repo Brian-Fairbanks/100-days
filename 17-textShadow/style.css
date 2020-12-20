@@ -31,16 +31,31 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border:1px solid white;
 
   height: 100vh;
   width: 100vw;
-
-
 }
 
 .textBox{
   font-size:10vmin;
   font-weight:700;
   /* pointer-events: none */
+}
+
+.cursorLight{
+  position:fixed;;
+  top:0px;
+  right:0px;
+  width:4vmin;
+  height:4vmin;
+  background:rgba(255,255,255,1);
+  border-radius:1000px;
+  pointer-events: none;
+
+  filter: blur(2px);
+  transform: 
+            translateX(-2vmin)
+            translateY(-2vmin);
+  
+  box-shadow:0 0 7vmin rgba(255, 255, 80, 1), 0 0 15vmin rgb(255, 175, 54),0 0 30vmin rgb(255, 255, 255) ;
 }

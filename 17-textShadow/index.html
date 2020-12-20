@@ -9,6 +9,7 @@
   <body>
     <div class="hero">
       <div class="textBox">Brian Fairbanks</div>
+      <div class="cursorLight"></div>
     </div>
 
 
@@ -17,6 +18,7 @@
 
       const hero = document.querySelector(".hero");
       const text = hero.querySelector(".textBox");
+      const light = hero.querySelector(".cursorLight");
 
       function shadow(e){
         // console.log(e); 
@@ -29,7 +31,6 @@
           y = y+e.target.offsetTop;
         }
 
-
         // setting the WALK:  mapping between mouse position vs movement of shadow
         const walk = .7*Math.min(width, height); // half in each direction
         
@@ -41,8 +42,16 @@
         console.log(xWalk,yWalk, blur);
       }
 
+      function lightFollow(e){
+        light.style.left = e.pageX + 'px';
+        light.style.top = e.pageY + 'px';
+
+      }
 
       hero.addEventListener("mousemove",shadow);
+
+      document.addEventListener("mousemove", lightFollow);
+      
       
     </script>
   </body>
