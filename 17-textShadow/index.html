@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="hero">
-      <div class="textBox">Brian Fairbanks</div>
+      <div class="textBox"></div>
       <div class="cursorLight"></div>
     </div>
 
@@ -18,7 +18,12 @@
 
       const hero = document.querySelector(".hero");
       const text = hero.querySelector(".textBox");
+      let dynamicShadow;
       const light = hero.querySelector(".cursorLight");
+
+      const msg = "Brian Fairbanks";
+
+
 
       function shadow(e){
         // console.log(e); 
@@ -27,19 +32,40 @@
 
         // correct for clickthrough.  could use clickthrough - pointer-events: none
         if(this !== e.target){
-          x = x+e.target.offsetLeft;
-          y = y+e.target.offsetTop;
+          let i = e.target.getBoundingClientRect();
+          x = i.left + e.offsetX;
+          y = i.top + e.offsetY;
         }
+        // console.log(e);
+        // console.log(`\n${x}\n${y}`)
 
         // setting the WALK:  mapping between mouse position vs movement of shadow
-        const walk = .7*Math.min(width, height); // half in each direction
-        
-        const xWalk = -1* parseFloat(((x/width*walk) - (walk/2)).toFixed(2));
-        const yWalk = -1* parseFloat(((y/height*walk) - (walk/2)).toFixed(2));
-        const blur = (Math.abs(xWalk)+Math.abs(yWalk))*60/walk;
+        const walk = .8*Math.min(width, height); // half in each direction
 
-        text.style.textShadow = `${xWalk}px ${yWalk}px ${blur}px rgba(0,0,0,.5)`;
-        console.log(xWalk,yWalk, blur);
+        // apply shadow to each individual letter
+        dynamicShadow.forEach((letter, index) => {
+          if(index=1){
+            let i = letter.getBoundingClientRect();
+            let pos = i.left+(.5*i.width)
+            let fx1 = Math.pow(((pos-x)/width),3) *walk;
+            let fx2 = ((pos-x)/width) *(.2*walk) + .7*(fx1);
+
+            let ypos = i.top+(.5*i.height)
+            let fy1 = Math.pow(((ypos-y)/height),3) *walk;
+            let fy2 = ((ypos-y)/height) *(.6*walk) + .7*(fy1);
+
+
+
+            // const xWalk = -1* parseFloat(((x/width*walk) - (walk/2)).toFixed(2));
+            const xWalk = Math.abs(fx1)>Math.abs(fx2)?fx1:fx2;
+            
+            const yWalk = Math.abs(fy1)>Math.abs(fy2)?fy1:fy2;
+            
+            const blur = (Math.abs(xWalk)+Math.abs(yWalk))*60/walk;
+
+            letter.style.textShadow = `${xWalk}px ${yWalk}px ${blur}px rgba(0,0,0,.5)`;
+          }
+        })
       }
 
       function lightFollow(e){
@@ -51,6 +77,22 @@
       hero.addEventListener("mousemove",shadow);
 
       document.addEventListener("mousemove", lightFollow);
+
+      // set each letter of the messag as its own individual span
+      function separateMessage(){
+        for (let i = 0; i < msg.length; i++){
+          const letter = document.createElement("span")
+          letter.innerText = msg[i]
+          letter.classList.add("dynamicShadow");
+          text.appendChild(letter);
+        }
+        dynamicShadow = hero.querySelectorAll(".dynamicShadow");
+      }
+
+      separateMessage();
+
+
+      
       
       
     </script>

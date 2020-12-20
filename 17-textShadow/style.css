@@ -39,6 +39,9 @@ body {
 .textBox{
   font-size:10vmin;
   font-weight:700;
+  padding:0px;
+  margin:0px;
+  line-height:99.9%;
   /* pointer-events: none */
 }
 
@@ -58,4 +61,8 @@ body {
             translateY(-2vmin);
   
   box-shadow:0 0 7vmin rgba(255, 255, 80, 1), 0 0 15vmin rgb(255, 175, 54),0 0 30vmin rgb(255, 255, 255) ;
+}
+
+.dynamicShadow{
+  margin:0px;
 }
