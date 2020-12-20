@@ -14,9 +14,25 @@
 
       const body = document.querySelector("body");
       const text = body.querySelector(".textBox");
+      const walk = 200;
 
       function shadow(e){
         console.log(e); 
+        const {offsetWidth:width, offsetHeight:height} = body;
+        let {offsetX: x, offsetY:y} = e;
+
+        // correct for clickthrough.  could use clickthrough - pointer-events: none
+        if(this !== e.target){
+          x = x+e.target.offsetLeft;
+          y = y+e.target.offsetTop;
+        }
+
+
+        // setting the WALK:  mapping between mouse position vs movement of shadow
+        const xWalk = parseFloat(((x/width*walk) - (walk/2)).toFixed(2));
+        const yWalk = parseFloat(((y/width*walk) - (walk/2)).toFixed(2));
+
+        console.log(xWalk,yWalk);
       }
 
 
