@@ -7,18 +7,20 @@
 
   </head>
   <body>
-    <div class="textBox">Brian Fairbanks</div>
+    <div class="hero">
+      <div class="textBox">Brian Fairbanks</div>
+    </div>
+
 
 
     <script>
 
-      const body = document.querySelector("body");
-      const text = body.querySelector(".textBox");
-      const walk = 200;
+      const hero = document.querySelector(".hero");
+      const text = hero.querySelector(".textBox");
 
       function shadow(e){
-        console.log(e); 
-        const {offsetWidth:width, offsetHeight:height} = body;
+        // console.log(e); 
+        const {offsetWidth:width, offsetHeight:height} = hero;
         let {offsetX: x, offsetY:y} = e;
 
         // correct for clickthrough.  could use clickthrough - pointer-events: none
@@ -29,14 +31,18 @@
 
 
         // setting the WALK:  mapping between mouse position vs movement of shadow
-        const xWalk = parseFloat(((x/width*walk) - (walk/2)).toFixed(2));
-        const yWalk = parseFloat(((y/width*walk) - (walk/2)).toFixed(2));
+        const walk = .7*Math.min(width, height); // half in each direction
+        
+        const xWalk = -1* parseFloat(((x/width*walk) - (walk/2)).toFixed(2));
+        const yWalk = -1* parseFloat(((y/height*walk) - (walk/2)).toFixed(2));
+        const blur = (Math.abs(xWalk)+Math.abs(yWalk))*60/walk;
 
-        console.log(xWalk,yWalk);
+        text.style.textShadow = `${xWalk}px ${yWalk}px ${blur}px rgba(0,0,0,.5)`;
+        console.log(xWalk,yWalk, blur);
       }
 
 
-      body.addEventListener("mousemove",shadow);
+      hero.addEventListener("mousemove",shadow);
       
     </script>
   </body>
