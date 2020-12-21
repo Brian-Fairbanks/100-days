@@ -28,14 +28,14 @@
 <script>
   const addItems = document.querySelector('.add-items');
   const itemsList = document.querySelector('.plates');
-  const items = [];
+  const items = JSON.parse(localStorage.getItem('items')) || [];
 
 
   function populateList(plates = [], platesList){
     platesList.innerHTML = plates.map((plate, i) => {
       return `
         <li>
-          <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? '':'checked'}"/>
+          <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'Checked':''}/>
           <label for="item${i}">${plate.text}</label>
         </li>
       `;
@@ -54,12 +54,34 @@
     console.log(item);
     items.push(item);
     populateList(items, itemsList);
+    saveItems();
 
     // built into the form
     this.reset();
   }
 
+  function toggleDone(e){
+    // disregard anything that is not an input
+    if(!e.target.matches('input')) return;
+
+    const el = e.target;
+    const index = el.dataset.index;
+
+    items[index].done = !items[index].done;
+    saveItems();
+  }
+
+  function saveItems(){
+    localStorage.setItem('items',JSON.stringify(items));
+  }
+
+
+
   addItems.addEventListener('submit', addItemsHandler)
+  // the LIST is always there, so apply the check item to THAT -- DELEGATION
+  itemsList.addEventListener('click', toggleDone);
+  populateList(items,itemsList);
+
 
 </script>
 
