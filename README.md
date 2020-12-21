@@ -67,6 +67,8 @@ https://brian-fairbanks.github.io/100-days/
 - no reference piece
 ### day 017 - Text Shadow Movment
   NOTE: this is coming one day late, as yesterday was spent driving 10 hours cross-state to pick up my niece and nephew for the holidays.
-
-  Text Shadow based off of mouse location
+  Each letter gets its own shadow cast from a light fixed at the cursor location
   - https://javascript30.com/ - day 16
+### day 018 - Delegation
+
+  - https://javascript30.com/ - day 15
