@@ -70,5 +70,8 @@ https://brian-fairbanks.github.io/100-days/
   Each letter gets its own shadow cast from a light fixed at the cursor location
   - https://javascript30.com/ - day 16
 ### day 018 - Delegation
-
+  local storage and delegation practice
   - https://javascript30.com/ - day 15
+### day 19 - Menger Sponge in Processing
+  A 3d canvas implementation of a menger sponge made in processing
+  - https://thecodingtrain.com/CodingChallenges/002-mengersponge.html
