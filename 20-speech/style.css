@@ -23,13 +23,52 @@ body {
   align-items: center;
 }
 
-.text{
+@font-face {
+  font-family: alphabetized cassette tapes;
+  src: url('alphabetized cassette tapes.ttf');
+}
 
+.text{
   max-width:1024px;
   width:70%;
-  padding:15px;
+  padding:0px;
   margin-top:60px;
   border-radius:10px;
   background:#fff;
   box-shadow:10px 10px 0px rgba(0,0,0,.5);
+  overflow:hidden;
+}
+
+.start{
+  margin-top:-1.3rem;
+  height:5rem;
+  background-color:#fff;
+  margin-left:-150px;
+  margin-right:-100px;
+}
+
+.text {
+  padding: 1rem 2rem 1rem 7rem;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#6baccf), color-stop(4%, #fff)) 0 4px;
+  background-size: 100% 2rem;
+  position: relative;
+  line-height: 2rem;
+  min-height:200px;
+}
+
+p {
+  margin: 0 0 2rem;
+  font-size:2.6rem;
+  font-family:'alphabetized cassette tapes';
+}
+
+.text:before {
+  content: '';
+  position: absolute;
+  width: 3px;
+  top: 0;
+  left: 100px;
+  bottom: 0;
+  border: 1px solid;
+  border-color: transparent #e99e9e;
 }
