@@ -28,6 +28,7 @@
           segment.appendChild(light);
           let mtop = 2+(Math.random()*20)+'%';
           light.style.top=mtop;
+          light.style['-webkit-animation-delay']=Math.random()*2+'s';
           console.log(i,":",mtop);
         }
       }

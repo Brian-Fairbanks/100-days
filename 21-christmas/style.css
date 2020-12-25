@@ -52,8 +52,31 @@ body {
 .light{
   height:2vmin!important;
   width:2vmin;
-  border:1px solid #000;
+  border:1px solid rgba(0,0,0,.5);
   border-radius:100px;
   z-index:5;
   position:absolute;
+
+  background-color:#ffb;
+  box-shadow:0 0 5vmin #ff9, 0 0 2vmin #ff9;
+  -webkit-animation: twinkle 1s infinite linear;
+}
+
+@-webkit-keyframes twinkle {
+  0% {
+    background-color:rgba(255,255,187,.5);
+    box-shadow:0 0 5vmin rgba(255,255,187,.2), 0 0 2vmin rgba(255,255,187,.2);
+  }
+  20% {
+    background-color:#ffb;
+    box-shadow:0 0 5vmin #ff9, 0 0 2vmin #ff9;
+  }
+  90% {
+    background-color:#ffb;
+    box-shadow:0 0 5vmin #ff9, 0 0 2vmin #ff9;
+  }
+  100% {
+    background-color:rgba(255,255,187,.5);
+    box-shadow:0 0 5vmin rgba(255,255,187,.2), 0 0 2vmin rgba(255,255,187,.2);
+  }
 }
