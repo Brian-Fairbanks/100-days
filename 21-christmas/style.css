@@ -34,7 +34,7 @@ body {
   height:100%;
 }
 
-.wreath div:after{
+.segment:after{
   position: absolute;
   content:'';
   width:3vmin;
@@ -42,7 +42,18 @@ body {
   padding-bottom:50%;
   background-color:rgb(45, 88, 19);
   border-radius:100px 0px;
+
+  box-shadow:10px -10px 30px rgba(0,0,0,.5);
 }
-.wreath div:nth-child(2n):after{
+.segment:nth-child(2n):after{
   background-color:rgb(65, 134, 23)!important;
+}
+
+.light{
+  height:2vmin!important;
+  width:2vmin;
+  border:1px solid #000;
+  border-radius:100px;
+  z-index:5;
+  position:absolute;
 }

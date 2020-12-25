@@ -16,9 +16,20 @@
 
       for(i=0; i<wreathSegments; i++){
         let segment = document.createElement("div");
+        segment.classList.add("segment");
         let degrees = i*(360/wreathSegments);
         wreath.appendChild(segment);
         segment.style.transform=`rotate(${degrees}deg) scale(${1},${1+ (Math.random()/10)})`;
+
+        // every third gets a light
+        if(i%2==0){
+          let light = document.createElement("div");
+          light.classList.add("light");
+          segment.appendChild(light);
+          let mtop = 2+(Math.random()*20)+'%';
+          light.style.top=mtop;
+          console.log(i,":",mtop);
+        }
       }
     </script>
   </body>
