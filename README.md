@@ -76,5 +76,7 @@ https://brian-fairbanks.github.io/100-days/
   A 3d canvas implementation of a menger sponge made in processing
   - https://thecodingtrain.com/CodingChallenges/002-mengersponge.html
 ### day 20 - Native Speech Recognition
-
+  a basic implementation of chrome native speech recognition.  Each new sentance will be printed on a new line
   - https://javascript30.com/ - day 20
+### day 21 - Christmas CSS
+  A christmas scene created using CSS
