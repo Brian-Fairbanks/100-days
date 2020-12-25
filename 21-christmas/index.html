@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
-    <div class="wreath"></div>
+    <div class="wreath">
+      <div class="message">Have a Happy Holiday!</div>
+    </div>
 
 
     <script>
@@ -28,8 +30,8 @@
           segment.appendChild(light);
           let mtop = 2+(Math.random()*20)+'%';
           light.style.top=mtop;
-          light.style['-webkit-animation-delay']=Math.random()*2+'s';
-          console.log(i,":",mtop);
+          // light.style['-webkit-animation-delay']=Math.random()*4+'s';
+          light.style['-webkit-animation-duration']=1+Math.random()*3+'s';
         }
       }
     </script>

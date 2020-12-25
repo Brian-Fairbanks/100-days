@@ -28,7 +28,7 @@ body {
   width:90vmin;
   position:relative;
 }
-.wreath div{
+.wreath .segment{
   position:absolute;
   left:50%;
   height:100%;
@@ -50,33 +50,107 @@ body {
 }
 
 .light{
-  height:2vmin!important;
-  width:2vmin;
-  border:1px solid rgba(0,0,0,.5);
+  height:1.5vmin!important;
+  width:1.5vmin;
   border-radius:100px;
   z-index:5;
   position:absolute;
 
-  background-color:#ffb;
-  box-shadow:0 0 5vmin #ff9, 0 0 2vmin #ff9;
-  -webkit-animation: twinkle 1s infinite linear;
+  background-color:#ffa;
+  -webkit-animation: twinkle 3s infinite linear;
+  
+}
+.wreath .light:after{
+  content:'';
+  height:1.5vmin!important;
+  width:1.5vmin;
+  border-radius:100px;
+  z-index:30;
+  position:absolute;
+  border:2px solid rgba(0,0,0,.5);
+  box-shadow:0 0 5vmin #ff9;
+}
+.wreath .light:before{
+  content:'';
+  height:.9vmin!important;
+  width:.9vmin;
+  position:absolute;
+  border:2px solid rgba(0,0,0,.5);
+  background:rgb(50, 77, 50);
+  top:1.4vmin;
+  left:.3vmin;
 }
 
+.segment:nth-of-type(5n+1) .light{
+  background:#f55;
+  box-shadow:0 0 5vmin #f55, 0 0 2vmin #f55;
+}
+.segment:nth-of-type(5n+3) .light{
+  background:#5f5;
+  box-shadow:0 0 5vmin #5f5, 0 0 2vmin #5f5;
+}
+.segment:nth-of-type(5n+5) .light{
+  background:#55f;
+  box-shadow:0 0 5vmin #55f, 0 0 2vmin #55f;
+}
+.segment:nth-of-type(5n+7) .light{
+  background:#f5f;
+  box-shadow:0 0 5vmin #f5f, 0 0 2vmin #f5f;
+}
+
+
 @-webkit-keyframes twinkle {
+  0%{
+    filter:opacity(.5);
+  }
+  5%{
+    filter:opacity(1);
+  }
+  80%{
+    filter:opacity(1);
+  }
+  95%{
+    filter:opacity(.5);
+  }
+  100%{
+    filter:opacity(.5);
+  }
+}
+
+.message{
+  z-index:5;
+  position:absolute;
+
+  font-size:10vmin;
+  font-weight:900;
+
+  left:20%;
+  top:20%;
+  height:60%;
+  width:60%;
+
+  text-align:center;
+}
+
+/* @-webkit-keyframes twinkle {
   0% {
     background-color:rgba(255,255,187,.5);
     box-shadow:0 0 5vmin rgba(255,255,187,.2), 0 0 2vmin rgba(255,255,187,.2);
   }
-  20% {
+  5% {
     background-color:#ffb;
     box-shadow:0 0 5vmin #ff9, 0 0 2vmin #ff9;
   }
-  90% {
+  80% {
     background-color:#ffb;
     box-shadow:0 0 5vmin #ff9, 0 0 2vmin #ff9;
+  }
+  95% {
+    background-color:rgba(255,255,187,.5);
+    box-shadow:0 0 5vmin rgba(255,255,187,.2), 0 0 2vmin rgba(255,255,187,.2);
   }
   100% {
     background-color:rgba(255,255,187,.5);
     box-shadow:0 0 5vmin rgba(255,255,187,.2), 0 0 2vmin rgba(255,255,187,.2);
   }
-}
+} */
