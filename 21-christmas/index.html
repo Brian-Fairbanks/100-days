@@ -6,6 +6,20 @@
     <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
+    <div class="wreath"></div>
 
+
+    <script>
+      const wreath = document.querySelector(".wreath");
+      const wreathSegments = 90;
+
+
+      for(i=0; i<wreathSegments; i++){
+        let segment = document.createElement("div");
+        let degrees = i*(360/wreathSegments);
+        wreath.appendChild(segment);
+        segment.style.transform=`rotate(${degrees}deg) scale(${1},${1+ (Math.random()/10)})`;
+      }
+    </script>
   </body>
 </html>

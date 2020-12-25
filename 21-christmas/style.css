@@ -23,3 +23,26 @@ body {
   align-items: center;
   justify-content: center;
 }
+.wreath{
+  height:90vmin;
+  width:90vmin;
+  position:relative;
+}
+.wreath div{
+  position:absolute;
+  left:50%;
+  height:100%;
+}
+
+.wreath div:after{
+  position: absolute;
+  content:'';
+  width:3vmin;
+  height:25vmin;
+  padding-bottom:50%;
+  background-color:rgb(45, 88, 19);
+  border-radius:100px 0px;
+}
+.wreath div:nth-child(2n):after{
+  background-color:rgb(65, 134, 23)!important;
+}
