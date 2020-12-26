@@ -80,3 +80,6 @@ https://brian-fairbanks.github.io/100-days/
   - https://javascript30.com/ - day 20
 ### day 21 - Christmas CSS
   A christmas scene created using CSS
+### day 22 - Geolocation and Compass
+  Geolocation based speedometer and compass
+  - https://javascript30.com/ - day 21
