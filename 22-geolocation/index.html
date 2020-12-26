@@ -17,6 +17,21 @@
     </h1>
 
 <script>
+  const arrow = document.querySelector(".arrow");
+  const speed = document.querySelector(".speed");
+
+
+  navigator.geolocation.watchPosition((data) => {
+    arrow.style.transform=`rotate(${data.coords.heading}deg)`;
+    // speed comes in KM/H
+    let mph = data.coords.speed;
+    // converted for america
+    mph = mph/1.609344;
+    speed.textContent = Math.round(mph*10)/10;
+  }, (err) => {
+    console.err(err);
+    alert("Trust me, this page is pretty boring without geolocation access.");
+  });
 
 </script>
 
