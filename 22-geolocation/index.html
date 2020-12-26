@@ -19,15 +19,20 @@
 <script>
   const arrow = document.querySelector(".arrow");
   const speed = document.querySelector(".speed");
+  let timesUpd = 0;
 
 
   navigator.geolocation.watchPosition((data) => {
+
+    timesUpd+=1;
+
     arrow.style.transform=`rotate(${data.coords.heading}deg)`;
     // speed comes in KM/H
     let mph = data.coords.speed;
     // converted for america
     mph = mph/1.609344;
-    speed.textContent = Math.round(mph*10)/10;
+    // speed.textContent = Math.round(mph*10)/10;
+    speed.textContent = timesUpd;
   }, (err) => {
     console.err(err);
     alert("Trust me, this page is pretty boring without geolocation access.");
