@@ -15,24 +15,22 @@
       <span class="speed-value">0</span>
       <span class="units">KM/H</span>
     </h1>
+    <div class="log"></div>
 
 <script>
   const arrow = document.querySelector(".arrow");
   const speed = document.querySelector(".speed");
-  let timesUpd = 0;
+  const logDiv = document.querySelector(".log");
 
 
   navigator.geolocation.watchPosition((data) => {
-
-    timesUpd+=1;
-
+    log.textContent = JSON.stringify(data);
     arrow.style.transform=`rotate(${data.coords.heading}deg)`;
     // speed comes in KM/H
     let mph = data.coords.speed;
     // converted for america
     mph = mph/1.609344;
-    // speed.textContent = Math.round(mph*10)/10;
-    speed.textContent = timesUpd;
+    speed.textContent = Math.round(mph*10)/10;
   }, (err) => {
     console.err(err);
     alert("Trust me, this page is pretty boring without geolocation access.");
