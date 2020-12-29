@@ -3,6 +3,10 @@ const canvas = document.querySelector('.photo');
 const ctx = canvas.getContext('2d');
 const strip = document.querySelector('.strip');
 const snap = document.querySelector('.snap');
+const filters = document.querySelector('#filters');
+
+// for filters
+let shift = 200;
 
 function getVideo(){
   navigator.mediaDevices.getUserMedia({video:true, audio:false})
@@ -19,7 +23,7 @@ function getVideo(){
       video.play();
     })
     .catch(err => {
-      console.log(error)
+      console.log(err)
     });
 }
 
@@ -37,6 +41,17 @@ function paintToCanvas(){
 
   setInterval(() => {
     ctx.drawImage(video, 0, 0, width, height);
+    let applyFilter = filters.value;
+
+    if(applyFilter !== 'None'){
+       // apply effects
+      let pixles = ctx.getImageData(0,0,width,height);
+
+      if(applyFilter === "red") pixles = redEffect(pixles);
+      if(applyFilter === "RGB Split") pixles = rgbSplit(pixles);
+
+      ctx.putImageData(pixles, 0, 0);
+    }
   },16);
 }
 
@@ -55,7 +70,31 @@ function takePhoto(){
   photoLink.innerHTML = `<img src=${photo} alt=${name}>`;
   strip.appendChild(photoLink);
 }
+
+
+function redEffect(pixles){
+  for(let i=0; i<pixles.data.length; i+=4){
+    // pixles[i] = // red
+    // pixles[i+1] // green
+    // pixles[i+2] // blue
+    // pixles[i+3] // alpha
+
+    pixles.data[i+0]+=100;
+    pixles.data[i+1]-=50;
+    pixles.data[i+2]*=.5;
+  }
+  return pixles;
+}
+
+function rgbSplit(pixles){
+  for(let i=0; i<pixles.data.length; i+=4){
+    pixles.data[i-(4*shift)]=pixles.data[i+0]; // red shift right
+    pixles.data[i+(4*shift)+2]=pixles.data[i+1]; // green shift right
+    // pixles.data[i+(4*shift)]=pixles.data[i+0]; // green left
+  }
+  return pixles;
+}
+
+
 getVideo();
-
-
 video.addEventListener('canplay', paintToCanvas);
