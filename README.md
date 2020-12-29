@@ -73,7 +73,7 @@ https://brian-fairbanks.github.io/100-days/
   local storage and delegation practice
   - https://javascript30.com/ - day 15
 ### day 19 - Menger Sponge in Processing
-  A 3d canvas implementation of a menger sponge made in processing
+  A 3d canvas implementation of a menger sponge
   - https://thecodingtrain.com/CodingChallenges/002-mengersponge.html
 ### day 20 - Native Speech Recognition
   a basic implementation of chrome native speech recognition.  Each new sentance will be printed on a new line
@@ -82,4 +82,8 @@ https://brian-fairbanks.github.io/100-days/
   A christmas scene created using CSS
 ### day 22 - Geolocation and Compass
   Geolocation based speedometer and compass
+  This one is having some trouble.  I have committed to 1 project a day, so I have considdred this one a loss
   - https://javascript30.com/ - day 21
+### day 23 - Webcam
+  Implementation of browser built-in webcam functionality, and some basic effects
+   - https://javascript30.com/ - day 21

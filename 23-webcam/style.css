@@ -1,0 +1,24 @@
+:root {
+  --mainColor:#f73;
+  --glowOpacity:0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: #700;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #850 0%,#700 48%,#a22 100%);
+  background-size: cover;
+  align-items: center;
+}
