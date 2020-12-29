@@ -22,3 +22,32 @@ body {
   background-size: cover;
   align-items: center;
 }
+
+
+
+
+.photobooth {
+  background: white;
+  max-width: 200rem;
+  margin: 2rem auto;
+  border-radius: 2px;
+}
+
+/*clearfix*/
+.photobooth:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.photo {
+  width: 100%;
+  float: left;
+}
+
+.player {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width:200px;
+}
