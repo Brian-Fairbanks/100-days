@@ -4,9 +4,7 @@ const ctx = canvas.getContext('2d');
 const strip = document.querySelector('.strip');
 const snap = document.querySelector('.snap');
 const filters = document.querySelector('#filters');
-
-// for filters
-let shift = 200;
+const effect = document.querySelector('#effect');
 
 function getVideo(){
   navigator.mediaDevices.getUserMedia({video:true, audio:false})
@@ -48,6 +46,8 @@ function paintToCanvas(){
       let pixles = ctx.getImageData(0,0,width,height);
 
       if(applyFilter === "red") pixles = redEffect(pixles);
+      if(applyFilter === "green") pixles = greenEffect(pixles);
+      if(applyFilter === "blue") pixles = blueEffect(pixles);
       if(applyFilter === "RGB Split") pixles = rgbSplit(pixles);
 
       ctx.putImageData(pixles, 0, 0);
@@ -72,21 +72,42 @@ function takePhoto(){
 }
 
 
-function redEffect(pixles){
-  for(let i=0; i<pixles.data.length; i+=4){
-    // pixles[i] = // red
+/*============================================================== 
+|
+|     Filters
+|
+|============================================================== */
+    // pixles[i+0] // red
     // pixles[i+1] // green
     // pixles[i+2] // blue
     // pixles[i+3] // alpha
 
-    pixles.data[i+0]+=100;
-    pixles.data[i+1]-=50;
-    pixles.data[i+2]*=.5;
-  }
-  return pixles;
-}
+    function redEffect(pixles){
+      for(let i=0; i<pixles.data.length; i+=4){
+        pixles.data[i+1]*=(60/effect.value);
+        pixles.data[i+2]*=(128/effect.value);
+      }
+      return pixles;
+    }
+
+    function greenEffect(pixles){
+      for(let i=0; i<pixles.data.length; i+=4){
+        pixles.data[i+0]*=(60/effect.value);
+        pixles.data[i+2]*=(60/effect.value);
+      }
+      return pixles;
+    }
+
+    function blueEffect(pixles){
+      for(let i=0; i<pixles.data.length; i+=4){
+        pixles.data[i+0]*=(60/effect.value);
+        pixles.data[i+1]*=(60/effect.value);
+      }
+      return pixles;
+    }
 
 function rgbSplit(pixles){
+  let shift = effect.value;
   for(let i=0; i<pixles.data.length; i+=4){
     pixles.data[i-(4*shift)]=pixles.data[i+0]; // red shift right
     pixles.data[i+(4*shift)+2]=pixles.data[i+1]; // green shift right
