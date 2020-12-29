@@ -33,9 +33,29 @@ function paintToCanvas(){
   canvas.width = width;
   canvas.height=height;
 
+  strip.style.width = width+"px";
+
   setInterval(() => {
     ctx.drawImage(video, 0, 0, width, height);
   },16);
 }
 
+
+function takePhoto(){
+  // play sound to indicate picture taken
+  snap.currentTime = 0;
+  snap.play();
+
+  const name = Date.now();
+  // take data out of canvas - create a picture
+  const photo = canvas.toDataURL('image/jpeg');
+  const photoLink = document.createElement('a');
+  photoLink.href = photo;
+  photoLink.setAttribute('download', name);
+  photoLink.innerHTML = `<img src=${photo} alt=${name}>`;
+  strip.appendChild(photoLink);
+}
 getVideo();
+
+
+video.addEventListener('canplay', paintToCanvas);
