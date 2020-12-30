@@ -87,3 +87,6 @@ https://brian-fairbanks.github.io/100-days/
 ### day 23 - Webcam
   Implementation of browser built-in webcam functionality, and some basic effects
    - https://javascript30.com/ - day 21
+### day 24 - Speech Synthesis
+  Implementation of browser built-in speech synthesis functionality
+   - https://javascript30.com/ - day 23
