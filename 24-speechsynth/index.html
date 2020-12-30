@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Speech Synth</title>\
+    <title>Speech Synth</title>
     <meta name="viewport" content="width-device-width, initial-scale=1"/>
     <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
+    <div class="wrapper">
+      <div class="head">
+        <h1>
+          <span class="off">T</span>he <span class="off">S</span>peech <span class="off">S</span>ynth
+        </h1>
+      </div>
+      <div class="content">
 
-    
+        <select name="voice" id="voiceSelector">
+          <option value="Karen">Karen</option>
+        </select>
+
+        <label for="rate">Rate:</label>
+        <input name="rate" type="range"
+          max="2" min="0" step=".05">
+
+        <label for="pitch">Pitch:</label>
+        <input name="pitch" type="range"
+          max="2" min="0" step=".05">
+
+        <textarea name="text" id="text">Put text here, and I will say it for you!</textarea>
+
+        <div class="buttonWrapper">
+          <button id="stopSpeech">Stop</button>
+          <button id="startSpeech">Speak</button>
+        </div>
+
+      </div>
+    </div>
+
+
+
+<script>
+  
+</script>
+
   </body>
 </html>

@@ -1,5 +1,6 @@
 :root {
   --mainColor:#f73;
+  --mainDark:rgb(131, 46, 3)
 }
 
 html {
@@ -8,6 +9,7 @@ html {
 
 *, *:before, *:after {
   box-sizing: inherit;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -24,14 +26,179 @@ body {
 }
 
 .wrapper{
+  position:relative;
   width:70%;
-  max-width:700px;
+  max-width:600px;
   background:#fff;
   margin-top:40px;
   margin-bottom:100px;
-  padding:30px;
   text-align: justify;
 
   border-radius:10px;
-  box-shadow:10px 10px 0px rgba(0,0,0,.5)
+  box-shadow:10px 10px 0px rgba(0,0,0,.5);
+
+  overflow:hidden;
+}
+
+.head{
+  top:0px;
+  right:0px;
+  left:0px;
+  padding:10px;
+  background:var(--mainColor);
+  text-align:center;
+
+  box-shadow:0 2px 1px var(--mainDark);
+  text-shadow:1px 1px 0 rgb(252, 167, 125), -1px -2px 0 var(--mainDark);
+
+  color:rgb(255, 224, 196);
+}
+
+.off{
+  font-size:40px;
+  color:#fff;
+  text-shadow:1px 1px 0 rgb(252, 167, 125), -1px -2px 0 var(--mainDark), 0 0 8px rgba(255,255,255,.5);
+
+}
+
+.content{
+  position:relative;
+  padding:30px;
+}
+
+select, input, textarea{
+  width:100%;
+  margin-bottom:20px;
+  resize: none;
+}
+
+textarea{
+  height:6rem;
+}
+
+select, textarea{
+  border:none;
+  box-shadow:inset 0 0 15px rgba(131, 46, 3, .4);
+  border-radius:5px;
+  padding:5px;
+}
+
+.buttonWrapper{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:0px;
+  margin:0px;
+}
+
+button{
+  margin:auto;
+  background:var(--mainColor);
+  padding:10px;
+  width:45%;
+  margin:0px;
+  border:none;
+  border-radius:5px;
+  border-bottom:2px solid var(--mainDark);
+
+  color:#fff;
+  font-weight:700;
+  font-size:16px;
+}
+
+button:hover{
+  background:rgb(255, 133, 72)
+}
+
+
+/*
+ugh....
+this is why we use bootstrap
+*/
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 12.8px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  background: var(--mainColor);
+  border-radius: 25px;
+  border: 0px solid #000101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border: 0px solid #000000;
+  height: 20px;
+  width: 39px;
+  border-radius: 7px;
+  background: var(--mainDark);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -3.6px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: var(--mainColor);
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 12.8px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  background: var(--mainColor);
+  border-radius: 25px;
+  border: 0px solid #000101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border: 0px solid #000000;
+  height: 20px;
+  width: 39px;
+  border-radius: 7px;
+  background: var(--mainDark);
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 12.8px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 39px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: var(--mainColor);
+  border: 0px solid #000101;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: var(--mainColor);
+  border: 0px solid #000101;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border: 0px solid #000000;
+  height: 20px;
+  width: 39px;
+  border-radius: 7px;
+  background: var(--mainDark);
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: var(--mainColor);
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: var(--mainColor);
 }
