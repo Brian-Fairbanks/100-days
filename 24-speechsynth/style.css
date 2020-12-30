@@ -44,7 +44,7 @@ body {
   top:0px;
   right:0px;
   left:0px;
-  padding:10px;
+  padding:1px;
   background:var(--mainColor);
   text-align:center;
 
@@ -54,10 +54,19 @@ body {
   color:rgb(255, 224, 196);
 }
 
-.off{
+.head h1{
   font-size:40px;
+}
+
+.off{
+  font-size:50px;
   color:#fff;
   text-shadow:1px 1px 0 rgb(252, 167, 125), -1px -2px 0 var(--mainDark), 0 0 8px rgba(255,255,255,.5);
+}
+
+.smaller{
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: -8px;
 
 }
 
