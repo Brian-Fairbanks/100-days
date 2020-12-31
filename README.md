@@ -90,3 +90,5 @@ https://brian-fairbanks.github.io/100-days/
 ### day 24 - Speech Synthesis
   Implementation of browser built-in speech synthesis functionality
    - https://javascript30.com/ - day 23
+### day 25 - Facelift
+  - updating the index page, and making it more presentable
