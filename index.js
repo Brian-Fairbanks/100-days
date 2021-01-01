@@ -27,9 +27,9 @@ function fillProjects(el){
     .append(`#${pad(project.number, 3)}`)
   );
 
-
-
-    el.append(curDiv);
+    el.append($("<div>",{class:"projectWrapper"})
+      .append(curDiv)
+    )
   })
 }
 
