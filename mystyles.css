@@ -1,6 +1,7 @@
 :root {
   --mainColor:#f73;
-  --mainDark:rgb(131, 46, 3)
+  --mainDark:rgb(131, 46, 3);
+  --mainLight:rgb(253, 220, 204);
 }
 
 html {
@@ -26,18 +27,12 @@ body {
 }
 
 .header{
-  height:200px;
+  height:180px;
 }
 
 .title{
   font-weight:900;
-  color:rgb(255, 229, 215);
-}
-
-.intro{
-  text-align:center;
-  margin-top:50px;
-  margin-bottom:50px;
+  color:var(--mainLight);
 }
 
 
@@ -48,12 +43,14 @@ body {
   /* margin-bottom:100px; */
   text-align: justify;
 
-  border-radius:10px;
-  box-shadow:10px 10px 0px rgba(0,0,0,.5);
+  box-shadow:0 10px 0px rgba(0,0,0,.5);
 
   overflow:hidden;
+}
 
-  padding-bottom:100px;
+.wrapperContent{
+  margin-top:30px;
+  margin-bottom:30px;
 }
 
 
@@ -124,77 +121,40 @@ body {
   height:auto;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.off{
-  font-size:50px;
-  color:#fff;
-  text-shadow:1px 1px 0 rgb(252, 167, 125), -1px -2px 0 var(--mainDark), 0 0 8px rgba(255,255,255,.5);
-}
-
-
-.content{
-  position:relative;
+.highlight{
+  text-align:center;
+  background-color:var(--mainLight);
   padding:30px;
+
+  font-weight:600;
 }
 
-select, input, textarea{
-  width:100%;
-  margin-bottom:20px;
-  resize: none;
-}
-
-textarea{
-  height:6rem;
-}
-
-select, textarea{
-  border:none;
-  box-shadow:inset 0 0 15px rgba(131, 46, 3, .4);
-  border-radius:5px;
-  padding:5px;
-}
-
-.buttonWrapper{
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  padding:0px;
-  margin:0px;
-}
-
-button{
+.logo{
+  text-align:center;
+  display: flex;
   margin:auto;
-  background:var(--mainColor);
-  padding:10px;
-  width:45%;
-  margin:0px;
-  border:none;
-  border-radius:5px;
-  border-bottom:2px solid var(--mainDark);
+  margin-top:20px;
+  height:60px;
+  filter: invert(42%) sepia(93%) saturate(1352%) hue-rotate(0deg) brightness(110%) contrast(119%)
+}
 
+.logo:hover{
+  margin-top:20px;
+  height:60px;
+  filter: invert(42%) sepia(93%) saturate(1300%) hue-rotate(0deg) brightness(60%) contrast(119%)
+    drop-shadow( 0px 0px 6px rgba(131, 46, 3, .7));
+}
+
+
+.imglink{
+  color:var(--mainLight);
+  text-shadow:1px 1px 0 var(--mainLight), -1px -2px 0 var(--mainDark);
+}
+
+.bright{
+  font-size:50px;
+}
+.bright, .imglink:hover {
   color:#fff;
-  font-weight:700;
-  font-size:16px;
-}
-
-button:hover{
-  background:rgb(255, 133, 72)
-}
-
-
-a{
-  display:block;
+  text-shadow:1px 1px 0 var(--mainLight), -1px -2px 0 var(--mainDark), 0 0 8px rgba(255,255,255,.5);
 }

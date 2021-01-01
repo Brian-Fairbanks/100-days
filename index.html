@@ -16,38 +16,85 @@
 
 <body>
   <div class="header d-flex flex justify-content-center align-items-center">
-      <h1 class="title"> <span class="off">100</span> Days - <span class="off">100</span> Projects</h1>
+    <!-- <img class="logo" src="./Assets/logo.svg" /> -->
+    <h1 class="title"> <span class="bright">100</span> Days - <span class="bright">100</span> Projects</h1>
   </div>
   <div class="wrapper">
 
-    <div class="intro container">
-      <p>
-        Hello, My name is Brian Fairbanks.  Thank you for checking out my 100 days of coding project!
-      </p>
-
-      <p>
-        In an attempt to work on many different things, and expand my web development abilities, I have started this page
-        to write 1 project each day for 100 days.
-      </p>
-
-      <p>
-        Admittedly, some of these projects have not turned out quite as well as I would have liked -- They may have a bug or 2 in the UI,
-        or may not be 100% finished, such as with the Pong demonstration.  That is the risk I take when I alot myself only 1 day for each.
-      </p>
-
-    </div>
+    <div class="highlight intro">
+      <div class="container">
+        <p class="h5">
+          Hello, My name is Brian Fairbanks
+        </p>
   
-    <div class="wrapperContent container d-flex flex-wrap justify-content-center">
-      <div class="alert alert-danger text-center">
-        <i class="fas fa-exclamation-triangle display-1 p-2 pb-5"></i>
         <p>
-          This page relies heavily on Javascript functionality.  Please make sure that Javascript is enabled.
+          In an attempt to work on many different things, and expand my web development abilities, I have started this
+          page
+          to write 1 project each day for 100 days.
+        </p>
+  
+        <p>
+          Admittedly, some of these projects have not turned out quite as well as I would have liked -- They may have a
+          bug or 2 in the UI,
+          or may not be 100% finished, such as with the Pong demonstration. That is the risk I take when I alot myself
+          only 1 day for each.
+        </p>  
+
+        <p>
+          Thank you for checking out my 100 days of coding project!
         </p>
       </div>
     </div>
+
+    <div class="wrapperContent container d-flex flex-wrap justify-content-center">
+      <div class="alert alert-danger text-center m-0">
+        <i class="fas fa-exclamation-triangle display-1 p-2 pb-5"></i>
+        <p>
+          This page relies heavily on Javascript functionality. Please make sure that Javascript is enabled.
+        </p>
+      </div>
+    </div>
+
+    <div class="text-center highlight">
+      Like what you see?  Click my logo to check out my resume page for contact information
+      <a target="_blank" href="https://brian-fairbanks.github.io/Resume/">
+        <img class="logo" src="Assets/logo.svg"/>
+      </a>
+    </div>
+
   </div>
 
-  
+  <footer class="mastfoot container mt-auto pt-3">
+    <!-- Link Section -->
+    <div class="container-lg mt-1 p-0">
+      <div class="d-flex justify-content-center justify-content-md-around p-0">
+        <!-- Linked In -->
+        <figure class="">
+          <a target="_blank" href="https://www.linkedin.com/in/bkfairbanks/">
+            <i class="imglink fab fa-linkedin fa-3x fa-icon-only p-1"></i>
+          </a>
+        </figure>
+        <!-- GitHub -->
+        <figure class="">
+          <a target="_blank" href="https://github.com/Brian-Fairbanks">
+            <i class="imglink fab fa-github fa-3x fa-icon-only p-1"></i>
+          </a>
+        </figure>
+        <!-- FaceBook -->
+        <figure class="">
+          <a target="_blank" href="https://www.facebook.com/BKFairbanks">
+            <i class="imglink fab fa-facebook-square fa-3x fa-icon-only p-1"></i>
+          </a>
+        </figure>
+      </div>
+    </div>
+
+    <section class="inner text-center brown text-light">
+      <h6>&copy; Copyright 2020</h6>
+    </section>
+  </footer>
+
+
   <!-- Import Scripts  -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="projects.js"></script>
