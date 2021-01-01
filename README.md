@@ -92,3 +92,5 @@ https://brian-fairbanks.github.io/100-days/
    - https://javascript30.com/ - day 23
 ### day 25 - Facelift
   - updating the index page, and making it more presentable
+### day 26 - Auto Facelift
+  - updating the index page, to make card creation dynamic, rather than manually adding all the divs
