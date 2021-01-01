@@ -84,7 +84,7 @@ body {
   box-shadow:3px 3px 10px rgba(0,0,0,.4);
 }
 
-.project a{
+a,.name{
   position:absolute;
   bottom:0px;
   left:0px;
