@@ -162,7 +162,7 @@ const projects = [
   },
 
   {
-    src: "./27-PatternGenerator/",
+    src: "./27-patternGenerator/",
     number:  27,
     name: "Dynamic Pattern Generator"
   }
