@@ -3,7 +3,7 @@
   --rows:10%;
   --itemHeight:10vh;
   --itemWidth:10vw;
-  --borders:100% 0% 0% 0%;
+  --borders:0% 0% 0% 0%;
   --color0:#300;
   --color1:#700;
   --color2:#a00;
@@ -58,8 +58,8 @@ input[type="number"]{
 
 .panel{
   position:relative;
-  height:var(--itemHeight);
-  width:var(--itemWidth);
+  height:var(--rows);
+  width:var(--cols);
   overflow:hidden;
 }
 
@@ -72,13 +72,13 @@ input[type="number"]{
 
 /* correct rotated width and height */
 .left *, .right *{
-  width:var(--itemHeight);
-  height:var(--itemWidth);
+  width:calc(1*var(--itemHeight));
+  height:calc(1*var(--itemWidth));
 }
 
 .up *, .down *{
-  height:var(--itemHeight);
-  width:var(--itemWidth);
+  height:calc(1*var(--itemHeight));
+  width:calc(1*var(--itemWidth));
 }
 
 
@@ -92,7 +92,6 @@ input[type="number"]{
 }
 
 .right *{
-  margin-top:.5px;
   transform:rotate(90deg)
     translate(0px, calc(-1*var(--itemWidth)));
 }
