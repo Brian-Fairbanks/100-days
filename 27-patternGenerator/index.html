@@ -23,6 +23,7 @@
       const wrapper = document.querySelector(".wrapper");
       const settingsPanels = document.querySelectorAll("input[type=number]")
       const patternSettings = {cols:10, rows:10}
+      const orient=["up","right","down","left"]
 
 
       function changeHandler(){
@@ -32,6 +33,7 @@
         patternSettings[this.name] = this.value;
 
         document.documentElement.style.setProperty(`--${this.name}`, 100/this.value+'%')
+        document.documentElement.style.setProperty(`--item${this.name === "rows"?"Height":"Width"}`, 100/this.value+(this.name === "rows"?"vh":"vw"))
         fillScreen();
       }
 
@@ -41,8 +43,10 @@
 
         for(let col =0; col<patternSettings.cols; col++){
           for(let row =0; row<patternSettings.rows; row++){
+            let rotate = Math.floor(4*Math.random());
             const panel = document.createElement("div");
-            panel.classList.add("panel");
+            panel.classList.add("panel", orient[rotate], `color${Math.floor(4*Math.random())}`);
+            panel.append(document.createElement("div"));
             wrapper.append(panel);
           }
         }

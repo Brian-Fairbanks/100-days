@@ -1,8 +1,14 @@
 :root {
-  --mainColor:#f73;
-  --mainDark:rgb(131, 46, 3);
   --cols:10%;
   --rows:10%;
+  --itemHeight:10vh;
+  --itemWidth:10vw;
+  --borders:100% 0% 0% 0%;
+  --color0:#300;
+  --color1:#700;
+  --color2:#a00;
+  --color3:#f00;
+  --color4:#f73;
 }
 
 html {
@@ -26,7 +32,9 @@ body {
 }
 
 .wrapper{
-  background:#f73;
+  display:flex;
+  flex-wrap: wrap;
+  background:var(--color4);
   width:100vw;
   height:100vh;
   overflow:hidden;
@@ -48,17 +56,62 @@ input[type="number"]{
   width:50px;
 }
 
-.panel, .up, .down{
-  display:inline-block;
-  background:#f00;
-  width:var(--cols);
-  height:var(--rows);
-  margin-bottom:-4px;
-  
-  border:1px solid #000;
+.panel{
+  position:relative;
+  height:var(--itemHeight);
+  width:var(--itemWidth);
+  overflow:hidden;
 }
 
-.left, .right{
-  margin-bottom:-4px;
+.panel *{
+  background:#f00;
+  border-radius:var(--borders);
 
+  transform-origin: top left;
+}
+
+/* correct rotated width and height */
+.left *, .right *{
+  width:var(--itemHeight);
+  height:var(--itemWidth);
+}
+
+.up *, .down *{
+  height:var(--itemHeight);
+  width:var(--itemWidth);
+}
+
+
+/* Position properly within parent cell */
+.up *{
+}
+
+.down *{
+  transform:rotate(180deg)
+    translate(calc(-1*var(--itemWidth)), calc(-1*var(--itemHeight)));
+}
+
+.right *{
+  margin-top:.5px;
+  transform:rotate(90deg)
+    translate(0px, calc(-1*var(--itemWidth)));
+}
+
+.left *{
+  margin-left:1px;
+  transform:rotate(270deg)
+    translate(calc(-1*var(--itemHeight)), 0px);
+}
+
+.color0 *{
+  background:var(--color0);
+}
+.color1 *{
+  background:var(--color1);
+}
+.color2 *{
+  background:var(--color2);
+}
+.color3 *{
+  background:var(--color3);
 }
