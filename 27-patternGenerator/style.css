@@ -1,0 +1,64 @@
+:root {
+  --mainColor:#f73;
+  --mainDark:rgb(131, 46, 3);
+  --cols:10%;
+  --rows:10%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* background: #700;
+  background: linear-gradient(135deg, #850 0%,#700 48%,#a22 100%); */
+  background-size: cover;
+  align-items: center;
+}
+
+.wrapper{
+  background:#f73;
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+}
+
+#settings{
+  position:absolute;
+  top:10px;
+  right:10px;
+
+  background:rgba(255,255,255,.7);
+  box-shadow:4px 4px 1px rgba(0,0,0,.5), -4px -4px 1px rgba(0,0,0,.5);
+
+  border-radius:3px;
+  padding:10px;
+}
+
+input[type="number"]{
+  width:50px;
+}
+
+.panel, .up, .down{
+  display:inline-block;
+  background:#f00;
+  width:var(--cols);
+  height:var(--rows);
+  margin-bottom:-4px;
+  
+  border:1px solid #000;
+}
+
+.left, .right{
+  margin-bottom:-4px;
+
+}

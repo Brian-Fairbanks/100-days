@@ -159,5 +159,11 @@ const projects = [
     src: "./26-autolift/",
     number:  26,
     name: "Dynamic Card Creation (this page)"
+  },
+
+  {
+    src: "./27-PatternGenerator/",
+    number:  27,
+    name: "Dynamic Pattern Generator"
   }
 ]
