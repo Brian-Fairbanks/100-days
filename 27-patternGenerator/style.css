@@ -3,7 +3,7 @@
   --rows:10%;
   --itemHeight:10vh;
   --itemWidth:10vw;
-  --borders:0% 0% 0% 0%;
+  --borders:100% 0% 0% 0%;
   --color0:#300;
   --color1:#700;
   --color2:#a00;
@@ -50,11 +50,45 @@ body {
 
   border-radius:3px;
   padding:10px;
+
+  text-align:center;
+}
+
+#settings h3{
+  margin-top:-6px;
+  margin-bottom:0px;
 }
 
 input[type="number"]{
   width:50px;
 }
+
+select{
+  width:100%;
+  margin-bottom:5px;
+}
+
+input[type="checkbox"]{
+  margin:-2px;
+  margin-right:2px;
+}
+
+#squareWrapper{
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+}
+#square{
+  display:flex;
+  flex-direction: row;
+}
+#squareBottom{
+  margin-top:4px;
+  display:flex;
+  flex-direction: row-reverse;
+}
+
 
 .panel{
   position:relative;

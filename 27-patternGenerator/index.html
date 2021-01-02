@@ -9,14 +9,29 @@
   <body>
     <div class="wrapper"></div>
     <form id="settings">
-      Corners:
-      <input type="checkbox" name="border">
-      <input type="checkbox" name="border">
-      <input type="checkbox" name="border">
-      <input type="checkbox" name="border">
+      <h3>OPTIONS</h3>
+      Color:
+      <select name="colors">
+        <option value="0">Red</option>
+        <option value="1">Green</option>
+        <option value="2">Blue</option>
+      </select>
 
       <br>
 
+      Corners:
+      <div id="squareWrapper">
+        <div id="square">
+          <input type="checkbox" name="border" checked="true">
+          <input type="checkbox" name="border">
+        </div>
+        <div id="squareBottom">
+          <input type="checkbox" name="border">
+          <input type="checkbox" name="border">
+        </div>
+      </div>
+
+      <br>
 
       <label for="rows">Rows:</label>
       <input type="number" name="rows" value="10" min="1" max="50">
@@ -34,6 +49,7 @@
       const patternSettings = {cols:10, rows:10}
       const orient=["up","right","down","left"]
       const borders = document.querySelectorAll("input[type=checkbox]")
+      const colors = document.querySelector("select")
 
 
       function changeHandler(){
@@ -50,6 +66,19 @@
       function borderHandler(){
         const setup = Array.from(borders).map(border => border.checked?"100%":"0%").join(" ");
         document.documentElement.style.setProperty("--borders", setup);
+      }
+
+
+      const colorOptions = [
+        ['#300', '#700', '#a00', '#f00', '#f73'],
+        ['#030', '#070', '#0a0', '#0f0', '#3ff'],
+        ['#003', '#007', '#00a', '#00f', '#f7f'],
+      ]
+
+      function colorChanger(){
+        colorOptions[this.value].forEach((color,index) => {
+          document.documentElement.style.setProperty(`--color${index}`, color);
+        })
       }
 
       function fillScreen(){
@@ -75,6 +104,8 @@
       borders.forEach( setting => {
         setting.addEventListener("change", borderHandler);
       })
+
+      colors.addEventListener("change",colorChanger);
 
       fillScreen();
     </script>
