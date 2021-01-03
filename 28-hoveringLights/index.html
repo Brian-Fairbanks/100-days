@@ -10,7 +10,7 @@
     <div class="wrapper">
       <h1>HOVER LIGHTS</h1>
       <label class="switch">
-        <input type="checkbox">
+        <input id="fillColor" type="checkbox">
         <span class="slider round"></span>
       </label>
 
@@ -22,11 +22,15 @@
 
   <script>
     const wrapper = document.querySelector(".blockWraper");
+    const colorSlider = document.querySelector("#fillColor");
+    const colors = ['#e74c3c', '#8e44ad', '#3498db', '#e67e22', '#2ecc71']
+    let fillColor = false;
+
 
     function addColor(e){
-      color = "rgb(255,255,255)";
+      let color = fillColor?colors[Math.floor(Math.random() * colors.length)] : "#dddddd";
       this.style.background = color;
-      this.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`;
+      this.style.boxShadow = `.25vmin .25vmin .5vmin rgba(0,0,0,.05), -.25vmin -.25vmin 1px rgba(255,255,255,.025), 0 0 2px ${color}, 0 0 10px ${color}`;
     }
 
     function removeColor(e){
@@ -42,6 +46,8 @@
       block.addEventListener("mouseover", addColor);
       block.addEventListener("mouseout", removeColor);
     }
+
+    colorSlider.addEventListener("change", (e) => {fillColor = e.target.checked});
 
   </script>
 

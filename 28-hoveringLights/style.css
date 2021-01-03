@@ -115,7 +115,7 @@ body {
 }
 
 input:checked + .slider {
-  background:linear-gradient(100deg, #f00 15%, #0f0 30%, #00f 100%);
+  background:linear-gradient(100deg, #f55 15%, #5f5 30%, #55f 100%);
 }
 
 input:focus + .slider {
