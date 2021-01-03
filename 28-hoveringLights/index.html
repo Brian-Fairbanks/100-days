@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hovering Lights</title>
+    <meta name="viewport" content="width-device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <h1>HOVER LIGHTS</h1>
+      <div class="blockWraper">
+      </div>
+    </div>
+    
+  </body>
+
+  <script>
+    const wrapper = document.querySelector(".blockWraper");
+
+    for (let i=0; i<400; i++){
+      const block = document.createElement("div");
+      block.classList.add("block")
+      wrapper.appendChild(block);
+    }
+    
+  </script>
+
+</html>

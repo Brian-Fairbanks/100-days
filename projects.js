@@ -165,5 +165,11 @@ const projects = [
     src: "./27-patternGenerator/",
     number:  27,
     name: "Dynamic Pattern Generator"
+  },
+
+  {
+    src: "./28-hoveringLights/",
+    number:  28,
+    name: "Hovering Lights"
   }
 ]

@@ -96,4 +96,7 @@ https://brian-fairbanks.github.io/100-days/
   updating the index page, to make card creation dynamic, rather than manually adding all the divs
 ### day 27 - Pattern Generator
   A dynamic background pattern generation, with update settings
-  - Idea inspired by FlorenPop - https://codepen.io/FlorinPop17/full/qBWGmqa
+  - Idea inspired by FlorenPop - 12 - https://codepen.io/FlorinPop17/full/qBWGmqa
+### day 28 - Hovering Lights
+  A neat little glow effect created by hovering over cells, reminicent of child toys
+  - Idea inspired by FlorenPop - 24 - https://codepen.io/FlorinPop17/full/qBWGmqa
