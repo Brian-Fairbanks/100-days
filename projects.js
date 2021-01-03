@@ -98,7 +98,7 @@ const projects = [
   {
     src: "./16-cards/",
     number:  16,
-    name: "Playing Card Generator"
+    name: "Playing Card Generator (Arrow Keys)"
   },
 
   {
