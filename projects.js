@@ -171,7 +171,7 @@ const projects = [
     src: "./28-hoveringLights/",
     number:  28,
     name: "Hovering Lights"
-  }
+  },
 
   
   {
