@@ -1,4 +1,6 @@
 :root {
+  --inputColor: #f73;
+  --fontSize:16px;
 }
 
 html {
@@ -7,6 +9,7 @@ html {
 
 *, *:before, *:after {
   box-sizing: inherit;
+  font-size:var(--fontSize);
 }
 
 body {
@@ -20,13 +23,34 @@ body {
   background-size: cover;
   align-items: center;
   justify-content: center;
+}
 
-  font-size:70px;
+.label{
+  background:#888;
+  margin-bottom:5px;
+}
+
+.item{
+  text-align:center;
+  border:1px solid #888;
+}
+
+.settings, .settings *{
+  font-size:16px;
+}
+
+.settings{
+  position:absolute;
+  top:0px;
+  right:0px;
+  padding:3px;
 }
 
 
 
-
+/* ============================================================
+  Switches
+============================================================*/
 .switch {
   position: relative;
   display: inline-block;
@@ -48,7 +72,7 @@ body {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  /* box-shadow:inset -.05em -.1em .2em rgba(255,255,255,.6), inset .1em .1em .5em rgba(0,0,0,.6); */
+  box-shadow:inset -.05em -.1em 0 rgba(255,255,255,.3), inset .1em .1em .1em rgba(0,0,0,.3);
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -68,11 +92,7 @@ body {
 }
 
 input:checked+.slider {
-  background-color: #2196F3;
-}
-
-input:focus+.slider {
-  /* box-shadow:inset -.05em -.1em .2em rgba(255,255,255,.6), inset .1em .1em .5em rgba(0,0,0,.6), 0 0 .3em #2196F3; */
+  background-color: var(--inputColor);
 }
 
 input:checked+.slider:before {
@@ -101,12 +121,104 @@ input+.slider{
 
 /* animations */
 @keyframes rotateOn {
-  40%{transform:rotate(45deg) translate(.5em, -.3em);}
+  40%{transform:rotate(20deg) translate(.5em, -.3em);}
   100%{transform:rotate(0deg);}
 }
 
 @keyframes rotateOff {
-  40%{transform:rotate(-45deg)  translate(-0.5em, -.3em);};}
+  40%{transform:rotate(-20deg)  translate(-0.5em, -.3em);}
   100%{transform:rotate(0deg);}
 }
 
+/* ============================================================
+  Checkbox
+============================================================*/
+.container {
+  display: inline-block;
+  position: relative;
+  padding-left: 1em;
+  margin-bottom: .33em;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;					
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1em;
+  width: 1em;
+  background-color: #ccc;
+  box-shadow:inset -.05em -.1em 0 rgba(255,255,255,.3), inset .1em .1em .1em rgba(0,0,0,.3);
+  border-radius:.1em;
+  overflow:hidden;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: var(--inputColor);
+  transition-duration: .4s;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  /* display: none; */
+
+  top:.07em;
+  left:.32em;
+  width: .4em;
+  height: .7em;
+  border: solid white;
+  border-width: 0 .15em .15em 0;
+  -webkit-transform: rotate(45deg) scale(0);
+  -ms-transform: rotate(45deg) scale(0);
+  transform: rotate(45deg)   scale(0);
+  transition-duration: .4s;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  /* display: block; */
+  -webkit-transform: rotate(45deg) scale(100%);
+  -ms-transform: rotate(45deg) scale(100%);
+  transform: rotate(45deg)   scale(1);
+  transition-duration: .4s;
+}
+
+/* Radio Fix*/
+.radio{
+  border-radius:100%;
+}
+
+.radio:after {
+  background:#fff;
+  border-width:.3em;
+  border-radius:100%;
+  top:.15em;
+  left:.15em;
+  width: .7em;
+  height: .7em;
+}
+
+/*
+Focused
+*/
+
+input:focus+.slider, input:focus+.checkmark, .container:hover input ~ .checkmark {
+  box-shadow:inset -.05em -.1em 0 rgba(255,255,255,.3), inset .1em .1em .1em rgba(0,0,0,.3), 0 0 .2em var(--inputColor) ;
+}
