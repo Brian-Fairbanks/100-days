@@ -172,4 +172,11 @@ const projects = [
     number:  28,
     name: "Hovering Lights"
   }
+
+  
+  {
+    src: "./29-gravitySwitch/",
+    number:  29,
+    name: "Input Restyling"
+  }
 ]
