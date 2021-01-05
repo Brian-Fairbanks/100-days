@@ -2,6 +2,10 @@
 	background-color: #fbf9ec;
 }
 
+.bg-dbeige{
+	background-color: #ebe5c3;
+}
+
 .bg-dblue{
 	background-color:#253256
 }
@@ -18,8 +22,10 @@
 	text-shadow:1px 1px 0 #778594;
 }
 
-.nav-item *{
+.nav-item{
 	text-align:center;
+	font-weight:500;
+	color:#253256;
 }
 
 .nav-item .active{
@@ -42,16 +48,68 @@
 	margin-bottom:3px;
 }
 
-.site-content{
-	margin-top:75px;
+.entry-content{
+	margin:20px;
 }
 
+.jumbotron {
+  background-image: url("https://i0.wp.com/schnauzerrescuetexas.me/wp-content/uploads/2014/07/SRT_Home3.jpg?resize=960%2C640");
+	background-size: cover;
+	background-position: center;
+	height:60vh;
+}
 
-/* 
-.nav-width-fix{
-	width:100%;
+.jumbo-text{
+	padding-left:10%;
+	padding-top:10%;
+	color:#fff;
+	font-weight:900;
+	font-size:200%;
+	text-shadow:2px 2px 4px rgba(0,0,0,.5);
+}
+.jumbo-text span{
+	display:block;
+}
+
+.footer{
+	padding-top:20px;
+}
+
+.links{
 	display:flex;
 	flex-direction: row;
 	justify-content: center;
-	align-items: center;
-} */
+	width:100%;
+	background-color: #253256;
+}
+
+.links a{
+	font-size:50px;
+	color:#113;
+	padding:10px;
+}
+
+.fa-facebook-square:hover{
+	color:#4267B2;
+	text-shadow:0 0 4px #4267B2;
+}
+.fa-twitter:hover{
+	color:#1C9CEA;
+	text-shadow:0 0 4px #1C9CEA;
+}
+.fa-instagram:hover{
+	color:#8134AF;
+	text-shadow:0 0 4px #515BD4;
+}
+.fa-rss:hover{
+	color:#ff6600;
+	text-shadow:0 0 4px #ff6600;
+}
+
+.help{
+	font-size:10px;
+}
+
+.hidden{
+	display:none;
+}

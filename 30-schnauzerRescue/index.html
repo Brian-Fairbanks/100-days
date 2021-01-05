@@ -7,7 +7,7 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+</head>
 
 <body>
 
@@ -38,7 +38,7 @@
       </button>
       <div class="collapse navbar-collapse d-md-flex justify-content-center" id="navbarSupportedContent">
         <ul class="navbar-nav nav-width-fix">
-        <!-- Home  -->
+          <!-- Home  -->
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
@@ -128,11 +128,14 @@
               <li class="dropdown-item"><a href="https://schnauzerrescuetexas.me/sample-page/about-us/">About Us</a>
               </li>
               <li class="dropdown-item"><a
-                  href="https://schnauzerrescuetexas.me/srts-all-year-christmas-wish-list/">SRT's All-Year Christmas Wish List!</a></li>
+                  href="https://schnauzerrescuetexas.me/srts-all-year-christmas-wish-list/">SRT's All-Year Christmas
+                  Wish List!</a></li>
               <li class="dropdown-item"><a href="https://schnauzerrescuetexas.me/sample-page/thanks/">Thanks!</a></li>
-              <li class="dropdown-item"><a href="https://schnauzerrescuetexas.me/sample-page/word-on-fees/">Adoption Fees</a></li>
+              <li class="dropdown-item"><a href="https://schnauzerrescuetexas.me/sample-page/word-on-fees/">Adoption
+                  Fees</a></li>
               <li class="dropdown-item"><a href="https://schnauzerrescuetexas.me/sample-page/forms/">Forms</a></li>
-              <li class="dropdown-item"><a href="https://schnauzerrescuetexas.me/sample-page/documents/">SRT Documents</a></li>
+              <li class="dropdown-item"><a href="https://schnauzerrescuetexas.me/sample-page/documents/">SRT
+                  Documents</a></li>
               <li class="dropdown-item"><a href="https://schnauzerrescuetexas.me/sample-page/policies/">SRT Policies</a>
               </li>
             </ul>
@@ -145,7 +148,7 @@
               </form>
             </li> -->
 
-          </ul>           
+        </ul>
       </div>
     </div>
   </nav>
@@ -153,10 +156,23 @@
 
   <!-- Content -->
   <div id="site-content" class="site-content">
+
+    <div class="jumbotron m-0 p-0 position-relative">
+
+      <div class="jumbo-text">
+        <span>A Schnauzer.</span>
+        <span>In A Home.</span>
+        <span>Knowing Love.</span>
+      </div>
+
+      <address style="text-align: right; position:absolute; bottom:0px; left:0px; right:10px;"><small>Photo Courtesy Of
+          <span style="color: #0000ff;"><a href="http://www.thepaintedclockphotography.com" target="_blank"><span
+                style="color: #0000ff;">The
+                Painted Clock Photography</span></a></span></small></address>
+    </div>
+
     <div class="container">
       <div class="entry-content">
-        <h1 class="text-center">A Schnauzer. In A Home. Knowing Love.</h1>
-
         <p>Schnauzer Rescue of Texas (SRT) was founded on the principle that
           responsible rescue, in the long-term, finds homes for the largest number of lost, neglected and
           abandoned Schnauzers. Our committed volunteers work cooperatively to maintain a foster family network
@@ -166,27 +182,104 @@
           Schnauzers we assist make it to their forever, and perfect, home! Peruse our site, look over our
           Schnauzers and consider whether adopting a Schnauzer from SRT is the right choice for you! Ready now?
           Click the &#8216;Adopt&#8217; tab! We&#8217;re here to help!</p>
-        <p style="text-align: justify;">
-          <img loading="lazy" class="img-fluid"
-            src="https://i0.wp.com/schnauzerrescuetexas.me/wp-content/uploads/2014/07/SRT_Home3.jpg?resize=960%2C640"
-            alt="SRT_Home" width="960" height="640"
-            srcset="https://i0.wp.com/schnauzerrescuetexas.me/wp-content/uploads/2014/07/SRT_Home3.jpg?w=1280&amp;ssl=1 1280w, https://i0.wp.com/schnauzerrescuetexas.me/wp-content/uploads/2014/07/SRT_Home3.jpg?resize=300%2C199&amp;ssl=1 300w, https://i0.wp.com/schnauzerrescuetexas.me/wp-content/uploads/2014/07/SRT_Home3.jpg?resize=1024%2C682&amp;ssl=1 1024w"
-            sizes="(max-width: 960px) 100vw, 960px" data-recalc-dims="1" /></a></p>
-        <address style="text-align: right;"><small>Photo Courtesy Of <span style="color: #0000ff;"><a
-                href="http://www.thepaintedclockphotography.com" target="_blank"><span style="color: #0000ff;">The
-                  Painted Clock Photography</span></a></span></small></address>
 
       </div>
       </footer>
       </article>
       </main>
     </div>
+
+    <!-- Footer -->
+    <div class="footer bg-dbeige text-center">
+        <h1>Contact Us</h1>
+      <button type="button" id="openForm" class="btn btn-dark mb-3">Open Form</button>
+
+      <form id="contactForm" class="form-horizontal col-sm-6 col-md-5 col-lg-4 col-xl-3 mx-auto mb-3 hidden">
+        <fieldset>
+
+          <!-- Form Name -->
+          (please note that the form is not active at this time!)
+          <hr>
+
+          <!-- Text input-->
+          <div class="form-group container-sm text-center">
+            <label class="control-label" for="fName">Name</label>
+            <div class="mx-auto"></div>
+            <input class="col-5 m-0 p-0 text-center" id="fName" name="fName" type="text" placeholder="First"
+              class="form-control input-md" required="">
+            <input class="col-5 m-0 p-0 text-center" id="lName" name="lName" type="text" placeholder="Last"
+              class="form-control input-md" required="">
+          </div>
+
+          <hr>
+
+          <label class="control-label" for="email">Email</label>
+          <div class="mx-auto">
+            <input class="col-12" id="email" name="email" type="text" placeholder="Email" class="form-control input-md"
+              required="">
+            <span class="help">Please provide a valid email address. Please double check the spelling!</span>
+          </div>
+
+          <hr>
+
+          <label class="control-label" for="phone">Telephone</label>
+          <div class="mx-auto">
+            <input class="col-12" id="phone" name="phone" type="text" placeholder="Phone Number"
+              class="form-control input-md" required="">
+            <span class="help">Please provide the best telephone number at which we can reach you. A cell phone is
+              usually best!</span>
+          </div>
+
+          <hr>
+
+          <div class="form-group">
+            <label for="formMessage">How Can We Help? Give Us A Hint!</label>
+            <textarea class="form-control" id="formMessage" rows="3"></textarea>
+            <span class="help">Please let us know how we can help you. If you are working from a mobile device, please
+              look for the menu button on our home page. This will take you to pages that outline our dogs available for
+              adoption, our adoption process, adoption form, etc and answer many questions.</span>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+
+    <!-- Social Links -->
+    <div class="links">
+      <a href="https://www.facebook.com/pages/Schnauzer-Rescue-of-Texas/1462230917364281?ref_type=bookmark">
+        <i class="fab fa-facebook-square"></i>
+      </a>
+      <a href="http://www.twitter.com/SRT_DogRescueTX">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="http://instagram.com/schnauzerrescueoftexas/">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://schnauzerrescuetexas.me/feed/">
+        <i class="fas fa-rss"></i>
+      </a>
+    </div>
+  </div>
   </div>
 
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
     crossorigin="anonymous"></script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/9aa3b96097.js" crossorigin="anonymous"></script>
+
+
+  <script>
+    const openForm = document.querySelector("#openForm")
+    const form = document.querySelector("#contactForm")
+
+    function showForm(){
+      openForm.classList.add("hidden");
+      form.classList.remove("hidden");
+    }
+
+    openForm.addEventListener("click", showForm);
+  </script>
 
 </body>
 
