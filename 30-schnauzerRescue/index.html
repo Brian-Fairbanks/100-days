@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Navbar Page</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<body>
+
+  <!-- hidden on small -->
+  <div class="container-fluid bg-beige">
+    <img
+      class="custom-logo d-none d-sm-block mx-auto img-fluid" alt=""
+      width="250" height="278"
+      src="https://i2.wp.com/schnauzerrescuetexas.me/wp-content/uploads/2016/07/Logo-high-rez-e1467764873652.jpg?fit=250%2C278&amp;ssl=1"
+    />
+  </div>
+
+  <nav class="navbar navbar-expand-sm navbar-light bg-beige">
+    <div class="container-fluid">
+        <a href="https://schnauzerrescuetexas.me/" class="navbar-brand" rel="home" >
+          <!-- hidden on large -->
+          <img
+            class="custom-logo d-inline-block d-sm-none" alt=""
+            width="60" height="65"
+            src="https://i2.wp.com/schnauzerrescuetexas.me/wp-content/uploads/2016/07/Logo-high-rez-e1467764873652.jpg?fit=250%2C278&amp;ssl=1"
+          />
+        </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- <div id="site-wrapper" class="site-wrapper">
+    <header id="site-header" class="site-header" role="banner">
+
+      </div>
+      <div class="site-header-main">
+        <div class="container">
+          <div class="site-branding">
+            <a href="https://schnauzerrescuetexas.me/" class="custom-logo-link" rel="home" aria-current="page"><img
+                width="250" height="278"
+                src="https://i2.wp.com/schnauzerrescuetexas.me/wp-content/uploads/2016/07/Logo-high-rez-e1467764873652.jpg?fit=250%2C278&amp;ssl=1"
+                class="custom-logo" alt="" /></a> </div>
+
+
+          <nav id="site-navigation" class="site-navigation" role="navigation">
+            <span class="menu-toggle">Menu</span>
+            <div class=" mobile-menu">
+              <ul id="menu-menu-1" class="menu">
+                <li id="menu-item-16"
+                  class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-16">
+                  <a href="http://schnauzerrescuetexas.me/" aria-current="page">Home</a></li>
+                <li id="menu-item-268"
+                  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-268">
+                  <a href="http://schnauzerrescuetexas.me/category/waitingonyou/">Our Minis</a>
+                  <ul class="sub-menu">
+                    <li id="menu-item-37"
+                      class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-37"><a
+                        href="https://schnauzerrescuetexas.me/category/waitingonyou/">1. ME &#8211; Waiting On You</a>
+                    </li>
+                    <li id="menu-item-39"
+                      class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-39"><a
+                        href="https://schnauzerrescuetexas.me/category/inforrepair/">2. ME &#8211; In For Repairs</a>
+                    </li>
+                    <li id="menu-item-38"
+                      class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-38"><a
+                        href="https://schnauzerrescuetexas.me/category/mynewfamily/">3. ME-My New Family</a></li>
+                    <li id="menu-item-1243"
+                      class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1243"><a
+                        href="https://schnauzerrescuetexas.me/category/forever-fosters/">4. ME &#8211; Forever
+                        Fosters</a></li>
+                    <li id="menu-item-41"
+                      class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-41"><a
+                        href="https://schnauzerrescuetexas.me/category/remembrances/">5. ME-Remembering</a></li>
+                    <li id="menu-item-352"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-352"><a
+                        href="https://schnauzerrescuetexas.me/sample-page/rb-poem/">The Rainbow Bridge</a></li>
+                  </ul>
+                </li>
+                <li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-114"><a
+                    href="https://schnauzerrescuetexas.me/sample-page/adopt/">Adopt!</a></li>
+                <li id="menu-item-500" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-500"><a
+                    href="https://schnauzerrescuetexas.me/sample-page/event/">Events</a></li>
+                <li id="menu-item-141" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-141"><a
+                    href="https://schnauzerrescuetexas.me/sample-page/help-us/">Help Us !</a></li>
+                <li id="menu-item-888"
+                  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-888">
+                  <a href="http://schnauzerrescuetexas.me/sample-page/merch/">Store</a>
+                  <ul class="sub-menu">
+                    <li id="menu-item-889"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-889"><a
+                        href="https://schnauzerrescuetexas.me/sample-page/merchandise/">SRT Merchandise</a></li>
+                    <li id="menu-item-608"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-608"><a
+                        href="https://schnauzerrescuetexas.me/sample-page/return-policy/">Return Policy</a></li>
+                  </ul>
+                </li>
+                <li id="menu-item-270"
+                  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-270">
+                  <a href="http://schnauzerrescuetexas.me/sample-page/the-miniature-schnauzer/">Resources</a>
+                  <ul class="sub-menu">
+                    <li id="menu-item-93" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-93">
+                      <a href="https://schnauzerrescuetexas.me/sample-page/the-miniature-schnauzer/">The Miniature
+                        Schnauzer</a></li>
+                    <li id="menu-item-1636"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1636"><a
+                        href="https://schnauzerrescuetexas.me/sample-page/the-cost-of-a-pet/">The Cost Of A Pet</a></li>
+                    <li id="menu-item-1603"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1603"><a
+                        href="https://schnauzerrescuetexas.me/sample-page/1596-2/">Rescue Explained</a></li>
+                    <li id="menu-item-102"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-102"><a
+                        href="https://schnauzerrescuetexas.me/sample-page/crating-your-dog/">Crating Your Dog</a></li>
+                    <li id="menu-item-373"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-373"><a
+                        href="https://schnauzerrescuetexas.me/sample-page/favlinks/">Favorite Internet Links</a></li>
+                    <li id="menu-item-722"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-722"><a
+                        href="https://schnauzerrescuetexas.me/sample-page/pit-bulls/">Pit Bulls</a></li>
+                  </ul>
+                </li>
+                <li id="menu-item-269"
+                  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-269">
+                  <a href="http://schnauzerrescuetexas.me/sample-page/about-us/">Organization</a>
+                  <ul class="sub-menu">
+                    <li id="menu-item-48" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48">
+                      <a href="https://schnauzerrescuetexas.me/sample-page/about-us/">About Us</a></li>
+                    <li id="menu-item-4686"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4686"><a
+                        href="https://schnauzerrescuetexas.me/srts-all-year-christmas-wish-list/">SRT&#8217;s All-Year
+                        Christmas Wish List!</a></li>
+                    <li id="menu-item-306"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-306"><a
+                        href="https://schnauzerrescuetexas.me/sample-page/thanks/">Thanks!</a></li>
+                    <li id="menu-item-696"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-696"><a
+                        href="https://schnauzerrescuetexas.me/sample-page/word-on-fees/">Adoption Fees</a></li>
+                    <li id="menu-item-418"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-418"><a
+                        href="https://schnauzerrescuetexas.me/sample-page/forms/">Forms</a></li>
+                    <li id="menu-item-240"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-240"><a
+                        href="https://schnauzerrescuetexas.me/sample-page/documents/">SRT Documents</a></li>
+                    <li id="menu-item-156"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-156"><a
+                        href="https://schnauzerrescuetexas.me/sample-page/policies/">SRT Policies</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header> -->
+
+    
+    <div id="site-content" class="site-content">
+      <div class="container">
+            <div class="entry-content">
+              <h1 class="text-center">A Schnauzer. In A Home. Knowing Love.</h1>
+
+              <p >Schnauzer Rescue of Texas (SRT) was founded on the principle that
+                responsible rescue, in the long-term, finds homes for the largest number of lost, neglected and
+                abandoned Schnauzers. Our committed volunteers work cooperatively to maintain a foster family network
+                where these Schnauzers learn what it means to have a dog’s life; what it means to ‘own’ a family; and
+                what it means to live life with love. Our adopters are carefully screened and are chosen because they
+                share our vision. In short, Schnauzer Rescue of Texas exists for the sole purpose of ensuring that the
+                Schnauzers we assist make it to their forever, and perfect, home! Peruse our site, look over our
+                Schnauzers and consider whether adopting a Schnauzer from SRT is the right choice for you! Ready now?
+                Click the &#8216;Adopt&#8217; tab! We&#8217;re here to help!</p>
+              <p style="text-align: justify;">
+                <img
+                    loading="lazy" class="img-fluid"
+                    src="https://i0.wp.com/schnauzerrescuetexas.me/wp-content/uploads/2014/07/SRT_Home3.jpg?resize=960%2C640"
+                    alt="SRT_Home" width="960" height="640"
+                    srcset="https://i0.wp.com/schnauzerrescuetexas.me/wp-content/uploads/2014/07/SRT_Home3.jpg?w=1280&amp;ssl=1 1280w, https://i0.wp.com/schnauzerrescuetexas.me/wp-content/uploads/2014/07/SRT_Home3.jpg?resize=300%2C199&amp;ssl=1 300w, https://i0.wp.com/schnauzerrescuetexas.me/wp-content/uploads/2014/07/SRT_Home3.jpg?resize=1024%2C682&amp;ssl=1 1024w"
+                    sizes="(max-width: 960px) 100vw, 960px" data-recalc-dims="1" /></a></p>
+              <address style="text-align: right;"><small>Photo Courtesy Of <span style="color: #0000ff;"><a
+                      href="http://www.thepaintedclockphotography.com" target="_blank"><span style="color: #0000ff;">The
+                        Painted Clock Photography</span></a></span></small></address>
+
+            </div>
+            </footer>
+          </article>
+        </main>
+      </div>
+    </div>
+
+</body>
+</html>
