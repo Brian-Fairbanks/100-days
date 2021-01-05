@@ -173,10 +173,15 @@ const projects = [
     name: "Hovering Lights"
   },
 
-  
   {
     src: "./29-gravitySwitch/",
     number:  29,
     name: "Input Restyling"
+  }  ,
+
+  {
+    src: "./30-schnauzerRescue/",
+    number:  30,
+    name: "Rescue Page Redesign Concept"
   }
 ]
