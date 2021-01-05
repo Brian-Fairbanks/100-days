@@ -1,3 +1,23 @@
 .bg-beige{
 	background-color: #fbf9ec;
 }
+
+.bg-dblue{
+	background-color:#253256
+}
+
+.bg-lblue{
+	background-color:#778594
+}
+
+.nav-item *{
+	text-align:center;
+}
+
+.dropdown-item a{
+	color:#fbf9ec;
+}
+
+.dropdown-item:hover{
+	background:#253256;
+}
