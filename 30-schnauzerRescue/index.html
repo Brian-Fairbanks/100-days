@@ -14,27 +14,31 @@
 
   <!-- Pre Nav Bar - hidden on small screens -->
   <div class="container-fluid bg-beige">
-    <img class="custom-logo d-none d-sm-block mx-auto img-fluid" alt="" width="250" height="278"
+    <img class="custom-logo d-none d-md-block mx-auto img-fluid" alt="" width="250" height="278"
       src="https://i2.wp.com/schnauzerrescuetexas.me/wp-content/uploads/2016/07/Logo-high-rez-e1467764873652.jpg?fit=250%2C278&amp;ssl=1" />
   </div>
 
   <!-- Nav Bar -->
 
-  <nav class="navbar navbar-expand-sm navbar-light bg-beige">
-    <div class="container-fluid">
+  <nav class="navbar navbar-expand-md navbar-light bg-beige px-0">
+    <div class="container-fluid px-0">
       <a href="https://schnauzerrescuetexas.me/" class="navbar-brand" rel="home">
         <!-- hidden on large -->
-        <img class="custom-logo d-inline-block d-sm-none" alt="" width="60" height="65"
+        <img class="custom-logo d-inline-block d-md-none" alt="" width="60" height="65"
           src="https://i2.wp.com/schnauzerrescuetexas.me/wp-content/uploads/2016/07/Logo-high-rez-e1467764873652.jpg?fit=250%2C278&amp;ssl=1" />
       </a>
+
+      <span class="nav-title d-inline-block d-md-none">
+        Schnauzer Rescue of Texas
+      </span>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse d-md-flex justify-content-center" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-width-fix">
         <!-- Home  -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
@@ -134,10 +138,14 @@
             </ul>
 
             <!-- Search Page -->
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <!-- <li class="nav-item">
+              <form class="d-flex justify-content-center">
+                <input class="form-control me-2 navSearch" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success px-0" type="submit">Search</button>
+              </form>
+            </li> -->
+
+          </ul>           
       </div>
     </div>
   </nav>
