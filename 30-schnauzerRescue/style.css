@@ -38,6 +38,10 @@
 	color:#fbf9ec;
 }
 
+.dropdown-item{
+	text-align:center;
+}
+
 .dropdown-item:hover{
 	background:#253256;
 }
