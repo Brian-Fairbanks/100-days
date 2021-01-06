@@ -107,6 +107,7 @@ a:hover{text-shadow:1px 1px 1px rgba(255, 86, 8, 0.637)}
   margin-top:30px;
   border-radius:15px;
   overflow:hidden;
+  z-index:-2;
 }
 
 .left, .right{
@@ -118,6 +119,9 @@ a:hover{text-shadow:1px 1px 1px rgba(255, 86, 8, 0.637)}
 .right{
   background:#333;
   color:#fff;
+}
+.left *, .right *{
+  z-index:1;
 }
 
 .content, .maskContent{
@@ -143,7 +147,7 @@ a:hover{text-shadow:1px 1px 1px rgba(255, 86, 8, 0.637)}
   top:0px;
   background:#333;
   transform:rotate(5deg);
-  z-index:-1;
+  z-index:-10;
 }
 
 .maskContent{
@@ -158,4 +162,21 @@ a:hover{text-shadow:1px 1px 1px rgba(255, 86, 8, 0.637)}
 
 .slantMask.white .maskContent{
   color:#333;
+}
+
+
+/* Highlight */
+.highlight{
+  box-sizing: content-box;
+  transition:.2s;
+  position:absolute;
+  top:0px;
+  left:0px;
+  background:#333;
+  box-shadow:inset 0px 0px 10px #fff;
+  display:block;
+  z-index:-1;
+  border-radius:8px;
+  margin:-2px;
+  padding:4px;
 }
