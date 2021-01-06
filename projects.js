@@ -183,5 +183,11 @@ const projects = [
     src: "./30-schnauzerRescue/",
     number:  30,
     name: "Rescue Page Redesign Concept"
+  },
+
+  {
+    src: "./31-followLinks/",
+    number:  31,
+    name: "Follow Along Links"
   }
 ]
