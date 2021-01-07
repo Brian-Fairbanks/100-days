@@ -1,0 +1,62 @@
+:root {
+  --pieceSize:100px;
+}
+
+.wrapper{
+  margin:auto;
+  width:calc(4*var(--pieceSize));
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
+.puzzlePiece{
+  display:inline-block;
+  background:#0f0;
+  width:var(--pieceSize);
+  height:var(--pieceSize);
+  margin:calc(-.15*var(--pieceSize)) calc(-.15*var(--pieceSize)) 0px 0px;
+}
+
+.puzzlePiece{
+  clip-path: polygon(
+    /* top left */
+    15% 0%,
+    45% 0%,
+    35% 15%,
+    65% 15%,
+    55% 0,
+    85% 0,
+    92.5% 7.5%,
+
+    85% 15%,
+    85% 40%,
+    100% 35%,
+    100% 65%,
+    85% 60%,
+    85% 85%,
+    92.5% 92.5%,
+
+    85% 100%,
+    55% 100%,
+    65% 85%,
+    35% 85%,
+    45% 100%,
+    15% 100%,
+    7.5% 92.5%,
+
+    15% 85%,
+    15% 60%,
+    0% 65%,
+    0% 35%,
+    15% 40%,
+    15% 15%,
+    7.5% 7.5%
+  );
+}
+
+.odd{
+  background:#00f;
+  transform:rotate(90deg);
+}

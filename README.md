@@ -103,3 +103,9 @@ https://brian-fairbanks.github.io/100-days/
 ### day 29 - Gravity Switch
   after learning how to make a toggle switch yesterday, I decided to try and replicate/improve on this tilting gravity activated switch I found online.
   - Idea inspired by FlorinPop - 26 - https://codepen.io/FlorinPop17/full/qBWGmqa
+### day 30 - SRT
+  I made a proof of concept rework of the Schnauzer Rescue of Texas homepage, with which I offered to volunteer for the service.
+### day 31 - Follow to Links
+  the idea was to follow the instructions and set up a little highlight that jumps around the page to whatever link you hover over.
+  I went a little crazy using the previous and current stripe page as reference....
+  - https://javascript30.com/ - day 22
