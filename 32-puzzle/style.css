@@ -3,10 +3,15 @@
   --background:url("./photo-1609965803451-43c6e8d7b346.jpg");
 }
 
-.body{
+body{
   overflow:hidden;
   width:100vw;
   height:100vh;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  background:#333;
+  background: linear-gradient(135deg, rgb(50, 50, 50) 0%,rgb(23, 18, 18) 48%,rgb(20, 20, 20) 100%);
 }
 
 .wrapper{
