@@ -194,6 +194,6 @@ const projects = [
   {
     src: "./32-puzzle/",
     number:  32,
-    name: "Clip-path Puzzle Pieces"
+    name: "Clip-path Puzzle (click to win)"
   }
 ]
