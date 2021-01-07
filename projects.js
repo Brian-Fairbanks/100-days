@@ -189,5 +189,11 @@ const projects = [
     src: "./31-followLinks/",
     number:  31,
     name: "Follow Along Links"
+  },
+
+  {
+    src: "./32-puzzle/",
+    number:  32,
+    name: "Clip-path Puzzle Pieces"
   }
 ]

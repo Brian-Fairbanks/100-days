@@ -1,5 +1,6 @@
 :root {
   --pieceSize:calc(min(3.3333vw, 5.15vh));
+  --background:url("./photo-1609965803451-43c6e8d7b346.jpg");
 }
 
 .wrapper{
@@ -17,7 +18,7 @@
   width:var(--pieceSize);
   height:var(--pieceSize);
   margin:calc(-.16*var(--pieceSize)) calc(-.16*var(--pieceSize)) 0px 0px;
-  background:url("./photo-1609965803451-43c6e8d7b346.jpg");
+  background:var(--background);
   background-size: calc(30*var(--pieceSize)) calc(20*var(--pieceSize));
 }
 
