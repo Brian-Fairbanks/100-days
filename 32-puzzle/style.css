@@ -1,13 +1,14 @@
 :root {
-  --pieceSize:100px;
+  --pieceSize:calc(min(3.3333vw, 5.15vh));
 }
 
 .wrapper{
   margin:auto;
-  width:calc(4*var(--pieceSize));
+  width:calc(30*(.851*var(--pieceSize)));
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
+  background:#333;
 }
 
 

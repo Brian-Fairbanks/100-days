@@ -8,7 +8,7 @@
 
   <body>
     <div class="wrapper">
-      <div class="puzzlePiece"></div>
+      <!-- <div class="puzzlePiece"></div>
       <div class="puzzlePiece odd"></div>
       <div class="puzzlePiece"></div>
       <div class="puzzlePiece odd"></div>
@@ -16,8 +16,20 @@
       <div class="puzzlePiece odd"></div>
       <div class="puzzlePiece"></div>
       <div class="puzzlePiece odd"></div>
-      <div class="puzzlePiece"></div>
+      <div class="puzzlePiece"></div> -->
     </div>
 
+
+    <script>
+      const wrapper = document.querySelector(".wrapper");
+
+      for(let x=0; x<20; x++){
+        for (let y=0; y<30; y++){
+          const piece = document.createElement("div");
+          piece.classList.add("puzzlePiece", (x*30)+y ,(x+y)%2==0?"even":"odd");
+          wrapper.append(piece);
+        }
+      }
+    </script>
   </body>
 </html>
