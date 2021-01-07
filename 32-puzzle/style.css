@@ -8,7 +8,6 @@
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
-  background:#333;
 }
 
 
@@ -17,7 +16,9 @@
   background:#0f0;
   width:var(--pieceSize);
   height:var(--pieceSize);
-  margin:calc(-.15*var(--pieceSize)) calc(-.15*var(--pieceSize)) 0px 0px;
+  margin:calc(-.16*var(--pieceSize)) calc(-.16*var(--pieceSize)) 0px 0px;
+  background:url("./photo-1609965803451-43c6e8d7b346.jpg");
+  background-size: calc(30*var(--pieceSize)) calc(20*var(--pieceSize));
 }
 
 .puzzlePiece{
@@ -58,6 +59,16 @@
 }
 
 .odd{
-  background:#00f;
   transform:rotate(90deg);
+}
+
+.odd:after{
+  content:"";
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100%;
+  background:inherit;
+  transform:rotate(-90deg);
 }
