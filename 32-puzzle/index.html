@@ -19,6 +19,7 @@
         for (let y=0; y<30; y++){
           const piece = document.createElement("div");
           piece.classList.add("puzzlePiece", "unscramble", (x*30)+y ,(x+y)%2==0?"even":"odd");
+          piece.classList.add(y==0?"left": y==29?"right":x==0?"top":x==19?"bottom":"neutral")
           piece.style['background-position']= `${y*3.333}% ${x*5}% `;
 
 
