@@ -3,6 +3,12 @@
   --background:url("./photo-1609965803451-43c6e8d7b346.jpg");
 }
 
+.body{
+  overflow:hidden;
+  width:100vw;
+  height:100vh;
+}
+
 .wrapper{
   margin:auto;
   width:calc(30*(.851*var(--pieceSize)));
@@ -72,4 +78,13 @@
   height:100%;
   background:inherit;
   transform:rotate(-90deg);
+}
+
+
+.unscramble{
+  transform:translate(0px, 0px)!important;
+}
+
+.unscramble.odd{
+  transform:translate(0px, 0px) rotate(90deg)!important;
 }

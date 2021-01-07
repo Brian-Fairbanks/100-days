@@ -8,29 +8,47 @@
 
   <body>
     <div class="wrapper">
-      <!-- <div class="puzzlePiece"></div>
-      <div class="puzzlePiece odd"></div>
-      <div class="puzzlePiece"></div>
-      <div class="puzzlePiece odd"></div>
-
-      <div class="puzzlePiece odd"></div>
-      <div class="puzzlePiece"></div>
-      <div class="puzzlePiece odd"></div>
-      <div class="puzzlePiece"></div> -->
     </div>
 
 
     <script>
       const wrapper = document.querySelector(".wrapper");
+      let pieces;
 
       for(let x=0; x<20; x++){
         for (let y=0; y<30; y++){
           const piece = document.createElement("div");
-          piece.classList.add("puzzlePiece", (x*30)+y ,(x+y)%2==0?"even":"odd");
+          piece.classList.add("puzzlePiece", "unscramble", (x*30)+y ,(x+y)%2==0?"even":"odd");
           piece.style['background-position']= `${y*3.333}% ${x*5}% `;
+
+
           wrapper.append(piece);
         }
       }
+      pieces = document.querySelectorAll(".puzzlePiece")
+
+      function solve(){
+        pieces.forEach(piece => {
+        // piece.style.transform=``;
+        piece.classList.toggle("unscramble");
+        if(!piece.classList.contains("unscramble")){scramble(piece)}
+      })
+      };
+
+      function scramble(piece){
+        // Scramble the Pieces
+        piece.style.transform=`translate(${1000*Math.random()-500}%, ${1000*Math.random()-500}%) rotate(${360*Math.random()}deg)`;
+        // and their unscramble timing
+        piece.style.transition=2*Math.random()+.2+"s";
+      }
+
+
+      document.addEventListener('click',solve);
+
+      solve();
+
+
+
     </script>
   </body>
 </html>
