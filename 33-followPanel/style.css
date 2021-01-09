@@ -96,7 +96,7 @@ a:hover{text-shadow:1px 1px 1px rgba(255, 86, 8, 0.637)}
 }
 /* Floating Card */
 
-.content{
+.pill-box{
   display:flex;
   flex-direction: row;
   background:#ddd;
@@ -108,6 +108,7 @@ a:hover{text-shadow:1px 1px 1px rgba(255, 86, 8, 0.637)}
   border-radius:15px;
   overflow:hidden;
   z-index:-2;
+  margin-bottom:10vh;
 }
 
 .left, .right{
@@ -124,7 +125,7 @@ a:hover{text-shadow:1px 1px 1px rgba(255, 86, 8, 0.637)}
   z-index:1;
 }
 
-.content, .maskContent{
+.pill-box, .maskContent{
   width:70%;
   max-width:1024px;
 }
@@ -133,10 +134,10 @@ a:hover{text-shadow:1px 1px 1px rgba(255, 86, 8, 0.637)}
 .slantMask{
   position:relative;
   overflow-y:visible;
-  padding-top:10vh;
-  padding-bottom:10vh;
-  margin-top:-2vh;
-  margin-bottom:-2vh;
+  padding-top:12vh;
+  padding-bottom:12vh;
+  margin-top:-10vh;
+  margin-bottom:-10vh;
 }
 
 .slantMask:after{
@@ -165,6 +166,9 @@ a:hover{text-shadow:1px 1px 1px rgba(255, 86, 8, 0.637)}
   color:#333;
 }
 
+.center{
+  text-align:center;
+}
 
 /* Highlight */
 .highlight{
