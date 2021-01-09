@@ -1,0 +1,183 @@
+:root {
+  --mainColor:#f73;
+  --mainDark:rgb(131, 46, 3)
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: #700;
+  min-height: 100vh;
+  background: linear-gradient(135deg, rgb(255, 179, 49) 0%,rgb(255, 72, 72) 48%,rgb(158, 0, 0) 100%);
+  background-attachment: fixed;
+}
+
+.wrapper{
+  position:relative;
+  min-height:100vh;
+  text-align: justify;
+  overflow:hidden;
+}
+
+/* Nav Bar */
+
+.nav{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:center;
+
+  font-size:min(4vw, 20px);
+  font-weight:700;
+  padding:6px;
+}
+
+.nav.right{
+  width:20%;
+}
+
+.nav-left{
+  width:80%;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.nav-item a{
+  color:#fff;
+}
+
+.nav-item{
+  padding:3px;
+  margin-right:20px;
+}
+
+
+/* Links */
+
+a{
+  color:#f73;
+}
+a:hover{text-shadow:1px 1px 1px rgba(255, 86, 8, 0.637)}
+
+/* Slogans/Headers at top of page */
+
+.sloganWrapper{
+  margin:30px;
+}
+
+.slogan{
+  text-align:center;
+  font-size:32px;
+  font-weight:700;
+  margin:auto;
+  display:block;
+}
+
+.s1{
+  color:#333;
+  text-shadow:1px 1px 1px #ddd;
+}
+
+.s2{
+  color:#ddd;
+  text-shadow:-1px -1px 1px #333;
+}
+/* Floating Card */
+
+.content{
+  display:flex;
+  flex-direction: row;
+  background:#ddd;
+  color:#333;
+  box-shadow:10px 10px 0px rgba(0,0,0,.5);
+  font-size: 14px;
+  margin:auto;
+  margin-top:30px;
+  border-radius:15px;
+  overflow:hidden;
+  z-index:-2;
+}
+
+.left, .right{
+  flex-grow: 1;
+  min-width:40%;
+  padding:12px;
+}
+
+.right{
+  background:#333;
+  color:#fff;
+}
+.left *, .right *{
+  z-index:1;
+}
+
+.content, .maskContent{
+  width:70%;
+  max-width:1024px;
+}
+
+/* Stripe like slanted section dividers */
+.slantMask{
+  position:relative;
+  overflow-y:visible;
+  padding-top:10vh;
+  padding-bottom:10vh;
+  margin-top:-2vh;
+  margin-bottom:-2vh;
+}
+
+.slantMask:after{
+  content:'';
+  position:absolute;
+  height:100%;
+  width:100%;
+  left:0px;
+  top:0px;
+  background:#333;
+  z-index:-10;
+  clip-path: polygon(0% 0%, 100% 10vh, 100% 100%, 0% calc(100% - 10vh));
+}
+
+.maskContent{
+  color:white;
+  margin:auto;
+}
+
+.slantMask.white:after{
+  background:#ddd;
+  clip-path: polygon(0% 10vh, 100% 0%, 100% calc(100% - 10vh), 0% 100%);
+}
+
+.slantMask.white .maskContent{
+  color:#333;
+}
+
+
+/* Highlight */
+.highlight{
+  box-sizing: content-box;
+  transition:.2s;
+  position:absolute;
+  top:0px;
+  left:0px;
+  background:#333;
+  box-shadow:inset 0px 0px 10px #fff;
+  display:block;
+  z-index:-1;
+  border-radius:8px;
+  margin:-2px;
+  padding:4px;
+}
