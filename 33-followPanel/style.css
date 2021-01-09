@@ -5,11 +5,19 @@
 
 html {
   box-sizing: border-box;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
-  font-family:Arial, Helvetica, sans-serif;
+}
+
+.dropdown{
+  text-align:center;
+}
+.fas, .fab, .far{
+  font-size:30px;
+  text-align:center;
 }
 
 body {
@@ -59,10 +67,68 @@ body {
 }
 
 .nav-item{
+  position: relative;
   padding:3px;
   margin-right:20px;
+  display:flex;
+  justify-content: center;
 }
 
+/* Nav Dropdown Items */
+.dropdown {
+  opacity:0;
+  position:absolute;
+  padding:20px;
+  top:-60px;
+  width:100px;
+  border-radius:2px;
+  transition: all 0.5s;
+  transform: translateY(100px);
+  will-change:transform;
+  display:none;
+}
+
+.trigger-enter .dropdown{
+  display:block;
+}
+
+.trigger-enter-active .dropdown{
+  opacity:1;
+}
+
+.dropdownBackground{
+  width:100px;
+  height:100px;
+  position:absolute;
+  top:0px;
+  background:#fff;
+  border-radius:4px;
+  transition:all 0.3s, opacity 0.15s, translate 0.2s;
+  transform-origin:50% 0%;
+
+  display:flex;
+  justify-content: center;
+
+  opacity:0;
+}
+
+.dropdownBackground.open{
+  opacity:1;
+}
+
+.arrow{
+  width:20px;
+  height:20px;
+  border:1px solid #333;
+  background:#fff;
+  border-bottom:none;
+  border-right:none;
+  transform:rotate(45deg);
+  margin-top:-10px;
+  z-index:-1;
+}
+
+/* Dropdown Specifics */
 
 /* Links */
 

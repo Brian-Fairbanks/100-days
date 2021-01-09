@@ -11,21 +11,47 @@
   <div class="wrapper">
     <!-- Nav Bar -->
     <div class="nav">
+      <!-- the effect for dropdowns -->
+      <div class="dropdownBackground">
+        <span class="arrow"></span>
+      </div> 
+
+      <!-- The actional navbar -->
       <div class="nav-right">
         <img src="../Assets/logo.svg" alt="Brand Logo" width="70px">
       </div>
       <div class="nav-left">
         <div class="nav-item">
-          <a href="#">Home</a>
+          <a href="../index.html">Home</a>
+          <div class="dropdown">
+            <i class="fas fa-undo"></i>
+            <p>Back to the 100 days code</p>
+          </div>
         </div>
+
         <div class="nav-item">
           <a href="#">About</a>
+          <div class="dropdown">
+            <i class="far fa-question-circle"></i>
+            <p>I should fill in some info about me!</p>
+          </div>
         </div>
+
         <div class="nav-item">
           <a href="#">Shop</a>
+          <div class="dropdown">
+            <i class="fas fa-gifts"></i>
+            <p>Oops. This shouldnt be here</p>
+            <p>I really don't have any merch to sell...</p>
+          </div>
         </div>
+
         <div class="nav-item">
           <a href="#">Contact Us</a>
+          <div class="dropdown">
+            <i class="far fa-id-card"></i>
+            <p>Please, by all means, I would love to hear from you!</p>
+          </div>
         </div>
       </div>
     </div>
@@ -76,7 +102,7 @@
         <p>
           You may not that this is an extension of a previous days project.  This is expanding the basic follow along effect to be used specifically for the nav bar on a more elaborate implementation.
         </p>
-        Notice how the same dropdown for each nav-item adjusts in size and location to accomodate new content, rather than the more standard way of just closing one pane and opening a new one.
+        Notice how the same dropdown moves to each nav-item, and adjusts in size and location to accomodate new content, rather than the more standard way of just closing one pane and opening a new one.
       </div>
     </section>
 
@@ -97,25 +123,43 @@
   </div>
 
 
+  <script src="https://kit.fontawesome.com/9aa3b96097.js" crossorigin="anonymous"></script>
+
   <script>
-    const triggers = document.querySelectorAll("a");
+    const triggers = document.querySelectorAll(".nav-item");
+    const background = document.querySelector(".dropdownBackground");
+    const nav = document.querySelector(".nav")
 
-    const highlight = document.createElement("span");
-    highlight.classList.add("highlight");
-    document.body.append(highlight);
+    function handleEnter(){
+      this.classList.add("trigger-enter")
+      setTimeout(() => this.classList.contains("trigger-enter") && this.classList.add("trigger-enter-active"), 150)
+      background.classList.add("open")
 
-    function highlightLink(){
-      const linkCoords = this.getBoundingClientRect();
-      console.log(linkCoords);
+      // get dropdown content information
+      const dropdownContent = this.querySelector(".dropdown");
+      const linkCoords = dropdownContent.getBoundingClientRect();
 
-      highlight.style.width=`${linkCoords.width}px`;
-      highlight.style.height=`${linkCoords.height}px`;
+      // and nav coords
+      const navCoords = nav.getBoundingClientRect();
 
-      highlight.style.transform=`translate(${linkCoords.left}px,${linkCoords.top+window.scrollY}px)`;
+      // move the bcakground arround the content
+      background.style.width=`${linkCoords.width}px`;
+      background.style.height=`${linkCoords.height}px`;
+
+      background.style.transform=`translate(${linkCoords.left-navCoords.left}px,${linkCoords.top-navCoords.top}px)`;
 
     }
     
-    triggers.forEach(a => a.addEventListener("mouseenter", highlightLink));
+    function handleLeave(){
+      this.classList.remove("trigger-enter-active","trigger-enter");
+      background.classList.remove("open")
+    }
+
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener("mouseenter", handleEnter)
+    trigger.addEventListener("mouseleave", handleLeave)
+  });
 
   </script>
 </body>
