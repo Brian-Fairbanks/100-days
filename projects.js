@@ -195,5 +195,11 @@ const projects = [
     src: "./32-puzzle/",
     number:  32,
     name: "Clip-path Puzzle (click to win)"
+  },
+
+  {
+    src: "./33-followPanel/",
+    number:  33,
+    name: "Fallow Along Nav Panel"
   }
 ]
