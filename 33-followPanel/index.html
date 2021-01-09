@@ -21,9 +21,10 @@
         <img src="../Assets/logo.svg" alt="Brand Logo" width="70px">
       </div>
       <div class="nav-left">
+
         <div class="nav-item">
           <a href="../index.html">Home</a>
-          <div class="dropdown">
+          <div class="dropdown home">
             <i class="fas fa-undo"></i>
             <p>Back to the 100 days code</p>
           </div>
@@ -31,15 +32,18 @@
 
         <div class="nav-item">
           <a href="#">About</a>
-          <div class="dropdown">
-            <i class="far fa-question-circle"></i>
-            <p>I should fill in some info about me!</p>
+          <div class="dropdown about">
+            <img class="aboutImg" src="self.jpg"/>
+            <h3>Brian Fairbanks</h3>
+            <p>A Junior Full-Stack Developer, proficient in Javascript and Python.</p>
+            <p>Currently working on my #100DaysofCodingChallenge to display my skills and get my next job.</p>
+            <p>Like what you see? Please, Feel free to contact me.  The contact Us link will take you to my resume.</p>
           </div>
         </div>
 
         <div class="nav-item">
           <a href="#">Shop</a>
-          <div class="dropdown">
+          <div class="dropdown shop">
             <i class="fas fa-gifts"></i>
             <p>Oops. This shouldnt be here</p>
             <p>I really don't have any merch to sell...</p>
@@ -47,10 +51,12 @@
         </div>
 
         <div class="nav-item">
-          <a href="#">Contact Us</a>
-          <div class="dropdown">
+          <a href="https://brian-fairbanks.github.io/Resume/">Contact Us</a>
+          <div class="dropdown contact">
             <i class="far fa-id-card"></i>
-            <p>Please, by all means, I would love to hear from you!</p>
+            <h3>Well, more like 'Contact Me'</h3>
+            <p>But, please, by all means, I would love to hear from you!</p>
+            <p>Click the link to view my resume page, where you can find my contact information</p>
           </div>
         </div>
       </div>
@@ -153,6 +159,8 @@
     function handleLeave(){
       this.classList.remove("trigger-enter-active","trigger-enter");
       background.classList.remove("open")
+      background.style.height=`100px`;
+
     }
 
 
