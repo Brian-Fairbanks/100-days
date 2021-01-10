@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Gravity Switch</title>
+  <meta name="viewport" content="width=device-width, intial-scale=1" />
+  <link rel="stylesheet" href="switch.css">
+
+</head>
+
+<body>
+
+  <div class="settings">
+    Font Size:<input name="fontSize" data-sizing="px" type="number" min="6" max="100" value="16">
+    <br>
+    Primary Color: <input name="inputColor" data-sizing="" type="color" value="#f73">
+  </div>
+
+
+  <div class="item">
+    <div class="label">
+      Toggle Switch : Before - <input type="checkbox">
+    </div>
+    
+    OFF
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider round"></span>
+    </label>
+    ON
+
+  </div>
+
+  <div class="item">
+    <div class="label">
+      Checkbox : Before - <input type="checkbox">
+    </div>
+
+    <label class="container">One
+      <input type="checkbox" checked="checked">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Two
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Three
+      <input type="checkbox">
+      <span class="checkmark"></span>
+    </label>
+
+  </div>
+
+
+  <div class="item">
+    <div class="label">
+      Radio : Before - <input type="radio">
+    </div>
+    <label class="container">One
+      <input type="radio" checked="checked" name="radio">
+      <span class="checkmark radio"></span>
+    </label>
+    <label class="container">Two
+      <input type="radio" name="radio">
+      <span class="checkmark radio"></span>
+    </label>
+    <label class="container">Three
+      <input type="radio" name="radio">
+      <span class="checkmark radio"></span>
+    </label>
+  </div>
+
+
+  <div class="item">
+    <div class="label">
+      Text : Before - <input type="text">
+    </div>
+    <input type="text" class="themed">
+  </div>
+
+</body>
+
+<script>
+  // this is only used for changing the settings at the top of the page
+  const settings = document.querySelectorAll("input[type='color'], input[type='number'");
+
+  function handleSettingsChange(){
+    document.documentElement.style.setProperty(`--${this.name}`, this.value+this.dataset.sizing)
+  }
+
+  settings.forEach(setting => setting.addEventListener('change', handleSettingsChange))
+</script>
+
+</html>

@@ -1,0 +1,252 @@
+:root {
+  --inputColor: #f73;
+  --fontSize:25px;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  font-size:var(--fontSize);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* background: #700;
+  background: linear-gradient(135deg, rgb(50, 50, 50) 0%,rgb(23, 18, 18) 48%,rgb(20, 20, 20) 100%); */
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+}
+
+.label{
+  background:#888;
+  margin-bottom:5px;
+}
+
+.item{
+  text-align:center;
+  border:1px solid #888;
+}
+
+.settings, .settings *{
+  font-size:16px;
+}
+
+.settings{
+  position:absolute;
+  top:0px;
+  right:0px;
+  padding:3px;
+}
+
+
+
+/* ============================================================
+  Switches
+============================================================*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 1em;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  box-shadow:inset -.05em -.1em 0 rgba(255,255,255,.3), inset .1em .1em .1em rgba(0,0,0,.3);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* the ball is a "before", made before the slider */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: .75em;
+  width: .75em;
+  left: .125em;
+  bottom: .125em;
+  background-color: #fff;
+  -webkit-transition: .2s;
+  transition: .2s;
+  transition-delay: .1s;
+}
+
+input:checked+.slider {
+  background-color: var(--inputColor);
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(1em);
+  -ms-transform: translateX(1em);
+  transform: translateX(1em);
+}
+input:checked+.slider{
+  animation-name: rotateOn;
+  animation-duration: .6s;
+}
+input+.slider{
+  animation-name: rotateOff;
+  animation-duration: .6s;
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 1em;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+/* animations */
+@keyframes rotateOn {
+  40%{transform:rotate(20deg) translate(.5em, -.3em);}
+  100%{transform:rotate(0deg);}
+}
+
+@keyframes rotateOff {
+  40%{transform:rotate(-20deg)  translate(-0.5em, -.3em);}
+  100%{transform:rotate(0deg);}
+}
+
+/* ============================================================
+  Checkbox
+============================================================*/
+.container {
+  display: inline-block;
+  position: relative;
+  padding-left: 1em;
+  margin-bottom: .33em;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;					
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1em;
+  width: 1em;
+  background-color: #ccc;
+  box-shadow:inset -.05em -.1em 0 rgba(255,255,255,.3), inset .1em .1em .1em rgba(0,0,0,.3);
+  border-radius:.2em;
+  overflow:hidden;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: var(--inputColor);
+  transition-duration: .4s;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  /* display: none; */
+
+  top:.07em;
+  left:.32em;
+  width: .4em;
+  height: .7em;
+  border: solid white;
+  border-width: 0 .15em .15em 0;
+  -webkit-transform: rotate(45deg) scale(0);
+  -ms-transform: rotate(45deg) scale(0);
+  transform: rotate(45deg)   scale(0);
+  transition-duration: .4s;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  /* display: block; */
+  -webkit-transform: rotate(45deg) scale(100%);
+  -ms-transform: rotate(45deg) scale(100%);
+  transform: rotate(45deg)   scale(1);
+  transition-duration: .4s;
+}
+
+/* Radio Fix*/
+.radio{
+  border-radius:100%;
+}
+
+.radio:after {
+  background:#fff;
+  border-width:.3em;
+  border-radius:100%;
+  top:.15em;
+  left:.15em;
+  width: .7em;
+  height: .7em;
+}
+
+/*
+Focused
+*/
+
+input:focus+.slider,input:hover+.slider input:focus+.checkmark, .container:hover input ~ .checkmark {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  box-shadow:inset -.05em -.1em 0 rgba(255,255,255,.3), inset .1em .1em .1em rgba(0,0,0,.3), 0 0 .2em var(--inputColor) ;
+}
+
+
+
+input[type="text"].themed{
+  border:none;
+
+  color:#333;
+  background:#ddd;
+  border-radius:.2em;
+  box-shadow:inset -.05em -.1em 0 rgba(255,255,255,.3), inset .1em .1em .1em rgba(0,0,0,.3);
+
+  margin:0px;
+  padding-left:.5em;
+  padding-right:.5em;
+
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+
+  text-shadow:.05em .05em .1em rgba(0,0,0,.3);
+}
+
+input[type="text"].themed:focus{
+  outline:none;
+  text-shadow:.05em .05em .1em rgba(0,0,0,.3), 0 0 .03em var(--inputColor);
+  box-shadow:inset -.05em -.1em 0 rgba(255,255,255,.3), inset .1em .1em .1em rgba(0,0,0,.3), 0 0 .2em var(--inputColor) ;
+}

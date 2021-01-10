@@ -109,3 +109,11 @@ https://brian-fairbanks.github.io/100-days/
   the idea was to follow the instructions and set up a little highlight that jumps around the page to whatever link you hover over.
   I went a little crazy using the previous and current stripe page as reference....
   - https://javascript30.com/ - day 22
+### day 32 - Puzzle
+  Since I found out that CSS has clip-paths built in yesterday, I played with this for a while, and created a path for an interlocking tessellating puzzle piece.
+### day 33 - Follow Along Nav Panel
+  I expanded a previous days functionality to make a neat nav bar effect.
+  I couldn't help but to correct the css mask effects as well, now that I have reverse engineered how other pages have handled them.
+  - https://javascript30.com/ - day 26
+### day 34 - Input Continued
+  a continuation of input settings.
