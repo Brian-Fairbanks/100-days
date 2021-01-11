@@ -364,6 +364,7 @@ input[type="text"].themed:focus, input[type="number"].themed:focus{
   left:.15em;
   padding-left:.4em;
   padding-right:.55em;
+  pointer-events: none;
 }
 .spanBelow{
   top:1em;

@@ -153,20 +153,18 @@
       // event listeners
       up.addEventListener('click', () => {
         numberDiv.value = parseInt(numberDiv.value)+step
-        setChildren();
-        scrollUp()
+        numberDiv.dispatchEvent(new Event('change'));
       });
 
       down.addEventListener('click', () => {
         numberDiv.value = parseInt(numberDiv.value)-step
-        setChildren();
-        scrollDown()
+        numberDiv.dispatchEvent(new Event('change'));
       });
 
 
       numberDiv.addEventListener('change', () => {
         console.log(lastNum, numberDiv.value)
-        if(lastNum > numberDiv.value){
+        if(parseInt(lastNum) > parseInt(numberDiv.value)){
           setChildren();
           scrollDown();
           return;

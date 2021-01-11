@@ -200,6 +200,12 @@ const projects = [
   {
     src: "./33-followPanel/",
     number:  33,
-    name: "Fallow Along Nav Panel"
+    name: "Follow Along Nav Panel"
+  },
+
+  {
+    src: "./34-inputCont/",
+    number:  34,
+    name: "Input Styling - Text and Number"
   }
 ]
