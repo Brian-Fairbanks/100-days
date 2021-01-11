@@ -11,12 +11,13 @@
 <body>
 
   <div class="settings">
-    Font Size:<input name="fontSize" data-sizing="px" type="number" min="6" max="100" value="16">
+    Font Size:
+    <input name="fontSize" data-sizing="px" type="number" min="6" max="100" value="16">
     <br>
     Primary Color: <input name="inputColor" data-sizing="" type="color" value="#f73">
   </div>
 
-
+<!-- 
   <div class="item">
     <div class="label">
       Toggle Switch : Before - <input type="checkbox">
@@ -68,16 +69,24 @@
       <input type="radio" name="radio">
       <span class="checkmark radio"></span>
     </label>
-  </div>
+  </div> -->
 
 
   <div class="item">
     <div class="label">
-      Text : Before - <input type="text">
+      Text : Before - <input type="text" value="text">
     </div>
-    <input type="text" class="themed">
+    <input type="text" class="themed" value="text">
   </div>
 
+  <div class="item">
+    <div class="label">
+      number : Before - <input type="number" value="0" style="width:15%;">
+    </div>
+    <div class="numInput" style="width:15%;">
+      <input type="number" class="themed" value="0">
+    </div>
+  </div>
 </body>
 
 <script>
@@ -89,6 +98,91 @@
   }
 
   settings.forEach(setting => setting.addEventListener('change', handleSettingsChange))
+
+
+
+
+// Number Input
+  const numbers = document.querySelectorAll("input[type='number'].themed");
+
+  if (numbers){
+    numbers.forEach(numberDiv => {
+      let lastNum = numberDiv.value;
+      const up = document.createElement("div");
+      up.classList.add("spinnerUp");
+
+      const down = document.createElement("div");
+      down.classList.add("spinnerDown");
+
+      const spanAbove = document.createElement("span");
+      spanAbove.classList.add("spanAbove");
+      const spanBelow = document.createElement("span");
+      spanBelow.classList.add("spanBelow");
+      const spanMid = document.createElement("span");
+      spanMid.classList.add("spanMid");
+
+      const parent = numberDiv.parentNode;
+      parent.append(up);
+      parent.append(down);
+
+      const numberSlider = document.createElement("div");
+      numberSlider.classList.add("numberslider");
+      numberSlider.append(spanAbove);
+      numberSlider.append(spanMid);
+      numberSlider.append(spanBelow);
+
+      parent.append(numberSlider);
+
+      const step = numberDiv.getAttribute('step')||1.0;
+
+
+      function scrollDown(){
+        numberSlider.classList.add("scrollDown");
+      }
+      function scrollUp(){
+        numberSlider.classList.add("scrollUp");
+      }
+
+      function setChildren(){
+        spanAbove.textContent  = parseInt(numberDiv.value)+step;
+        spanMid.textContent = parseInt(numberDiv.value);
+        spanBelow.textContent  = parseInt(numberDiv.value)-step;
+        lastNum = numberDiv.value;
+      }
+
+      // event listeners
+      up.addEventListener('click', () => {
+        numberDiv.value = parseInt(numberDiv.value)+step
+        setChildren();
+        scrollUp()
+      });
+
+      down.addEventListener('click', () => {
+        numberDiv.value = parseInt(numberDiv.value)-step
+        setChildren();
+        scrollDown()
+      });
+
+
+      numberDiv.addEventListener('change', () => {
+        console.log(lastNum, numberDiv.value)
+        if(lastNum > numberDiv.value){
+          setChildren();
+          scrollDown();
+          return;
+        }
+        setChildren();
+        scrollUp();
+      });
+
+      numberSlider.addEventListener("animationend", (e) => {
+        numberSlider.classList.remove("scrollDown", "scrollUp")
+      });
+
+    })
+  }
+
+  
 </script>
 
 </html>

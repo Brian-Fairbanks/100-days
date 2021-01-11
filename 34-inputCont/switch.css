@@ -1,6 +1,6 @@
 :root {
   --inputColor: #f73;
-  --fontSize:25px;
+  --fontSize:16px;
 }
 
 html {
@@ -10,6 +10,7 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
   font-size:var(--fontSize);
+
 }
 
 body {
@@ -227,7 +228,8 @@ input:focus+.slider,input:hover+.slider input:focus+.checkmark, .container:hover
 
 
 
-input[type="text"].themed{
+input[type="text"].themed, input[type="number"].themed{
+  -webkit-appearance: none;
   border:none;
 
   color:#333;
@@ -244,9 +246,157 @@ input[type="text"].themed{
 
   text-shadow:.05em .05em .1em rgba(0,0,0,.3);
 }
+input[type="number"].themed{
+  padding-right:0;
+}
 
-input[type="text"].themed:focus{
+/* input[type="number"].themed::-webkit-outer-spin-button, 
+input[type="number"].themed::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAKUlEQVQYlWNgwAT/sYhhKPiPT+F/LJgEsHv37v+EMGkmkuImoh2NoQAANlcun/q4OoYAAAAASUVORK5CYII=) no-repeat center center;
+    background-size: 50%;
+    width: 1em;
+    border-left: 1px solid #BBB;
+    opacity: 1; /* shows Spin Buttons per default (Chrome >= 39) 
+}
+*/
+
+input[type="number"].themed::-webkit-inner-spin-button:hover,
+input[type="number"].themed::-webkit-inner-spin-button:active{
+    box-shadow:-.1em 0 .3em var(--inputColor);
+}
+
+input[type="text"].themed:focus, input[type="number"].themed:focus{
   outline:none;
   text-shadow:.05em .05em .1em rgba(0,0,0,.3), 0 0 .03em var(--inputColor);
   box-shadow:inset -.05em -.1em 0 rgba(255,255,255,.3), inset .1em .1em .1em rgba(0,0,0,.3), 0 0 .2em var(--inputColor) ;
+}
+
+
+.test{
+  position:absolute;
+  left:0px;
+  top:0px;
+  bottom:0px;
+  width:10%;
+  background:#f00;
+  z-index:3;
+}
+
+
+
+
+
+/* Num Formatting  */
+.numInput{
+  position:relative;
+  overflow:hidden;
+  margin:auto;
+}
+.numInput input{
+  width:100%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.numInput input::-webkit-outer-spin-button,
+.numInput input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.numInput input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+.spinnerUp, .spinnerDown{
+  position:absolute;
+  right:1px;
+  width:.7em;
+  height:calc(50% - 2.5px);
+  background:#aaa;
+  border-radius:.2em;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  opacity:0;
+  transition:all 0s, opacity .3s;
+}
+
+.numInput:hover .spinnerUp, .numInput:focus-within .spinnerUp, .numInput:hover .spinnerDown, .numInput:focus-within .spinnerDown{
+  opacity:.5;
+}
+
+.spinnerUp:after, .spinnerDown:after{
+  content:'';
+  position:absolute;
+  height:.3em;
+  width:.3em;
+  border-top:.13em solid #fff;
+  border-left:.13em solid #fff;
+  transform:rotate(45deg);
+  box-shadow:-.05em -.05em 0 var(--inputColor);
+}
+.spinnerDown:after{
+  transform:rotate(225deg);
+}
+
+.spinnerUp{
+  top:2px;
+}
+.spinnerDown{
+  bottom:2px;
+}
+
+.spinnerUp:hover, .spinnerDown:hover{
+  opacity:1!important;
+}
+
+.numberslider{
+  opacity:0;
+}
+
+.spanAbove, .spanBelow, .spanMid{
+  position:absolute;
+  background:#ddd;
+  top:-1em;
+  left:.15em;
+  padding-left:.4em;
+  padding-right:.55em;
+}
+.spanBelow{
+  top:1em;
+}
+.spanMid{
+  top:0px;
+}
+
+.scrollDown, .scrollUp{
+  animation-name: scrollDownAnimation;
+  animation-duration: .2s;
+}
+
+.scrollUp{
+  animation-name: scrollUpAnimation;
+}
+
+@keyframes scrollDownAnimation {
+  0% {opacity:1;
+    transform:translateY(0em)}
+  80% {opacity:1;}
+  100% {
+    transform:translateY(-1.1em);
+    opacity:0;
+  }
+}
+
+@keyframes scrollUpAnimation {
+  0% {opacity:1;
+      transform:translateY(-2.2em)}
+  80% {opacity:1;}
+  100% {
+    transform:translateY(-1.05em);
+    opacity:0;
+  }
 }
