@@ -337,6 +337,7 @@ input[type="text"].themed:focus, input[type="number"].themed:focus{
   border-left:.13em solid #fff;
   transform:rotate(45deg);
   box-shadow:-.05em -.05em 0 var(--inputColor);
+  z-index:5;
 }
 .spinnerDown:after{
   transform:rotate(225deg);
@@ -355,6 +356,7 @@ input[type="text"].themed:focus, input[type="number"].themed:focus{
 
 .numberslider{
   opacity:0;
+  z-index:3;
 }
 
 .spanAbove, .spanBelow, .spanMid{
