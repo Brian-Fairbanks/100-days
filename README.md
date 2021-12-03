@@ -1,6 +1,8 @@
 # 100-days
 Random coding projects
 
+## Please note that this project has been put on an indefinte hold, after starting at a new company.
+
 ## Hosted
 https://brian-fairbanks.github.io/100-days/
 
